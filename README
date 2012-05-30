@@ -1,0 +1,30 @@
+Python Wild Magic is the Python wrapper 
+of Geometric Tools' Wild Magic libraries.
+
+Prerequisites
+=============
+
+* Wild Magic 5.7
+* Python headers
+* SWIG
+
+Quick Start
+===========
+
+Copy the Makefile:
+
+   cp Makefile.Linux Makefile
+
+Edit your copy of the Makefile to reflect locations of 
+needed softwares. Of particular interest are the following
+variables in Third-Party Software section:
+ 
+   PY*   -  your Python installation
+   WM5*  -  your Wild Magic 5 installation
+  
+Now run Make:
+
+   make -j8
+   make test
+
+# The end.
