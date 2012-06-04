@@ -44,10 +44,10 @@
 // Adding the qualifier breaks SWIG with errors, but leaving it out generates 
 // invalid wrapper code. That's why we patch the generated code by adding 
 // the namespaces qualifiers (see the Makefile.)
-%rename (Float3)        Wm5::APoint::operator Float3&();
-%rename (Float3const)   Wm5::APoint::operator const Float3&() const;
-%rename (Vector3f)      Wm5::APoint::operator Vector3f&();
-%rename (Vector3fconst) Wm5::APoint::operator const Vector3f&() const;
+//%rename (Float3)        Wm5::APoint::operator Float3&();
+//%rename (Float3const)   Wm5::APoint::operator const Float3&() const;
+//%rename (Vector3f)      Wm5::APoint::operator Vector3f&();
+//%rename (Vector3fconst) Wm5::APoint::operator const Vector3f&() const;
 
 
 %include "Wm5MathematicsLIB.h"

@@ -1,30 +1,74 @@
-Python Wild Magic is the Python wrapper 
-of Geometric Tools' Wild Magic libraries.
+=Python Wild Magic=
 
-Prerequisites
-=============
+Python Wild Magic is a Python extension wrapper for
+[http://www.geometrictools.com Geometric Tools' Wild Magic]
+C++ libraries.
 
-* Wild Magic 5.7
-* Python headers
-* SWIG
+==Prerequisites==
 
-Quick Start
-===========
+ * Wild Magic 5.7
+ * Python headers
+ * SWIG
 
-Copy the Makefile:
+==Getting the Code==
 
-   cp Makefile.Linux Makefile
+Check out a copy of the code from the repository:
 
-Edit your copy of the Makefile to reflect locations of 
+{{{
+svn co http://python-wild-magic.googlecode.com/svn/trunk python-wild-magic
+cd python-wild-magic
+}}}
+
+==Installation==
+
+Copy the configuration file:
+
+{{{
+cp config.py.Linux config.py
+}}}
+
+Edit file `config.py` and set the location 
+of your Wild Magic installation. 
+
+Using Python Distutils, build and install 
+the extension module:
+
+{{{
+python setup.py build
+sudo python setup.py install
+python setup.py clean2
+}}}
+
+Test your installation:
+
+{{{
+python test.py
+}}}
+
+==Alternate Build Using Make==
+
+If the above standard installation procedure 
+doesn't work for you, then try the following.
+
+Copy the makefile:
+
+{{{
+cp Makefile.Linux Makefile
+}}}
+
+
+Edit file `Makefile` to reflect locations of 
 needed softwares. Of particular interest are the following
-variables in Third-Party Software section:
+variables in Third-Party Software section, indicating
+locations of your Python and Wild Magic installations.
  
-   PY*   -  your Python installation
-   WM5*  -  your Wild Magic 5 installation
-  
-Now run Make:
+ * PY...
+ * WM5...
 
-   make -j8
-   make test
+After customizing your makefile, run _Make_:
 
-# The end.
+{{{
+make -j8
+make test
+make clean
+}}}
