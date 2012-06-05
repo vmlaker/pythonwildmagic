@@ -12,8 +12,26 @@
 #include "Wm5Tuple.h"
 #include "Wm5Vector2.h"
 #include "Wm5Vector3.h"
+#include "Wm5Box2.h"
+#include "Wm5Box3.h"
+#include "Wm5Circle2.h"
+#include "Wm5Circle3.h"
+#include "Wm5Capsule3.h"
+#include "Wm5Cone3.h"
+#include "Wm5Cylinder3.h"
+#include "Wm5Ellipse2.h"
+#include "Wm5Ellipse3.h"
+#include "Wm5Ellipsoid3.h"
+#include "Wm5Line2.h"
+#include "Wm5Line3.h"
+#include "Wm5Ray2.h"
+#include "Wm5Ray3.h"
+#include "Wm5Rectangle3.h"
 #include "Wm5Segment2.h"
 #include "Wm5Segment3.h"
+#include "Wm5Sphere3.h"
+#include "Wm5Triangle2.h"
+#include "Wm5Triangle3.h"
 
 #include "Wm5Intersector.h"
 #include "Wm5IntrSegment2Segment2.h"
@@ -27,7 +45,9 @@
 #include "Wm5AVector.h"
 #include "Wm5APoint.h"
 #include "Wm5HPlane.h"
+#include "Wm5Matrix2.h"
 #include "Wm5Matrix3.h"
+#include "Wm5Matrix4.h"
 #include "Wm5HMatrix.h"
 
 #include "Wm5GraphicsLIB.h"
@@ -54,8 +74,26 @@
 %include "Wm5Tuple.h"
 %include "Wm5Vector2.h"
 %include "Wm5Vector3.h"
+%include "Wm5Box2.h"
+%include "Wm5Box3.h"
+%include "Wm5Circle2.h"
+%include "Wm5Circle3.h"
+%include "Wm5Capsule3.h"
+%include "Wm5Cone3.h"
+%include "Wm5Cylinder3.h"
+%include "Wm5Ellipse2.h"
+%include "Wm5Ellipse3.h"
+%include "Wm5Ellipsoid3.h"
+%include "Wm5Line2.h"
+%include "Wm5Line3.h"
+%include "Wm5Ray2.h"
+%include "Wm5Ray3.h"
+%include "Wm5Rectangle3.h"
 %include "Wm5Segment2.h"
 %include "Wm5Segment3.h"
+%include "Wm5Sphere3.h"
+%include "Wm5Triangle2.h"
+%include "Wm5Triangle3.h"
 
 %include "Wm5Intersector.h"
 %include "Wm5IntrSegment2Segment2.h"
@@ -69,7 +107,9 @@
 %include "Wm5AVector.h"
 %include "Wm5APoint.h"
 %include "Wm5HPlane.h"
+%include "Wm5Matrix2.h"
 %include "Wm5Matrix3.h"
+%include "Wm5Matrix4.h"
 %include "Wm5HMatrix.h"
 
 %include "Wm5GraphicsLIB.h"
@@ -104,10 +144,47 @@
 %template(Vector2f)  Wm5::Vector2<float>;
 %template(Vector3d)  Wm5::Vector3<double>;
 %template(Vector3f)  Wm5::Vector3<float>;
+%template(Box2d) Wm5::Box2<double>;
+%template(Box2f) Wm5::Box2<float>;
+%template(Box3d) Wm5::Box3<double>;
+%template(Box3f) Wm5::Box3<float>;
+%template(Circle2d) Wm5::Circle2<double>;
+%template(Circle2f) Wm5::Circle2<float>;
+%template(Circle3d) Wm5::Circle3<double>;
+%template(Circle3f) Wm5::Circle3<float>;
+%template(Capsule3d) Wm5::Capsule3<double>;
+%template(Capsule3f) Wm5::Capsule3<float>;
+%template(Cone3d) Wm5::Cone3<double>;
+%template(Cone3f) Wm5::Cone3<float>;
+%template(Cylinder3d) Wm5::Cylinder3<double>;
+%template(Cylinder3f) Wm5::Cylinder3<float>;
+%template(Ellipse2d) Wm5::Ellipse2<double>;
+%template(Ellipse2f) Wm5::Ellipse2<float>;
+%template(Ellipse3d) Wm5::Ellipse3<double>;
+%template(Ellipse3f) Wm5::Ellipse3<float>;
+%template(Ellipsoid3d) Wm5::Ellipsoid3<double>;
+%template(Ellipsoid3f) Wm5::Ellipsoid3<float>;
+%template(Line2d) Wm5::Line2<double>;
+%template(Line2f) Wm5::Line2<float>;
+%template(Line3d) Wm5::Line3<double>;
+%template(Line3f) Wm5::Line3<float>;
+%template(Ray2d) Wm5::Ray2<double>;
+%template(Ray2f) Wm5::Ray2<float>;
+%template(Ray3d) Wm5::Ray3<double>;
+%template(Ray3f) Wm5::Ray3<float>;
+%template(Rectangle3d) Wm5::Rectangle3<double>;
+%template(Rectangle3f) Wm5::Rectangle3<float>;
 %template(Segment2d) Wm5::Segment2<double>;
 %template(Segment2f) Wm5::Segment2<float>;
 %template(Segment3d) Wm5::Segment3<double>;
 %template(Segment3f) Wm5::Segment3<float>;
+%template(Sphere3d) Wm5::Sphere3<double>;
+%template(Sphere3f) Wm5::Sphere3<float>;
+%template(Triangle2d) Wm5::Triangle2<double>;
+%template(Triangle2f) Wm5::Triangle2<float>;
+%template(Triangle3d) Wm5::Triangle3<double>;
+%template(Triangle3f) Wm5::Triangle3<float>;
+
 %template(Intersector2d) Wm5::Intersector<double, Wm5::Vector2<double> >;
 %template(Intersector2f) Wm5::Intersector<float, Wm5::Vector2<float> >;
 %template(IntrSegment2Segment2d) Wm5::IntrSegment2Segment2<double>;
