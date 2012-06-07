@@ -1,0 +1,11 @@
+Generate the documentation:
+
+  make clean
+  make html
+
+Or, generate the documentation in a non-default location
+and prune the superfluous files:
+
+  make BUILDDIR=../../doc clean
+  make BUILDDIR=../../doc html
+  ./prune.py ../../doc

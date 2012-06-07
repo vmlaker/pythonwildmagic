@@ -1,0 +1,11 @@
+{% extends "basic/layout.html" %}
+
+{# Remove the ">>" delimiter. #}
+{% set reldelim1 = '' %}
+
+{# Remove the relative links. #}
+{% set rellinks = () %}
+
+{# put the sidebar before the body #}
+{% block sidebar1 %}{{ sidebar() }}{% endblock %}
+{% block sidebar2 %}{% endblock %}

@@ -1,5 +1,0 @@
-=User Guide=
-
-This is the User Guide for Python Wild Magic.
-
-==Installation==
