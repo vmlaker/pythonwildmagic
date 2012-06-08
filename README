@@ -1,48 +1,18 @@
-=Python Wild Magic=
+Python Wild Magic is a Python extension wrapper 
+for Geometric Tools' Wild Magic C++ libraries. 
 
-Python Wild Magic is a Python extension wrapper for
-[http://www.geometrictools.com Geometric Tools' Wild Magic]
-C++ libraries.
+For the source code and documentation, visit
+the project website at:
 
-==Prerequisites==
+   http://python-wild-magic.googlecode.com
 
- * Wild Magic 5.7
- * Python headers
- * SWIG
 
-==Getting the Code==
-
-Check out a copy of the code from the repository:
-{{{
-svn co http://python-wild-magic.googlecode.com/svn/trunk python-wild-magic
-cd python-wild-magic
-}}}
-
-==Installation==
-
- # Edit file `config.py` and set the location of your Wild Magic installation. 
- # Using Python Distutils, build and install the extension module:
-{{{
-python setup.py build
-sudo python setup.py install
-python setup.py clean2
-}}}
- # Test your installation:
-{{{
-python test.py
-}}}
-
-==Alternate Build Using Make==
-
-If the above standard installation procedure 
-doesn't work for you, then try the following
-alternate build procedure.
- # Edit file `Makefile` to reflect locations of needed softwares. Of particular interest are the following variables in _Third-Party Software_ section, indicating locations of your Python and Wild Magic installations.
-  * PY...
-  * WM5...
- # After customizing your makefile, run _Make_:
-{{{
-make -j8
-make test
-make clean
-}}}
+Contents of this directory:
+---------------------------
+config.py  -  configuration file for installation using Distutils
+docs/      -  Sphinx documentation source
+Makefile   -  a makefile for alternate build
+README     -  this readme file
+setup.py   -  Distutils installer
+test.py    -  test file
+wm5.i      -  SWIG library file

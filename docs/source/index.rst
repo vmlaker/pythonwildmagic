@@ -2,57 +2,56 @@
 
 .. toctree::
    :hidden:
+
+   installing
    
 ******
 |NAME|
 ******
 
 |NAME| is a Python extension wrapper for 
-`Geometric Tools <http://www.geometrictools.com>`_'
-Wild Magic C++ libraries.
-
-
-Getting the Code
-================
-
-Check out a copy of the code from the repository:
+`Geometric Tools' Wild Magic <http://www.geometrictools.com>`_
+C++ libraries. It lets you make Wild Magic
+calls in Python. Here's an example:
 ::
 
-  svn co http://python-wild-magic.googlecode.com/svn/trunk python-wild-magic
-  cd python-wild-magic
+  import wm5
+
+  t1 = wm5.Transform()
+  t1.SetTranslate(wm5.APoint(1, 2, 3))
+  p1 = wm5.APoint(1, 1, 1)
+  print p1.X(), p1.Y(), p1.Z()  # 1.0 1.0 1.0
+  p1 = t1 * p1                  # Translate the point
+  print p1.X(), p1.Y(), p1.Z()  # 2.0 3.0 4.0
 
 
-Installation
-============
+|NAME| is developed on the Linux operating system using 
+several freely available software packages:
 
-#. Edit file ``config.py`` and set the location of your Wild Magic installation.
-#. Build and install the extension module using Python Distutils:
-   ::
+Wild Magic 5.7
+==============
+  
+  This is the most excellent C++ library for real-time computer graphics and 
+  physics, mathematics, geometry, numerical analysis, and image analysis.
+  The source code is generously made freely downloadable from
+  `www.geometrictools.com <http://www.geometrictools.com>`_.
 
-     python setup.py build
-     sudo python setup.py install
-     python setup.py clean2
+Python 2
+========
 
-#. Test your installation:
-   ::
-     
-     python test.py
+  The Python extension is developed with language of version
+  somewhere in the range of 2.6 and 2.7.
+  Any recent version of Python 2 should work (but not so sure
+  about Python 3.)
 
+SWIG
+====
+  
+  The `SWIG <http://www.swig.org>`_ 
+  interface compiler is used to wrap the 
+  C++ libraries into Python API.
 
-Alternate Build using *Make*
-============================
-If the above standard installation procedure doesn't work for you, then try the following alternate build procedure.
-
-#. Edit file ``Makefile`` to reflect locations of needed softwares. Of particular interest are variables in *Third-Party Software* section indicating locations of your Python and Wild Magic installations. These variables are:
-
-   * PY\*
-   * WM5\*
-
-#. Run *Make*:
-   ::
-
-     make -j8
-     make test
-     make clean
+To get up and running with |NAME|, just
+:ref:`install <installing>` the code.
 
 .. The end.
