@@ -9,7 +9,7 @@
 |NAME|
 ******
 
-|NAME| is a Python extension wrapper for 
+|NAME| is a Python extension wrapper of
 `Geometric Tools' Wild Magic <http://www.geometrictools.com>`_
 C++ libraries. It lets you make Wild Magic
 calls in Python. Here's an example:
