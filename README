@@ -15,4 +15,5 @@ Makefile   -  a makefile for alternate build
 README     -  this readme file
 setup.py   -  Distutils installer
 test.py    -  test file
+tools/     -  utility tools
 wm5.i      -  SWIG library file
