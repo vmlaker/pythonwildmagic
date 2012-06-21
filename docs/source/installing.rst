@@ -6,7 +6,7 @@ Installing
 
 The following guide is intended to walk you through the installation of |NAME|, with all its software dependencies, on a Linux operating system. All Linux systems (distributions, installations, kernel versions, etc.) are not alike, and your installation experience might be different from the steps here. In case these instructions do not work verbatim for you, hopefully the intentions are clear enough so you can accomplish the steps on your system. 
 
-1. Install Wild Magic C++ Libraries
+1. Install Wild Magic C++ libraries
 ===================================
 
 Create the destination directory and ``cd`` into it:
@@ -46,7 +46,7 @@ Make sure the following library files exist and are of non-zero size:
 #. libWm5GlxGraphics.a
 #. libWm5Mathematics.a
 
-2. Get Python Development Tools and SWIG
+2. Get Python development tools and SWIG
 ========================================
 
 APT (e.g. Debian or Ubuntu) users can install these with command::
@@ -59,7 +59,7 @@ YUM (e.g. Fedora or Red Hat) users can install them with::
   sudo yum install python-devel
   sudo yum install swig
 
-3. Build and Install the Extension
+3. Build and install the extension
 ==================================
 
 Grab the |NAME| source code from the repository:

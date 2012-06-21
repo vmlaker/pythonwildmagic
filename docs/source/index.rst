@@ -4,7 +4,8 @@
    :hidden:
 
    installing
-   
+   code_analysis
+
 ******
 |NAME|
 ******
@@ -25,13 +26,16 @@ calls in Python. Here's an example:
   print p1.X(), p1.Y(), p1.Z()  # 2.0 3.0 4.0
 
 
-|NAME| is developed on the Linux operating system using 
+|NAME| is a Google Code project -- it is open source.
+The project home page is
+`python-wild-magic.googlecode.com <http://python-wild-magic.googlecode.com>`_.
+It is developed on the Linux operating system using 
 several freely available software packages:
 
 Wild Magic 5.7
 ==============
   
-  This is the most excellent C++ library for real-time computer graphics and 
+  This is the awsome C++ library for real-time computer graphics and 
   physics, mathematics, geometry, numerical analysis, and image analysis.
   The source code is generously made freely downloadable from
   `www.geometrictools.com <http://www.geometrictools.com>`_.
@@ -50,6 +54,13 @@ SWIG
   The `SWIG <http://www.swig.org>`_ 
   interface compiler is used to wrap the 
   C++ libraries into Python API.
+
+GCC-XML
+=======
+
+  Analysis of the C++ libraries is done with the help of
+  `GCC-XML <http://www.gccxml.org>`_, the XML output extension
+  to GCC. 
 
 To get up and running with |NAME|, just
 :ref:`install <installing>` the code.
