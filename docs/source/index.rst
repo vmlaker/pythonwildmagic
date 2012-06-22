@@ -13,7 +13,7 @@
 
 |NAME| is a Python extension wrapper of
 `Geometric Tools' Wild Magic <http://www.geometrictools.com>`_
-C++ libraries. It lets you **make Wild Magic calls in Python.** 
+C++ libraries. It lets you make Wild Magic calls in Python. 
 Here's an example:
 ::
 
@@ -31,8 +31,13 @@ To get up and running with |NAME|, just
 :ref:`install the code <installing>`.
 See what classes are wrapped by taking a look
 at the :ref:`API page <api>`.
-You may also be interested in the :ref:`code analysis procedure <code_analysis>`
-used during development to track progress of the wrapping effort. 
+
+.. include:: coverage.rst
+
+The above is a rough, liberal estimate, but a good ballpark 
+figure to show progress of the project. If interested, check out the 
+:ref:`code analysis procedure <code_analysis>` 
+used to get these numbers.
 
 |NAME| is a Google Code project -- it is open source.
 The project home page is

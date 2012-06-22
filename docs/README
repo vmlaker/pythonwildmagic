@@ -1,10 +1,16 @@
-Generate the documentation:
+Contents of this directory:
+---------------------------
+get-coverage.py  -  prints code coverage information
+Makefile         -  Sphinx makefile
+prune.py         -  prunes Sphinx build directory
+source           -  Sphinx documentation source code
+README           -  this README file
 
-  make clean
-  make html
+To generate the documentation in a non-default location
+and prune the superfluous files (assumes ../out/ directory
+contains code analysis):
 
-Or, generate the documentation in a non-default location
-and prune the superfluous files:
-
+  echo \*\*`./get-coverage.py ../out/cpp.txt`\*\* > source/coverage.rst
+  echo \*\(`date`\)\* >> source/coverage.rst
   make BUILDDIR=../../doc html
   ./prune.py ../../doc
