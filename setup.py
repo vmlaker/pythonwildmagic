@@ -22,15 +22,16 @@ class Clean2(Command):
     def finalize_options(self):
         pass
     def run(self):
-        dont_erase = ('.svn',
-                      'config.py',
-                      'config.py.Linux',
-                      'Makefile',
-                      'Makefile.Linux',
-                      'README',
-                      'setup.py',
-                      'test.py',
-                      'wm5.i',
+        dont_erase = ('.svn'           ,
+                      'config.py'      ,
+                      'docs'           ,
+                      'Makefile'       ,
+                      'out'            ,
+                      'README'         ,
+                      'setup.py'       ,
+                      'test.py'        ,
+                      'tools'          ,
+                      'wm5.i'          ,
                       )
         this_dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
         this_dir = os.path.normpath(this_dir)

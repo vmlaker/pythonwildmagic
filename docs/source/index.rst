@@ -4,6 +4,7 @@
    :hidden:
 
    installing
+   api
    code_analysis
 
 ******
@@ -12,8 +13,8 @@
 
 |NAME| is a Python extension wrapper of
 `Geometric Tools' Wild Magic <http://www.geometrictools.com>`_
-C++ libraries. It lets you make Wild Magic
-calls in Python. Here's an example:
+C++ libraries. It lets you **make Wild Magic calls in Python.** 
+Here's an example:
 ::
 
   import wm5
@@ -26,16 +27,23 @@ calls in Python. Here's an example:
   print p1.X(), p1.Y(), p1.Z()  # 2.0 3.0 4.0
 
 
+To get up and running with |NAME|, just
+:ref:`install the code <installing>`.
+See what classes are wrapped by taking a look
+at the :ref:`API page <api>`.
+You may also be interested in the :ref:`code analysis procedure <code_analysis>`
+used during development to track progress of the wrapping effort. 
+
 |NAME| is a Google Code project -- it is open source.
 The project home page is
 `python-wild-magic.googlecode.com <http://python-wild-magic.googlecode.com>`_.
-It is developed on the Linux operating system using 
+The code is developed on the Linux operating system using 
 several freely available software packages:
 
 Wild Magic 5.7
 ==============
   
-  This is the awsome C++ library for real-time computer graphics and 
+  This is, of course, the awsome C++ library for real-time computer graphics and 
   physics, mathematics, geometry, numerical analysis, and image analysis.
   The source code is generously made freely downloadable from
   `www.geometrictools.com <http://www.geometrictools.com>`_.
@@ -61,8 +69,5 @@ GCC-XML
   Analysis of the C++ libraries is done with the help of
   `GCC-XML <http://www.gccxml.org>`_, the XML output extension
   to GCC. 
-
-To get up and running with |NAME|, just
-:ref:`install <installing>` the code.
 
 .. The end.
