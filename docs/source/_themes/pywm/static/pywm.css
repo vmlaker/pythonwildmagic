@@ -25,12 +25,15 @@ body {
     line-height: 150%;
     text-align: center;
     background-color: #BFD1D4;
+    background-color: #ddb51d;
+    background-color: #ffe48d;
+    background-color: #ffdea0;
     color: black;
     padding: 0;
     border: 1px solid #aaa;
 
-    margin: 0px 80px 0px 80px;
-    min-width: 740px;
+    margin: 0px 15px 0px 15px;
+    min-width: 750px;
 }
 
 div.document {

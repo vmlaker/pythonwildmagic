@@ -4,7 +4,7 @@
 Installing
 **********
 
-The following guide is intended to walk you through the installation of |NAME|, with all its software dependencies, on a Linux operating system. All Linux systems (distributions, installations, kernel versions, etc.) are not alike, and your installation experience might be different from the steps here. In case these instructions do not work verbatim for you, hopefully the intentions are clear enough so you can accomplish the steps on your system. 
+The following guide is intended to walk you step-by-step through installation of |NAME| -- with all its software dependencies -- on a Linux operating system. Of course, all Linux systems (distributions, installations, kernel versions, etc.) are not alike, and your installation experience might be different from what you see here. But hopefully the intentions are clear enough so that, even in case these instructions don't work verbatim for you, they'll help you figure out how to get things running on your system.
 
 1. Install Wild Magic C++ libraries
 ===================================
@@ -30,21 +30,12 @@ Run *Make*:
 
   make -j8 CFG=Release -f makefile.wm5
 
-In case *Make* fails with something like,
+In case *Make* fails with,
 
-  :samp:`make: *** [build] Error 2`
+  :samp:`GL/glu.h: No such file or directory`
 
-it may have gone far enough along for our purposes. 
-Check to see whether the needed libraries have in fact
-been built:
-::
-
-  ls -la SDK/Library/Release
-
-Make sure the following library files exist and are of non-zero size:
-
-#. libWm5GlxGraphics.a
-#. libWm5Mathematics.a
+check to see if you have libGLU headers on your system.
+In YUM repos, the package of interest is named ``mesa-libGLU-devel``.
 
 2. Get Python development tools and SWIG
 ========================================
@@ -72,9 +63,9 @@ Grab the |NAME| source code from the repository:
 #. Build and install the extension module using Python Distutils:
    ::
 
+     python setup.py clean2
      python setup.py build
      sudo python setup.py install
-     python setup.py clean2
 
 #. Test your installation:
    ::

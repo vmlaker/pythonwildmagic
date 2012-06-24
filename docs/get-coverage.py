@@ -22,7 +22,7 @@ p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
 p.wait()
 line = p.stdout.readlines()[0]
 values = re.findall(r'[0-9]+\.*[0-9]*', line)
-text = 'So far %s of %s (%s%%) classes are at least partially wrapped.' \
+text = 'So far **%s of %s (%s%%)** classes are at least partially wrapped.' \
     %(values[0], values[1], values[2])
 print text
 

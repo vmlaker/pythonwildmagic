@@ -14,17 +14,44 @@
 #include "Wm5GVector.h"
 #include "Wm5Vector2.h"
 #include "Wm5Vector3.h"
+#include "Wm5Vector4.h"
 #include "Wm5Arc2.h"
+
+#include "Wm5AxisAlignedBox2.h"
+#include "Wm5AxisAlignedBox3.h"
+
 #include "Wm5Box2.h"
 #include "Wm5Box3.h"
+
 #include "Wm5Capsule3.h"
 #include "Wm5Circle2.h"
 #include "Wm5Circle3.h"
 #include "Wm5Cone3.h"
-    //#include "Wm5ConvexHull1.h"
-    //#include "Wm5ConvexHull2.h"
-    //#include "Wm5ConvexHull3.h"
-    //#include "Wm5ConvexHull.h"
+#include "Wm5ConformalMap.h"
+
+#include "Wm5ContEllipse2MinCR.h"
+#include "Wm5ContEllipsoid3MinCR.h"
+#include "Wm5ConvexHull1.h"
+#include "Wm5ConvexHull2.h"
+#include "Wm5ConvexHull3.h"
+#include "Wm5ConvexHull.h"
+
+#include "Wm5Polynomial1.h"
+#include "Wm5PolynomialCurve2.h"
+#include "Wm5PolynomialCurve3.h"
+#include "Wm5PolynomialRoots.h"
+#include "Wm5PolynomialRootsR.h"
+
+#include "Wm5BezierCurve2.h"
+#include "Wm5BezierCurve3.h"
+#include "Wm5Bisect1.h"
+#include "Wm5Bisect2.h"
+#include "Wm5Bisect3.h"
+#include "Wm5BoxManager.h"
+#include "Wm5BrentsMethod.h"
+
+#include "Wm5CubicPolynomialCurve2.h"
+#include "Wm5CubicPolynomialCurve3.h"
 #include "Wm5Curve2.h"
 #include "Wm5Curve3.h"
 #include "Wm5Cylinder3.h"
@@ -291,11 +318,34 @@
 #include "Wm5IntrTriangle3Triangle3.h"
 #include "Wm5IntrTriangle3Triangle3.h"
 
+#include "Wm5QuadricSurface.h"
+#include "Wm5Quaternion.h"
+#include "Wm5Query.h"
+
+#include "Wm5Integer.h"
+
+#include "Wm5Query2.h"
+#include "Wm5Query2Filtered.h"
+#include "Wm5Query2Int64.h"
+#include "Wm5Query2Integer.h"
+#include "Wm5Query2Rational.h"
+
+#include "Wm5Query3.h"
+#include "Wm5Query3Filtered.h"
+#include "Wm5Query3Int64.h"
+#include "Wm5Query3Integer.h"
+#include "Wm5Query3Rational.h"
+
 #include "Wm5Float3.h"
 #include "Wm5HPoint.h"
 #include "Wm5AVector.h"
 #include "Wm5APoint.h"
 #include "Wm5HPlane.h"
+
+#include "Wm5Matrix2.h"
+#include "Wm5Matrix3.h"
+#include "Wm5Matrix4.h"
+
 #include "Wm5GMatrix.h"
 #include "Wm5Matrix2.h"
 #include "Wm5Matrix3.h"
@@ -329,17 +379,43 @@
 %include "Wm5GVector.h"
 %include "Wm5Vector2.h"
 %include "Wm5Vector3.h"
+%include "Wm5Vector4.h"
 %include "Wm5Arc2.h"
+
+%include "Wm5AxisAlignedBox2.h"
+%include "Wm5AxisAlignedBox3.h"
+
 %include "Wm5Box2.h"
 %include "Wm5Box3.h"
 %include "Wm5Capsule3.h"
 %include "Wm5Circle2.h"
 %include "Wm5Circle3.h"
 %include "Wm5Cone3.h"
- //%include "Wm5ConvexHull1.h"
- //%include "Wm5ConvexHull2.h"
- //%include "Wm5ConvexHull3.h"
- //%include "Wm5ConvexHull.h"
+%include "Wm5ConformalMap.h"
+
+%include "Wm5ContEllipse2MinCR.h"
+%include "Wm5ContEllipsoid3MinCR.h"
+%include "Wm5ConvexHull1.h"
+%include "Wm5ConvexHull2.h"
+%include "Wm5ConvexHull3.h"
+%include "Wm5ConvexHull.h"
+
+%include "Wm5Polynomial1.h"
+%include "Wm5PolynomialCurve2.h"
+%include "Wm5PolynomialCurve3.h"
+%include "Wm5PolynomialRoots.h"
+%include "Wm5PolynomialRootsR.h"
+
+%include "Wm5BezierCurve2.h"
+%include "Wm5BezierCurve3.h"
+%include "Wm5Bisect1.h"
+%include "Wm5Bisect2.h"
+%include "Wm5Bisect3.h"
+%include "Wm5BoxManager.h"
+%include "Wm5BrentsMethod.h"
+
+%include "Wm5CubicPolynomialCurve2.h"
+%include "Wm5CubicPolynomialCurve3.h"
 %include "Wm5Curve2.h"
 %include "Wm5Curve3.h"
 %include "Wm5Cylinder3.h"
@@ -606,11 +682,34 @@
 %include "Wm5IntrTriangle3Triangle3.h"
 %include "Wm5IntrTriangle3Triangle3.h"
 
+%include "Wm5QuadricSurface.h"
+%include "Wm5Quaternion.h"
+%include "Wm5Query.h"
+
+%include "Wm5Integer.h"
+
+%include "Wm5Query2.h"
+%include "Wm5Query2Filtered.h"
+%include "Wm5Query2Int64.h"
+%include "Wm5Query2Integer.h"
+%include "Wm5Query2Rational.h"
+
+%include "Wm5Query3.h"
+%include "Wm5Query3Filtered.h"
+%include "Wm5Query3Int64.h"
+%include "Wm5Query3Integer.h"
+%include "Wm5Query3Rational.h"
+
 %include "Wm5Float3.h"
 %include "Wm5HPoint.h"
 %include "Wm5AVector.h"
 %include "Wm5APoint.h"
 %include "Wm5HPlane.h"
+
+%include "Wm5Matrix2.h"
+%include "Wm5Matrix3.h"
+%include "Wm5Matrix4.h"
+
 %include "Wm5GMatrix.h"
 %include "Wm5Matrix2.h"
 %include "Wm5Matrix3.h"
@@ -634,10 +733,21 @@
 %ignore Wm5::Vector3<double>::GetInformation;
 %ignore Wm5::Vector3<float>::Information;
 %ignore Wm5::Vector3<float>::GetInformation;
+%ignore Wm5::Vector4<double>::Information;
+%ignore Wm5::Vector4<double>::GetInformation;
+%ignore Wm5::Vector4<float>::Information;
+%ignore Wm5::Vector4<float>::GetInformation;
 
 // "Instantiate" template in target language.
 %template(Arc2d) Wm5::Arc2<double>;
 %template(Arc2f) Wm5::Arc2<float>;
+
+%template(AxisAlignedBox2d) Wm5::AxisAlignedBox2<double>;
+%template(AxisAlignedBox2f) Wm5::AxisAlignedBox2<float>;
+%template(AxisAlignedBox3d) Wm5::AxisAlignedBox3<double>;
+%template(AxisAlignedBox3f) Wm5::AxisAlignedBox3<float>;
+
+
 %template(Box2d) Wm5::Box2<double>;
 %template(Box2f) Wm5::Box2<float>;
 %template(Box3d) Wm5::Box3<double>;
@@ -650,7 +760,13 @@
 %template(Circle3f) Wm5::Circle3<float>;
 %template(Cone3d) Wm5::Cone3<double>;
 %template(Cone3f) Wm5::Cone3<float>;
+%template(ConformalMapd) Wm5::ConformalMap<double>;
+%template(ConformalMapf) Wm5::ConformalMap<float>;
 
+%template(ContEllipse2MinCRd) Wm5::ContEllipse2MinCR<double>;
+%template(ContEllipse2MinCRf) Wm5::ContEllipse2MinCR<float>;
+%template(ContEllipsoid3MinCRd) Wm5::ContEllipsoid3MinCR<double>;
+%template(ContEllipsoid3MinCRf) Wm5::ContEllipsoid3MinCR<float>;
 /*
 %template(ConvexHull1d) Wm5::ConvexHull1<double>;
 %template(ConvexHull1f) Wm5::ConvexHull1<float>;
@@ -662,6 +778,38 @@
 %template(ConvexHullf) Wm5::ConvexHull<float>;
 */
 
+%template(Polynomial1d) Wm5::Polynomial1<double>;
+%template(Polynomial1f) Wm5::Polynomial1<float>;
+%template(PolynomialCurve2d) Wm5::PolynomialCurve2<double>;
+%template(PolynomialCurve2f) Wm5::PolynomialCurve2<float>;
+%template(PolynomialCurve3d) Wm5::PolynomialCurve3<double>;
+%template(PolynomialCurve3f) Wm5::PolynomialCurve3<float>;
+%template(PolynomialRootsd) Wm5::PolynomialRoots<double>;
+%template(PolynomialRootsf) Wm5::PolynomialRoots<float>;
+%template(PolynomialRootsRd) Wm5::PolynomialRootsR<double>;
+%template(PolynomialRootsRf) Wm5::PolynomialRootsR<float>;
+%template(PolynomialCurve3d) Wm5::PolynomialCurve3<double>;
+%template(PolynomialCurve3f) Wm5::PolynomialCurve3<float>;
+
+%template(BezierCurve2d) Wm5::BezierCurve2<double>;
+%template(BezierCurve2f) Wm5::BezierCurve2<float>;
+%template(BezierCurve3d) Wm5::BezierCurve3<double>;
+%template(BezierCurve3f) Wm5::BezierCurve3<float>;
+%template(Bisect1d) Wm5::Bisect1<double>;
+%template(Bisect1f) Wm5::Bisect1<float>;
+%template(Bisect2d) Wm5::Bisect2<double>;
+%template(Bisect2f) Wm5::Bisect2<float>;
+%template(Bisect3d) Wm5::Bisect3<double>;
+%template(Bisect3f) Wm5::Bisect3<float>;
+%template(BoxManagerd) Wm5::BoxManager<double>;
+%template(BoxManagerf) Wm5::BoxManager<float>;
+%template(BrentsMethodd) Wm5::BrentsMethod<double>;
+%template(BrentsMethodf) Wm5::BrentsMethod<float>;
+
+%template(CubicPolynomialCurve2d) Wm5::CubicPolynomialCurve2<double>;
+%template(CubicPolynomialCurve2f) Wm5::CubicPolynomialCurve2<float>;
+%template(CubicPolynomialCurve3d) Wm5::CubicPolynomialCurve3<double>;
+%template(CubicPolynomialCurve3f) Wm5::CubicPolynomialCurve3<float>;
 %template(Curve2d) Wm5::Curve2<double>;
 %template(Curve2f) Wm5::Curve2<float>;
 %template(Curve3d) Wm5::Curve3<double>;
@@ -669,6 +817,17 @@
 
 %template(Cylinder3d) Wm5::Cylinder3<double>;
 %template(Cylinder3f) Wm5::Cylinder3<float>;
+//%template(CylinderFit3d) Wm5::CylinderFit3<double>;
+//%template(CylinderFit3f) Wm5::CylinderFit3<float>;
+//%template(Delaunay1d) Wm5::Delaunay1<double>;
+//%template(Delaunay1f) Wm5::Delaunay1<float>;
+//%template(Delaunay2d) Wm5::Delaunay2<double>;
+//%template(Delaunay2f) Wm5::Delaunay2<float>;
+//%template(Delaunay3d) Wm5::Delaunay3<double>;
+//%template(Delaunay3f) Wm5::Delaunay3<float>;
+//%template(Delaunayd) Wm5::Delaunay<double>;
+//%template(Delaunayf) Wm5::Delaunay<float>;
+
 %template(Ellipse2d) Wm5::Ellipse2<double>;
 %template(Ellipse2f) Wm5::Ellipse2<float>;
 %template(Ellipse3d) Wm5::Ellipse3<double>;
@@ -683,6 +842,13 @@
 %template(Line3f) Wm5::Line3<float>;
 %template(Lozenge3d) Wm5::Lozenge3<double>;
 %template(Lozenge3f) Wm5::Lozenge3<float>;
+
+%template(Matrix2d) Wm5::Matrix2<double>;
+%template(Matrix2f) Wm5::Matrix2<float>;
+//%template(Matrix3d) Wm5::Matrix3<double>;
+//%template(Matrix3f) Wm5::Matrix3<float>;
+//%template(Matrix4d) Wm5::Matrix4<double>;
+//%template(Matrix4f) Wm5::Matrix4<float>;
 
 //%template(GMatrixd) Wm5::GMatrix<double>;
 //%template(GMatrixf) Wm5::GMatrix<float>;
@@ -723,6 +889,8 @@
 %template(Vector2f) Wm5::Vector2<float>;
 %template(Vector3d) Wm5::Vector3<double>;
 %template(Vector3f) Wm5::Vector3<float>;
+%template(Vector4d) Wm5::Vector4<double>;
+%template(Vector4f) Wm5::Vector4<float>;
 
 ////////////////////
 // B-splines
@@ -1033,6 +1201,33 @@
 %template(IntrTriangle3Sphere3f) Wm5::IntrTriangle3Sphere3<float>;
 %template(IntrTriangle3Triangle3d) Wm5::IntrTriangle3Triangle3<double>;
 %template(IntrTriangle3Triangle3f) Wm5::IntrTriangle3Triangle3<float>;
+
+%template(QuadricSurfaced) Wm5::QuadricSurface<double>;
+%template(QuadricSurfacef) Wm5::QuadricSurface<float>;
+%template(Quaterniond) Wm5::Quaternion<double>;
+%template(Quaternionf) Wm5::Quaternion<float>;
+
+%template(Query2d) Wm5::Query2<double>;
+%template(Query2f) Wm5::Query2<float>;
+%template(Query2Filteredd) Wm5::Query2Filtered<double>;
+%template(Query2Filteredf) Wm5::Query2Filtered<float>;
+%template(Query2Int64d) Wm5::Query2Int64<double>;
+%template(Query2Int64f) Wm5::Query2Int64<float>;
+%template(Query2Integerd) Wm5::Query2Integer<double>;
+%template(Query2Integerf) Wm5::Query2Integer<float>;
+//%template(Query2Rationald) Wm5::Query2Rational<double>;
+//%template(Query2Rationalf) Wm5::Query2Rational<float>;
+
+%template(Query3d) Wm5::Query3<double>;
+%template(Query3f) Wm5::Query3<float>;
+%template(Query3Filteredd) Wm5::Query3Filtered<double>;
+%template(Query3Filteredf) Wm5::Query3Filtered<float>;
+%template(Query3Int64d) Wm5::Query3Int64<double>;
+%template(Query3Int64f) Wm5::Query3Int64<float>;
+%template(Query3Integerd) Wm5::Query3Integer<double>;
+%template(Query3Integerf) Wm5::Query3Integer<float>;
+//%template(Query3Rationald) Wm5::Query3Rational<double>;
+//%template(Query3Rationalf) Wm5::Query3Rational<float>;
 
 %template(Mathd) Wm5::Math<double>;
 %template(Mathf) Wm5::Math<float>;

@@ -6,6 +6,16 @@
 {# Remove the relative links. #}
 {% set rellinks = () %}
 
+{% block rootrellink %}
+<li><a href="index.html">Home</a></li>
+<li><a href="download.html">Download</a></li>
+<li><a href="installing.html">Install</a></li>
+<li><a href="code_analysis.html">Analysis</a></li>
+<li><a href="api.html">API</a></li>
+<li><a href="genindex.html">Index</a></li>
+<li><a href="about.html">About</a></li>
+{% endblock %}
+
 {# put the sidebar before the body #}
 {% block sidebar1 %}
   {{ sidebar() }}
@@ -19,7 +29,9 @@
 
 {% block header %}
 <div style="background-color: white; text-align: left; padding: 5px 5px 5px 15px">
+<a href="index.html">
 <img src="_static/pythonwildmagic.png" alt="Da logo, man." />
+</a>
 </div>
 {{ super() }}
 {% endblock %}

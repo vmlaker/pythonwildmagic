@@ -10,7 +10,7 @@ To generate the documentation in a non-default location
 and prune the superfluous files (assumes ../out/ directory
 contains code analysis):
 
-  echo \*\*`./get-coverage.py ../out/cpp.txt`\*\* > source/coverage.rst
+  echo `./get-coverage.py ../out/cpp.txt` > source/coverage.rst
   echo \*\(`date`\)\* >> source/coverage.rst
   make BUILDDIR=../../doc html
   ./prune.py ../../doc

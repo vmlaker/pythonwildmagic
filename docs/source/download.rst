@@ -1,0 +1,15 @@
+.. _about:
+
+**********
+Get |NAME|
+**********
+
+Download the code using your Subversion client:
+::
+
+  svn co http://python-wild-magic.googlecode.com/svn/trunk python-wild-magic
+
+Great now you got the code! Next be sure to check out the 
+:ref:`installation guide <installing>`.
+
+.. The end.

@@ -48,7 +48,7 @@ class Clean2(Command):
 module = Extension(
     name         = '_wm5',
     sources      = ['wm5.i'],
-    swig_opts    = ['-c++', '-I%s'%config.WM5INCDIR],
+    swig_opts    = ['-c++', '-I%s'%config.WM5INCDIR, '-cpperraswarn'],
     include_dirs = [config.WM5INCDIR],
     library_dirs = [config.WM5LIBDIR],
     libraries    = ['Wm5Mathematics', 'Wm5GlxGraphics',],
