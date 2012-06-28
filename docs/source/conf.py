@@ -228,6 +228,7 @@ man_pages = [
 
 rst_prolog = '''
 .. |NAME| replace:: Python Wild Magic
+.. |WM_DESCR| replace:: C++ library for real-time computer graphics and physics, mathematics, geometry, numerical analysis, and image analysis
 '''
 
 # The end.

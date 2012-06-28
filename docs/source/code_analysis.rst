@@ -4,28 +4,42 @@
 Code Analysis
 *************
 
-To determine the Python extension module's breadth of coverage 
-of the C++ code, you can run analysis
-tools found in the ``tools/`` directory. You need
-*GCC-XML* on your system for this to work (APT or YUM 
-users can simply install package ``gccxml``.) The following
-steps run the analysis tools, with intermediate files
-saved in ``out/`` subdirectory.
+To determine the Python module's breadth of coverage of the C++ code, you can run some source code analysis tools provided in the ``tools/`` directory. 
+For the tools to work, you need to have installed |NAME| of course. Also, you need `GCC-XML <http://www.gccxml.org>`_ available on your system (APT or YUM users can simply install package ``gccxml``.) 
 
-#. Generate XML description of the C++ code:
-   ::
+
+1. Generate XML
+===============
+
+First, we'll produce an XML version of the C++ code using the ``gen-xml.py`` program. 
+This program runs *GCC-XML* on all header files in your Wild Magic installation, producing one ``.xml`` file for each ``Wm5*.h`` file. 
+The program spawns parallel runs of *GCC-XML*, one process per CPU. 
+
+From the top of the source tree, run the following command. 
+It will dump the resulting files in ``out/xml/`` directory. (Note the use of output of ``config.py`` command as the second argument.)
+::
   
-     tools/gen-xml.py out/xml `./config.py`
+  tools/gen-xml.py out/xml `./config.py`
 
-#. Parse the generated XML files to obtain a list of class names:
-   ::
+2. Parse the XML
+================
 
-     tools/parse-xml.py out/cpp.txt out/xml/*
+Next we'll parse the XML files to obtain a list of all C++ class names. 
+The program ``parse-xml.py`` builds DOMs from the XML files and extracts the names of all classes found.
+The program spawns parallel parsers, one parser process per CPU.
 
-#. Compare class names found in the C++ namespace with
-   names in the Python extension module:
-   ::
+The following command dumps the list of unique class names to file ``out/cpp.txt``.
+::
 
-     tools/compare.py out/cpp.txt
+  tools/parse-xml.py out/cpp.txt out/xml/*
+
+3. Compare class names
+======================
+
+Now we'll compare the two sets of class names.
+Program ``compare.py`` matches class names in the ``Wm5::`` C++ namespace with those in the ``wm5`` Python module, and vice versa. A short summary of the comparison is printed.
+::
+
+  tools/compare.py out/cpp.txt
 
 .. The end.

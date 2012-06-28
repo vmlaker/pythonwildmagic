@@ -11,6 +11,6 @@ and prune the superfluous files (assumes ../out/ directory
 contains code analysis):
 
   echo `./get-coverage.py ../out/cpp.txt` > source/coverage.rst
-  echo \*\(`date`\)\* >> source/coverage.rst
+  echo \*\(`date +'%A, %B %e, %Y'`\.\)\* >> source/coverage.rst
   make BUILDDIR=../../doc html
   ./prune.py ../../doc

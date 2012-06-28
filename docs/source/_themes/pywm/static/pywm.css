@@ -25,9 +25,8 @@ body {
     line-height: 150%;
     text-align: center;
     background-color: #BFD1D4;
-    background-color: #ddb51d;
-    background-color: #ffe48d;
-    background-color: #ffdea0;
+    background-color: #d1c7ff;
+    background-color: #e6c976;
     color: black;
     padding: 0;
     border: 1px solid #aaa;
@@ -126,6 +125,7 @@ div.sphinxsidebar ul ul {
 
 div.footer {
     background-color: #E3EFF1;
+    background-color: #fff7df;
     color: #86989B;
     padding: 3px 8px 3px 0;
     clear: both;

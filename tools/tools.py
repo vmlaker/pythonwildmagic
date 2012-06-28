@@ -189,5 +189,30 @@ class ParserMaster(Master):
         if self.num_finished == len(self.tasks):
             print
 
+# A table of text substitions for C++ name suffixes,
+# to create legitimate Python names.
+SUFFIX_SUBSTITUTES = {
+    '<2>' : '2',
+    '<3>' : '3',
+    '<4>' : '4',
+    '<5>' : '5',
+    '<6>' : '6',
+    '<double>'   : 'd',
+    '<float>'    : 'f',
+    '<1, int>'   : '1i',
+    '<1, float>' : '1f',
+    '<2, int>'   : '2i',
+    '<2, float>' : '2f',
+    '<3, int>'   : '3i',
+    '<3, float>' : '3f',
+    '<4, int>'   : '4i',
+    '<4, float>' : '4f',
+    '<double, Wm5::Vector2<double> >' : '2d',
+    '<double, Wm5::Vector3<double> >' : '3d',
+    '<float, Wm5::Vector2<float> >'   : '2f',
+    '<float, Wm5::Vector3<float> >'   : '3f',
+    '<2, Wm5::Vector2<float>, Wm5::Vector2<double> >' : '2',
+    '<3, Wm5::Vector3<float>, Wm5::Vector3<double> >' : '3',
+    }
 
 # The end.

@@ -14,8 +14,8 @@
 ******
 
 |NAME| is a Python extension wrapper of
-`Geometric Tools' Wild Magic <http://www.geometrictools.com>`_
-C++ libraries. *It lets you make Wild Magic calls in Python!*
+`Geometric Tools' Wild Magic <http://www.geometrictools.com>`_ -- the |WM_DESCR|.
+*It lets you make Wild Magic calls in Python!*
 Here's an example:
 ::
 
@@ -29,15 +29,13 @@ Here's an example:
   print p1.X(), p1.Y(), p1.Z()  # 2.0 3.0 4.0
 
 
-To get up and running with |NAME|, just
-:ref:`install the code <installing>`.
-To see what classes are wrapped, take a look 
-at :ref:`Index <genindex>` or :ref:`API page <api>`.
-
 .. include:: coverage.rst
 
-That's a rough ballpark figure for a sense of how the wrapper coverage is progressing. If interested, be sure to check out the 
+That's a rough ballpark figure for coverage. If interested, be sure to check out the 
 :ref:`code analysis procedure <code_analysis>` 
-used to arrive at this number.
+used to arrive at this number. To see what classes are wrapped, take a look at :ref:`Index <genindex>` or :ref:`API page <api>`.
+
+To get up and running with |NAME|, just
+:ref:`install the code <installing>`.
 
 .. The end.

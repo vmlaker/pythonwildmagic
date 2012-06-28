@@ -1,10 +1,13 @@
 Contents of this directory:
 ---------------------------
-get-xml.py    -  runs GCC-XML on Wild Magic C++ source to
-                 produce XML representation of the code
-parse-xml.py  -  parses GCC-XML output to assemble a list
-                 of classes in Wild Magic libraries
 compare.py    -  compares content of Python extension module
                  with content of Wild Magic C++ namespace 
+gen-xml.py    -  runs GCC-XML on Wild Magic C++ source to
+                 produce XML representation of the code
+get-library.py  -  prints a SWIG library file, a starting
+                 point for developing an actual working 
+                 library file
+parse-xml.py  -  parses GCC-XML output to assemble a list
+                 of classes in Wild Magic libraries
 tools.py      -  library classes used in above commands
 README        -  this README file

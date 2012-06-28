@@ -32,22 +32,28 @@ for name in lines:
     if py_equiv[:len(NSPACE)] == NSPACE:
         py_equiv = py_equiv[len(NSPACE):]
 
-    # Change the trailing '<float>' to 'f'.
-    FTEMPL = '<float>'
-    if py_equiv[len(py_equiv)-len(FTEMPL):] == FTEMPL:
-        py_equiv = py_equiv[:len(py_equiv)-len(FTEMPL)] + 'f'
-
-    # Change the trailing '<double>' to 'd'.
-    DTEMPL = '<double>'
-    if py_equiv[len(py_equiv)-len(DTEMPL):] == DTEMPL:
-        py_equiv = py_equiv[:len(py_equiv)-len(DTEMPL)] + 'd'
-
+    for key,val in tools.SUFFIX_SUBSTITUTES.items():
+        if py_equiv[len(py_equiv) - len(key):] == key:
+            py_equiv = py_equiv[:len(py_equiv) - len(key)] + val
     cpp_names[py_equiv] = name
+
+#fout = open('cpp.names', 'w')
+#for name in sorted(cpp_names.keys()):
+#    fout.write('%s\n'%name)
+#fout.close()
 
 # Assemble a lookup table of Python names.
 py_names = {}
 for name in sorted(dir(wm5)):
+    SREG = '_swigregister'
+    if name[len(name) - len(SREG):] == SREG:
+        continue
     py_names[name] = None
+
+#fout = open('py.names', 'w')
+#for name in sorted(py_names.keys()):
+#    fout.write('%s\n'%name)
+#fout.close()
 
 cpp_in_py = {}
 for name in cpp_names.keys():
