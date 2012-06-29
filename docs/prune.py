@@ -11,12 +11,13 @@ except:
     print 'Usage:  %s build_dir'%sys.argv[0]
     sys.exit(1)
 to_prune = (
-    'doctrees'          ,
-    'html/.buildinfo'   ,
-    'html/_sources'     ,
+    'doctrees',
+    'html/.buildinfo',
+    'html/_images',
+    'html/_sources',
     'html/coverage.html',
-    'html/objects.inv'  ,
-
+    'html/objects.inv',
+    'html/tools_api.html',
     )
 for entry in to_prune:
     full = os.path.join(build_dir, entry)

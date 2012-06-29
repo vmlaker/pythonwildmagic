@@ -1,16 +1,8 @@
 Contents of this directory:
 ---------------------------
+gen-docs.py      -  generates Sphinx documentation pages
 get-coverage.py  -  prints code coverage information
 Makefile         -  Sphinx makefile
 prune.py         -  prunes Sphinx build directory
 source           -  Sphinx documentation source code
 README           -  this README file
-
-To generate the documentation in a non-default location
-and prune the superfluous files (assumes ../out/ directory
-contains code analysis):
-
-  echo `./get-coverage.py ../out/cpp.txt` > source/coverage.rst
-  echo \*\(`date +'%A, %B %e, %Y'`\.\)\* >> source/coverage.rst
-  make BUILDDIR=../../doc html
-  ./prune.py ../../doc
