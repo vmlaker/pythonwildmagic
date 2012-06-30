@@ -35,6 +35,9 @@ GCC-XML
   `GCC-XML <http://www.gccxml.org>`_, the XML 
   output extension to GCC.
 
+The nice-looking pages you are reading were created using the
+`Sphinx <http://sphinx.pocoo.org>`_ documentation generator.
+
 |NAME| is an open source Google Code project at
 `python-wild-magic.googlecode.com <http://python-wild-magic.googlecode.com>`_.
 

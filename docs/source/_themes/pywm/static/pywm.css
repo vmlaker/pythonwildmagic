@@ -24,9 +24,10 @@ body {
     letter-spacing: -0.01em;
     line-height: 150%;
     text-align: center;
-    background-color: #BFD1D4;
-    background-color: #d1c7ff;
-    background-color: #e6c976;
+    background-color: #e6d2b5;
+    background-color: #e5d8b2;
+    background-image:  url(background.png);
+    background-repeat: repeat-x; 
     color: black;
     padding: 0;
     border: 1px solid #aaa;

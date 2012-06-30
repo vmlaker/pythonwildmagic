@@ -39,8 +39,8 @@ for name in sorted(dir(wm5)):
 
 def getRow(cpp_name):
     """Return an HTML string of a row tag for the given C++ name."""
-    color_yes = '#d4ffd4'
-    color_no = '#ffcdcd'
+    color_yes = '#edffed'
+    color_no = '#ffeded'
     entry_left = cgi.escape(cpp_name)
     py_equiv = cpp2py_names[cpp_name]
 
@@ -55,20 +55,21 @@ def getRow(cpp_name):
     # Assemble and return the table row tag.
     style = 'background-color: %s; '%color
     result  = '<tr style="%s">\n'%style
-    result += '  <td>%s</td>\n'%entry_left
-    result += '  <td>%s</td>\n'%entry_right
+    style = 'padding: 1px 10px 1px 10px; '
+    result += '  <td style="%s">%s</td>\n'%(style, entry_left)
+    result += '  <td style="%s">%s</td>\n'%(style, entry_right)
     result += '</tr>'
     return result
 
 # Print the table opening tag.
-style  = 'background-color: white; '
-style += 'border: 1px solid #cccccc; '
+style  = 'background-color: #dddddd; '
+style += 'border: 1px solid #bbbbbb; '
 style += 'border-spacing: 1px; '
 style += 'border-collapse: separate; '
 print '<table style="%s">'%style
 
 # Print the table header row.
-style  = 'background-color: #e2e2ff; '
+style  = 'background-color: #ededff; '
 style += 'text-align: center; '
 print '<tr>'
 print '  <th style="%s">C++ class</th>'%style

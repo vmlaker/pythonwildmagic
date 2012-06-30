@@ -9,28 +9,20 @@ The following guide will walk you step-by-step through installation of |NAME| --
 1. Install Wild Magic C++ libraries
 ===================================
 
-Create the destination directory and ``cd`` into it:
-::
-
-  setenv DEST $HOME/local/wild-magic-5.7
-  mkdir -p $DEST
-  cd $DEST
-
-Download and uncompress the archive file (note the discarding
-of superfluous paths):
+Download and uncompress the archive file:
 ::
 
   wget http://www.geometrictools.com/Downloads/WildMagic5p7.zip
   unzip WildMagic5p7.zip
-  mv GeometricTools/WildMagic5/* .
-  rm -rf GeometricTools
 
-Run *Make*:
+This created a sudirectory ``GeometricTools/WildMagic5/`` which contains the Wild Magic C++ code.
+Now run *Make*:
 ::
-
+ 
+  cd GeometricTools/WildMagic5
   make -j8 CFG=Release -f makefile.wm5
 
-In case *Make* fails with,
+In case *Make* fails with something like,
 
   :samp:`GL/glu.h: No such file or directory`
 
@@ -60,7 +52,7 @@ First, grab the |NAME| source code from the repository:
   cd python-wild-magic
 
 Then, edit file ``config.py`` and set the location of your Wild Magic installation.
-Once configured, build and install the extension module using Python Distutils:
+Once configured, build and install the extension module using Distutils:
 ::
 
   python setup.py build
@@ -72,24 +64,5 @@ To test your installation, run command:
 ::
      
   python test.py
-
-3.1 Optional build using *Make*
--------------------------------
-
-If the above Distutils way doesn't work for you, then try the following alternate build procedure.
-
-First, edit file ``Makefile`` to reflect locations of needed softwares. 
-Of particular interest are variables in *Third-Party Software* section indicating locations of your Python and Wild Magic installations. 
-These variables are:
-
-   * PY\*
-   * WM5\*
-
-With the makefile configured, run *Make*:
-   ::
-
-     make -j8
-     make test
-     make clean
 
 .. The end.
