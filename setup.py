@@ -56,6 +56,7 @@ module = Extension(
         'Wm5Imagics',
         'Wm5Physics',
         'Wm5GlxGraphics',
+        'GL',
         ],
     )
 

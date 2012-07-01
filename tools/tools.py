@@ -214,8 +214,10 @@ REPLACEMENTS = (
     ('<4>' , '4'),
     ('<5>' , '5'),
     ('<6>' , '6'),
+    ('Pointer0<Wm5::', 'Pointer0'),
     ('Wm5::', 'wm5.'),
     ('::', '.'),
+    ('>', ''),
     )
 
 def getPyName(cpp_name):

@@ -10,8 +10,9 @@ Wild Magic 5.7
 ==============
   
   This is the awsome |WM_DESCR|.
-  The source code is generously made freely downloadable from
-  `www.geometrictools.com <http://www.geometrictools.com>`_.
+  It is written by 
+  `Geometric Tools <http://www.geometrictools.com>`_ 
+  and is free to download from their site.
 
 Python 2
 ========
@@ -25,7 +26,7 @@ SWIG
 ====
   
   The `SWIG <http://www.swig.org>`_ 
-  interface compiler wraps
+  interface compiler is used to wrap
   C++ libraries into Python API.
 
 GCC-XML

@@ -475,34 +475,9 @@
 #include "Wm5PolyhedralMassProperties.h"
 #include "Wm5RigidBody.h"
 //  LibGraphics
-//#include "Wm5Graphics.h"
+#include "Wm5Graphics.h"
 #include "Wm5GraphicsLIB.h"
-//#include "Wm5GraphicsPCH.h"
-//  LibGraphics/Controllers
-//#include "Wm5BlendTransformController.h"
-//#include "Wm5ControlledObject.h"
-#include "Wm5Controller.h"
-//#include "Wm5IKController.h"
-//#include "Wm5IKGoal.h"
-//#include "Wm5IKJoint.h"
-//#include "Wm5KeyframeController.h"
-//#include "Wm5MorphController.h"
-//#include "Wm5ParticleController.h"
-//#include "Wm5PointController.h"
-//#include "Wm5SkinController.h"
-//#include "Wm5TransformController.h"
-//  LibGraphics/CurvesSurfaces
-//#include "Wm5BSplineSurfacePatch.h"
-//#include "Wm5BoxSurface.h"
-//#include "Wm5CurveMesh.h"
-//#include "Wm5CurveSegment.h"
-//#include "Wm5Float2Array.h"
-//#include "Wm5FloatArray.h"
-//#include "Wm5RectangleSurface.h"
-//#include "Wm5RevolutionSurface.h"
-//#include "Wm5SurfaceMesh.h"
-//#include "Wm5SurfacePatch.h"
-//#include "Wm5TubeSurface.h"
+#include "Wm5GraphicsPCH.h"
 //  LibGraphics/DataTypes
 #include "Wm5Bound.h"
 #include "Wm5Color.h"
@@ -513,19 +488,15 @@
 //  LibGraphics/Detail
 //#include "Wm5BillboardNode.h"
 //#include "Wm5ClodMesh.h"
-//#include "Wm5CollapseRecord.h"
-//#include "Wm5CollapseRecordArray.h"
+#include "Wm5CollapseRecord.h"
+#include "Wm5CollapseRecordArray.h"
 //#include "Wm5CreateClodMesh.h"
-//#include "Wm5DlodNode.h"
-//#include "Wm5SwitchNode.h"
+#include "Wm5DlodNode.h"
+#include "Wm5SwitchNode.h"
 //  LibGraphics/GlobalEffects
 //#include "Wm5GlobalEffect.h"
 //#include "Wm5PlanarReflectionEffect.h"
 //#include "Wm5PlanarShadowEffect.h"
-//  LibGraphics/ImageProcessing
-//#include "Wm5ImageProcessing.h"
-//#include "Wm5ImageProcessing2.h"
-//#include "Wm5ImageProcessing3.h"
 //  LibGraphics/LocalEffects
 //#include "Wm5DefaultEffect.h"
 //#include "Wm5LightAmbEffect.h"
@@ -569,40 +540,69 @@
 //#include "Wm5OpenGLVertexFormat.h"
 //#include "Wm5OpenGLVertexShader.h"
 //  LibGraphics/Resources
-//#include "Wm5Buffer.h"
-//#include "Wm5IndexBuffer.h"
-//#include "Wm5RenderTarget.h"
-//#include "Wm5Texture.h"
-//#include "Wm5Texture1D.h"
-//#include "Wm5Texture2D.h"
-//#include "Wm5Texture3D.h"
-//#include "Wm5TextureCube.h"
-//#include "Wm5VertexBuffer.h"
+#include "Wm5Buffer.h"
+#include "Wm5IndexBuffer.h"
+#include "Wm5Texture.h"
+#include "Wm5Texture1D.h"
+#include "Wm5Texture2D.h"
+#include "Wm5Texture3D.h"
+#include "Wm5RenderTarget.h"
+#include "Wm5TextureCube.h"
+#include "Wm5VertexBuffer.h"
 //#include "Wm5VertexBufferAccessor.h"
-//#include "Wm5VertexFormat.h"
+#include "Wm5VertexFormat.h"
+//  LibGraphics/CurvesSurfaces
+#include "Wm5BSplineSurfacePatch.h"
+#include "Wm5BoxSurface.h"
+#include "Wm5Float2Array.h"
+#include "Wm5FloatArray.h"
+#include "Wm5CurveSegment.h"
+#include "Wm5CurveMesh.h"
+#include "Wm5RectangleSurface.h"
+#include "Wm5RevolutionSurface.h"
+#include "Wm5SurfacePatch.h"
+#include "Wm5SurfaceMesh.h"
+#include "Wm5TubeSurface.h"
 //  LibGraphics/SceneGraph
-//#include "Wm5Camera.h"
-//#include "Wm5CameraNode.h"
-//#include "Wm5Culler.h"
-//#include "Wm5Light.h"
-//#include "Wm5LightNode.h"
-//#include "Wm5Material.h"
-//#include "Wm5Node.h"
-//#include "Wm5Particles.h"
-//#include "Wm5PickRecord.h"
-//#include "Wm5Picker.h"
-//#include "Wm5Polypoint.h"
-//#include "Wm5Polysegment.h"
-//#include "Wm5Projector.h"
-//#include "Wm5ScreenTarget.h"
-//#include "Wm5Spatial.h"
+#include "Wm5Spatial.h"
+#include "Wm5Node.h"
+#include "Wm5Camera.h"
+#include "Wm5CameraNode.h"
+#include "Wm5VisibleSet.h"
+#include "Wm5Culler.h"
+#include "Wm5Light.h"
+#include "Wm5LightNode.h"
+#include "Wm5Material.h"
+#include "Wm5Particles.h"
+#include "Wm5PickRecord.h"
+#include "Wm5Picker.h"
+#include "Wm5Polypoint.h"
+#include "Wm5Polysegment.h"
+#include "Wm5Projector.h"
 //#include "Wm5StandardMesh.h"
-//#include "Wm5TriFan.h"
-//#include "Wm5TriMesh.h"
-//#include "Wm5TriStrip.h"
+#include "Wm5TriFan.h"
+#include "Wm5TriMesh.h"
+#include "Wm5TriStrip.h"
+#include "Wm5ScreenTarget.h"
 //#include "Wm5Triangles.h"
-//#include "Wm5VisibleSet.h"
 //#include "Wm5Visual.h"
+//  LibGraphics/ImageProcessing
+//#include "Wm5ImageProcessing.h"
+//#include "Wm5ImageProcessing2.h"
+//#include "Wm5ImageProcessing3.h"
+//  LibGraphics/Controllers
+#include "Wm5Controller.h"
+#include "Wm5ControlledObject.h"
+#include "Wm5IKGoal.h"
+#include "Wm5IKJoint.h"
+#include "Wm5IKController.h"
+#include "Wm5KeyframeController.h"
+#include "Wm5MorphController.h"
+#include "Wm5ParticleController.h"
+#include "Wm5PointController.h"
+#include "Wm5SkinController.h"
+#include "Wm5TransformController.h"
+#include "Wm5BlendTransformController.h"
 //  LibGraphics/ShaderFloats
 //#include "Wm5CameraModelDVectorConstant.h"
 //#include "Wm5CameraModelPositionConstant.h"
@@ -646,14 +646,14 @@
 //#include "Wm5VisualTechnique.h"
 #include "Wm5WireState.h"
 //  LibGraphics/Sorting
-//#include "Wm5BspNode.h"
-//#include "Wm5CRMCuller.h"
-//#include "Wm5ConvexRegion.h"
-//#include "Wm5ConvexRegionManager.h"
-//#include "Wm5Portal.h"
+#include "Wm5BspNode.h"
+#include "Wm5CRMCuller.h"
+#include "Wm5ConvexRegion.h"
+#include "Wm5ConvexRegionManager.h"
+#include "Wm5Portal.h"
 //  LibGraphics/Terrain
-//#include "Wm5Terrain.h"
-//#include "Wm5TerrainPage.h"
+#include "Wm5TerrainPage.h"
+#include "Wm5Terrain.h"
 
 %}
 
@@ -1124,57 +1124,28 @@
 %include "Wm5PolyhedralMassProperties.h"
 %include "Wm5RigidBody.h"
 //  LibGraphics
-//%include "Wm5Graphics.h"
+%include "Wm5Graphics.h"
 %include "Wm5GraphicsLIB.h"
-//%include "Wm5GraphicsPCH.h"
-//  LibGraphics/Controllers
-//%include "Wm5BlendTransformController.h"
-//%include "Wm5ControlledObject.h"
-%include "Wm5Controller.h"
-//%include "Wm5IKController.h"
-//%include "Wm5IKGoal.h"
-//%include "Wm5IKJoint.h"
-//%include "Wm5KeyframeController.h"
-//%include "Wm5MorphController.h"
-//%include "Wm5ParticleController.h"
-//%include "Wm5PointController.h"
-//%include "Wm5SkinController.h"
-//%include "Wm5TransformController.h"
-//  LibGraphics/CurvesSurfaces
-//%include "Wm5BSplineSurfacePatch.h"
-//%include "Wm5BoxSurface.h"
-//%include "Wm5CurveMesh.h"
-//%include "Wm5CurveSegment.h"
-//%include "Wm5Float2Array.h"
-//%include "Wm5FloatArray.h"
-//%include "Wm5RectangleSurface.h"
-//%include "Wm5RevolutionSurface.h"
-//%include "Wm5SurfaceMesh.h"
-//%include "Wm5SurfacePatch.h"
-//%include "Wm5TubeSurface.h"
+%include "Wm5GraphicsPCH.h"
 //  LibGraphics/DataTypes
 %include "Wm5Transform.h"
 %include "Wm5Bound.h"
-//%include "Wm5Color.h"
-//%include "Wm5HalfFloat.h"
-//%include "Wm5SpecializedIO.h"
-//%include "Wm5Utility.h"
+%include "Wm5Color.h"
+%include "Wm5HalfFloat.h"
+%include "Wm5SpecializedIO.h"
+%include "Wm5Utility.h"
 //  LibGraphics/Detail
 //%include "Wm5BillboardNode.h"
 //%include "Wm5ClodMesh.h"
-//%include "Wm5CollapseRecord.h"
-//%include "Wm5CollapseRecordArray.h"
+%include "Wm5CollapseRecord.h"
+%include "Wm5CollapseRecordArray.h"
 //%include "Wm5CreateClodMesh.h"
-//%include "Wm5DlodNode.h"
-//%include "Wm5SwitchNode.h"
+%include "Wm5DlodNode.h"
+%include "Wm5SwitchNode.h"
 //  LibGraphics/GlobalEffects
 //%include "Wm5GlobalEffect.h"
 //%include "Wm5PlanarReflectionEffect.h"
 //%include "Wm5PlanarShadowEffect.h"
-//  LibGraphics/ImageProcessing
-//%include "Wm5ImageProcessing.h"
-//%include "Wm5ImageProcessing2.h"
-//%include "Wm5ImageProcessing3.h"
 //  LibGraphics/LocalEffects
 //%include "Wm5DefaultEffect.h"
 //%include "Wm5LightAmbEffect.h"
@@ -1218,40 +1189,69 @@
 //%include "Wm5OpenGLVertexFormat.h"
 //%include "Wm5OpenGLVertexShader.h"
 //  LibGraphics/Resources
-//%include "Wm5Buffer.h"
-//%include "Wm5IndexBuffer.h"
-//%include "Wm5RenderTarget.h"
-//%include "Wm5Texture.h"
-//%include "Wm5Texture1D.h"
-//%include "Wm5Texture2D.h"
-//%include "Wm5Texture3D.h"
-//%include "Wm5TextureCube.h"
-//%include "Wm5VertexBuffer.h"
+%include "Wm5Buffer.h"
+%include "Wm5IndexBuffer.h"
+%include "Wm5Texture.h"
+%include "Wm5Texture1D.h"
+%include "Wm5Texture2D.h"
+%include "Wm5Texture3D.h"
+%include "Wm5TextureCube.h"
+%include "Wm5RenderTarget.h"
+%include "Wm5VertexBuffer.h"
 //%include "Wm5VertexBufferAccessor.h"
-//%include "Wm5VertexFormat.h"
+%include "Wm5VertexFormat.h"
+//  LibGraphics/CurvesSurfaces
+%include "Wm5BSplineSurfacePatch.h"
+%include "Wm5BoxSurface.h"
+%include "Wm5Float2Array.h"
+%include "Wm5FloatArray.h"
+%include "Wm5CurveSegment.h"
+%include "Wm5CurveMesh.h"
+%include "Wm5RectangleSurface.h"
+%include "Wm5RevolutionSurface.h"
+%include "Wm5SurfacePatch.h"
+%include "Wm5SurfaceMesh.h"
+%include "Wm5TubeSurface.h"
 //  LibGraphics/SceneGraph
-//%include "Wm5Camera.h"
-//%include "Wm5CameraNode.h"
-//%include "Wm5Culler.h"
-//%include "Wm5Light.h"
-//%include "Wm5LightNode.h"
-//%include "Wm5Material.h"
-//%include "Wm5Node.h"
-//%include "Wm5Particles.h"
-//%include "Wm5PickRecord.h"
-//%include "Wm5Picker.h"
-//%include "Wm5Polypoint.h"
-//%include "Wm5Polysegment.h"
-//%include "Wm5Projector.h"
-//%include "Wm5ScreenTarget.h"
-//%include "Wm5Spatial.h"
+%include "Wm5Spatial.h"
+%include "Wm5Node.h"
+%include "Wm5Camera.h"
+%include "Wm5CameraNode.h"
+%include "Wm5VisibleSet.h"
+%include "Wm5Culler.h"
+%include "Wm5Light.h"
+%include "Wm5LightNode.h"
+%include "Wm5Material.h"
+%include "Wm5Particles.h"
+%include "Wm5PickRecord.h"
+%include "Wm5Picker.h"
+%include "Wm5Polypoint.h"
+%include "Wm5Polysegment.h"
+%include "Wm5Projector.h"
 //%include "Wm5StandardMesh.h"
-//%include "Wm5TriFan.h"
-//%include "Wm5TriMesh.h"
-//%include "Wm5TriStrip.h"
+%include "Wm5TriFan.h"
+%include "Wm5TriMesh.h"
+%include "Wm5TriStrip.h"
+%include "Wm5ScreenTarget.h"
 //%include "Wm5Triangles.h"
-//%include "Wm5VisibleSet.h"
 //%include "Wm5Visual.h"
+//  LibGraphics/ImageProcessing
+//%include "Wm5ImageProcessing.h"
+//%include "Wm5ImageProcessing2.h"
+//%include "Wm5ImageProcessing3.h"
+//  LibGraphics/Controllers
+%include "Wm5Controller.h"
+%include "Wm5ControlledObject.h"
+%include "Wm5IKGoal.h"
+%include "Wm5IKJoint.h"
+%include "Wm5IKController.h"
+%include "Wm5KeyframeController.h"
+%include "Wm5MorphController.h"
+%include "Wm5ParticleController.h"
+%include "Wm5PointController.h"
+%include "Wm5SkinController.h"
+%include "Wm5TransformController.h"
+%include "Wm5BlendTransformController.h"
 //  LibGraphics/ShaderFloats
 //%include "Wm5CameraModelDVectorConstant.h"
 //%include "Wm5CameraModelPositionConstant.h"
@@ -1295,14 +1295,14 @@
 //%include "Wm5VisualTechnique.h"
 %include "Wm5WireState.h"
 //  LibGraphics/Sorting
-//%include "Wm5BspNode.h"
-//%include "Wm5CRMCuller.h"
-//%include "Wm5ConvexRegion.h"
-//%include "Wm5ConvexRegionManager.h"
-//%include "Wm5Portal.h"
+%include "Wm5BspNode.h"
+%include "Wm5CRMCuller.h"
+%include "Wm5ConvexRegion.h"
+%include "Wm5ConvexRegionManager.h"
+%include "Wm5Portal.h"
 //  LibGraphics/Terrain
-//%include "Wm5Terrain.h"
-//%include "Wm5TerrainPage.h"
+%include "Wm5TerrainPage.h"
+%include "Wm5Terrain.h"
 
 
 %template (Tuple1i) Wm5::Tuple<1, int>;
@@ -1911,6 +1911,131 @@
 %template (Vector3f) Wm5::Vector3<float>;
 %template (Vector4d) Wm5::Vector4<double>;
 %template (Vector4f) Wm5::Vector4<float>;
+
+//%rename (AlphaStatePtr) operator Wm5::AlphaState*;
+//%rename (ObjectPtr) operator Wm5::Object*;
+%template (Pointer0AlphaState) Wm5::Pointer0<Wm5::AlphaState>;
+%template (Pointer0BillboardNode) Wm5::Pointer0<Wm5::BillboardNode>;	
+%template (Pointer0BlendTransformController) Wm5::Pointer0<Wm5::BlendTransformController>;	
+%template (Pointer0BoxSurface) Wm5::Pointer0<Wm5::BoxSurface>;	
+%template (Pointer0BspNode) Wm5::Pointer0<Wm5::BspNode>;	
+%template (Pointer0Buffer) Wm5::Pointer0<Wm5::Buffer>;	
+%template (Pointer0Camera) Wm5::Pointer0<Wm5::Camera>;	
+%template (Pointer0CameraModelDVectorConstant) Wm5::Pointer0<Wm5::CameraModelDVectorConstant>;	
+%template (Pointer0CameraModelPositionConstant) Wm5::Pointer0<Wm5::CameraModelPositionConstant>;	
+%template (Pointer0CameraNode) Wm5::Pointer0<Wm5::CameraNode>;	
+%template (Pointer0CameraWorldDVectorConstant) Wm5::Pointer0<Wm5::CameraWorldDVectorConstant>;	
+%template (Pointer0CameraWorldPositionConstant) Wm5::Pointer0<Wm5::CameraWorldPositionConstant>;	
+%template (Pointer0ClodMesh) Wm5::Pointer0<Wm5::ClodMesh>;	
+%template (Pointer0CollapseRecordArray) Wm5::Pointer0<Wm5::CollapseRecordArray>;	
+%template (Pointer0ControlledObject) Wm5::Pointer0<Wm5::ControlledObject>;	
+%template (Pointer0Controller) Wm5::Pointer0<Wm5::Controller>;	
+%template (Pointer0ConvexRegion) Wm5::Pointer0<Wm5::ConvexRegion>;	
+%template (Pointer0ConvexRegionManager) Wm5::Pointer0<Wm5::ConvexRegionManager>;	
+%template (Pointer0CullState) Wm5::Pointer0<Wm5::CullState>;	
+%template (Pointer0CurveMesh) Wm5::Pointer0<Wm5::CurveMesh>;	
+%template (Pointer0CurveSegment) Wm5::Pointer0<Wm5::CurveSegment>;	
+%template (Pointer0DefaultEffect) Wm5::Pointer0<Wm5::DefaultEffect>;	
+%template (Pointer0DepthState) Wm5::Pointer0<Wm5::DepthState>;	
+%template (Pointer0DlodNode) Wm5::Pointer0<Wm5::DlodNode>;	
+%template (Pointer0Float2Array) Wm5::Pointer0<Wm5::Float2Array>;	
+%template (Pointer0FloatArray) Wm5::Pointer0<Wm5::FloatArray>;	
+%template (Pointer0GlobalEffect) Wm5::Pointer0<Wm5::GlobalEffect>;	
+%template (Pointer0IKController) Wm5::Pointer0<Wm5::IKController>;	
+%template (Pointer0IKGoal) Wm5::Pointer0<Wm5::IKGoal>;	
+%template (Pointer0IKJoint) Wm5::Pointer0<Wm5::IKJoint>;	
+%template (Pointer0IndexBuffer) Wm5::Pointer0<Wm5::IndexBuffer>;	
+%template (Pointer0KeyframeController) Wm5::Pointer0<Wm5::KeyframeController>;	
+%template (Pointer0Light) Wm5::Pointer0<Wm5::Light>;	
+%template (Pointer0LightAmbEffect) Wm5::Pointer0<Wm5::LightAmbEffect>;	
+%template (Pointer0LightAmbientConstant) Wm5::Pointer0<Wm5::LightAmbientConstant>;	
+%template (Pointer0LightAttenuationConstant) Wm5::Pointer0<Wm5::LightAttenuationConstant>;	
+%template (Pointer0LightDiffuseConstant) Wm5::Pointer0<Wm5::LightDiffuseConstant>;	
+%template (Pointer0LightDirPerPixEffect) Wm5::Pointer0<Wm5::LightDirPerPixEffect>;	
+%template (Pointer0LightDirPerVerEffect) Wm5::Pointer0<Wm5::LightDirPerVerEffect>;	
+%template (Pointer0LightModelDVectorConstant) Wm5::Pointer0<Wm5::LightModelDVectorConstant>;	
+%template (Pointer0LightModelPositionConstant) Wm5::Pointer0<Wm5::LightModelPositionConstant>;	
+%template (Pointer0LightNode) Wm5::Pointer0<Wm5::LightNode>;	
+%template (Pointer0LightPntPerPixEffect) Wm5::Pointer0<Wm5::LightPntPerPixEffect>;	
+%template (Pointer0LightPntPerVerEffect) Wm5::Pointer0<Wm5::LightPntPerVerEffect>;	
+%template (Pointer0LightSpecularConstant) Wm5::Pointer0<Wm5::LightSpecularConstant>;	
+%template (Pointer0LightSpotConstant) Wm5::Pointer0<Wm5::LightSpotConstant>;	
+%template (Pointer0LightSptPerPixEffect) Wm5::Pointer0<Wm5::LightSptPerPixEffect>;	
+%template (Pointer0LightSptPerVerEffect) Wm5::Pointer0<Wm5::LightSptPerVerEffect>;	
+%template (Pointer0LightWorldDVectorConstant) Wm5::Pointer0<Wm5::LightWorldDVectorConstant>;	
+%template (Pointer0LightWorldPositionConstant) Wm5::Pointer0<Wm5::LightWorldPositionConstant>;	
+%template (Pointer0Material) Wm5::Pointer0<Wm5::Material>;	
+%template (Pointer0MaterialAmbientConstant) Wm5::Pointer0<Wm5::MaterialAmbientConstant>;	
+%template (Pointer0MaterialDiffuseConstant) Wm5::Pointer0<Wm5::MaterialDiffuseConstant>;	
+%template (Pointer0MaterialEffect) Wm5::Pointer0<Wm5::MaterialEffect>;	
+%template (Pointer0MaterialEmissiveConstant) Wm5::Pointer0<Wm5::MaterialEmissiveConstant>;	
+%template (Pointer0MaterialSpecularConstant) Wm5::Pointer0<Wm5::MaterialSpecularConstant>;	
+%template (Pointer0MaterialTextureEffect) Wm5::Pointer0<Wm5::MaterialTextureEffect>;	
+%template (Pointer0MorphController) Wm5::Pointer0<Wm5::MorphController>;	
+%template (Pointer0Node) Wm5::Pointer0<Wm5::Node>;	
+%template (Pointer0Object) Wm5::Pointer0<Wm5::Object>;;
+%template (Pointer0OffsetState) Wm5::Pointer0<Wm5::OffsetState>;	
+%template (Pointer0PMatrixConstant) Wm5::Pointer0<Wm5::PMatrixConstant>;	
+%template (Pointer0PVMatrixConstant) Wm5::Pointer0<Wm5::PVMatrixConstant>;	
+%template (Pointer0PVWMatrixConstant) Wm5::Pointer0<Wm5::PVWMatrixConstant>;	
+%template (Pointer0ParticleController) Wm5::Pointer0<Wm5::ParticleController>;	
+%template (Pointer0Particles) Wm5::Pointer0<Wm5::Particles>;	
+%template (Pointer0PixelShader) Wm5::Pointer0<Wm5::PixelShader>;	
+%template (Pointer0PlanarReflectionEffect) Wm5::Pointer0<Wm5::PlanarReflectionEffect>;	
+%template (Pointer0PlanarShadowEffect) Wm5::Pointer0<Wm5::PlanarShadowEffect>;	
+%template (Pointer0PointController) Wm5::Pointer0<Wm5::PointController>;	
+%template (Pointer0Polypoint) Wm5::Pointer0<Wm5::Polypoint>;	
+%template (Pointer0Polysegment) Wm5::Pointer0<Wm5::Polysegment>;	
+%template (Pointer0Portal) Wm5::Pointer0<Wm5::Portal>;	
+%template (Pointer0Projector) Wm5::Pointer0<Wm5::Projector>;	
+%template (Pointer0ProjectorMatrixConstant) Wm5::Pointer0<Wm5::ProjectorMatrixConstant>;	
+%template (Pointer0ProjectorWorldPositionConstant) Wm5::Pointer0<Wm5::ProjectorWorldPositionConstant>;	
+%template (Pointer0RectangleSurface) Wm5::Pointer0<Wm5::RectangleSurface>;	
+%template (Pointer0RenderTarget) Wm5::Pointer0<Wm5::RenderTarget>;	
+%template (Pointer0RevolutionSurface) Wm5::Pointer0<Wm5::RevolutionSurface>;	
+%template (Pointer0Shader) Wm5::Pointer0<Wm5::Shader>;	
+%template (Pointer0ShaderFloat) Wm5::Pointer0<Wm5::ShaderFloat>;	
+%template (Pointer0ShaderParameters) Wm5::Pointer0<Wm5::ShaderParameters>;	
+%template (Pointer0SkinController) Wm5::Pointer0<Wm5::SkinController>;	
+%template (Pointer0Spatial) Wm5::Pointer0<Wm5::Spatial>;	
+%template (Pointer0StencilState) Wm5::Pointer0<Wm5::StencilState>;	
+%template (Pointer0SurfaceMesh) Wm5::Pointer0<Wm5::SurfaceMesh>;	
+%template (Pointer0SurfacePatch) Wm5::Pointer0<Wm5::SurfacePatch>;	
+%template (Pointer0SwitchNode) Wm5::Pointer0<Wm5::SwitchNode>;	
+%template (Pointer0Terrain) Wm5::Pointer0<Wm5::Terrain>;	
+%template (Pointer0TerrainPage) Wm5::Pointer0<Wm5::TerrainPage>;
+%template (Pointer0Texture1D) Wm5::Pointer0<Wm5::Texture1D>;	
+%template (Pointer0Texture1DEffect) Wm5::Pointer0<Wm5::Texture1DEffect>;	
+%template (Pointer0Texture2AddEffect) Wm5::Pointer0<Wm5::Texture2AddEffect>;	
+%template (Pointer0Texture2ColorBlendEffect) Wm5::Pointer0<Wm5::Texture2ColorBlendEffect>;	
+%template (Pointer0Texture2D) Wm5::Pointer0<Wm5::Texture2D>;	
+%template (Pointer0Texture2DEffect) Wm5::Pointer0<Wm5::Texture2DEffect>;	
+%template (Pointer0Texture2MulEffect) Wm5::Pointer0<Wm5::Texture2MulEffect>;	
+%template (Pointer0Texture3D) Wm5::Pointer0<Wm5::Texture3D>;	
+%template (Pointer0Texture3DEffect) Wm5::Pointer0<Wm5::Texture3DEffect>;	
+%template (Pointer0Texture) Wm5::Pointer0<Wm5::Texture>;	
+%template (Pointer0TextureCube) Wm5::Pointer0<Wm5::TextureCube>;	
+%template (Pointer0TransformController) Wm5::Pointer0<Wm5::TransformController>;	
+%template (Pointer0TriFan) Wm5::Pointer0<Wm5::TriFan>;	
+%template (Pointer0TriMesh) Wm5::Pointer0<Wm5::TriMesh>;	
+%template (Pointer0TriStrip) Wm5::Pointer0<Wm5::TriStrip>;	
+%template (Pointer0Triangles) Wm5::Pointer0<Wm5::Triangles>;	
+%template (Pointer0TubeSurface) Wm5::Pointer0<Wm5::TubeSurface>;	
+%template (Pointer0VMatrixConstant) Wm5::Pointer0<Wm5::VMatrixConstant>;	
+%template (Pointer0VWMatrixConstant) Wm5::Pointer0<Wm5::VWMatrixConstant>;	
+%template (Pointer0VertexBuffer) Wm5::Pointer0<Wm5::VertexBuffer>;	
+%template (Pointer0VertexColor3Effect) Wm5::Pointer0<Wm5::VertexColor3Effect>;	
+%template (Pointer0VertexColor4Effect) Wm5::Pointer0<Wm5::VertexColor4Effect>;	
+%template (Pointer0VertexColor4TextureEffect) Wm5::Pointer0<Wm5::VertexColor4TextureEffect>;	
+%template (Pointer0VertexFormat) Wm5::Pointer0<Wm5::VertexFormat>;	
+%template (Pointer0VertexShader) Wm5::Pointer0<Wm5::VertexShader>;	
+%template (Pointer0Visual) Wm5::Pointer0<Wm5::Visual>;	
+%template (Pointer0VisualEffect) Wm5::Pointer0<Wm5::VisualEffect>;	
+%template (Pointer0VisualEffectInstance) Wm5::Pointer0<Wm5::VisualEffectInstance>;	
+%template (Pointer0VisualPass) Wm5::Pointer0<Wm5::VisualPass>;	
+%template (Pointer0VisualTechnique) Wm5::Pointer0<Wm5::VisualTechnique>;	
+%template (Pointer0WMatrixConstant) Wm5::Pointer0<Wm5::WMatrixConstant>;	
+%template (Pointer0WireState) Wm5::Pointer0<Wm5::WireState>;
 
 // Ignore the nested struct ::Information. Both Vector2 and Vector3
 // have it, but since SWIG redefines nested structs as global, 
