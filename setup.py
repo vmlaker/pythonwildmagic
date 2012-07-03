@@ -49,6 +49,9 @@ module = Extension(
         '-I%s'%config.WM5INCDIR
         ],
     include_dirs = [config.WM5INCDIR],
+    extra_compile_args = [
+        '-Wno-unused-but-set-variable',
+        ],
     library_dirs = [config.WM5LIBDIR],
     libraries = [
         'Wm5Core', 
@@ -56,6 +59,7 @@ module = Extension(
         'Wm5Imagics',
         'Wm5Physics',
         'Wm5GlxGraphics',
+        'Wm5GlxApplication',
         'GL',
         ],
     )

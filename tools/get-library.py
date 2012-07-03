@@ -73,6 +73,7 @@ WM5_DIRS = [
     'LibGraphics/Shaders', 
     'LibGraphics/Sorting',
     'LibGraphics/Terrain',
+    'LibApplications',
     ]
 
 print '%module wm5'

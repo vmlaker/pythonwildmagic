@@ -22,8 +22,11 @@ p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
 p.wait()
 line = p.stdout.readlines()[0]
 values = re.findall(r'[0-9]+\.*[0-9]*', line)
-text = '**%s of %s (%s%%)** classes are wrapped so far' \
-    %(values[0], values[1], values[2])
+num_py = int(values[0])
+num_total = int(values[1])
+percent = values[2]
+text = '**%s** of **%s** classes (**%s%%**) are wrapped' \
+    %(num_py, num_total, percent)
 print text
 
 # The end.

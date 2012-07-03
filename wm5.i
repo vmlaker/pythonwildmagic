@@ -12,649 +12,37 @@
 #include "Wm5Core.h"
 #include "Wm5CoreLIB.h"
 #include "Wm5CorePCH.h"
-//  LibCore/Assert
-#include "Wm5Assert.h"
-//  LibCore/DataTypes
-#include "Wm5MinHeap.h"
-#include "Wm5Table.h"
-#include "Wm5Tuple.h"
-//  LibCore/InputOutput
-#include "Wm5BufferIO.h"
-#include "Wm5Endian.h"
-#include "Wm5Environment.h"
-#include "Wm5FileIO.h"
-//  LibCore/Memory
-#include "Wm5Memory.h"
-#include "Wm5SmartPointer.h"
-//  LibCore/ObjectSystems
-#include "Wm5InStream.h"
-#include "Wm5InitTerm.h"
-#include "Wm5Names.h"
-#include "Wm5Object.h"
-#include "Wm5OutStream.h"
-#include "Wm5Rtti.h"
-#include "Wm5Stream.h"
-//  LibCore/Threading
-#include "Wm5Mutex.h"
-#include "Wm5MutexType.h"
-#include "Wm5ScopedCS.h"
-#include "Wm5Thread.h"
-#include "Wm5ThreadType.h"
-//  LibCore/Time
-#include "Wm5Time.h"
 //  LibMathematics
 #include "Wm5Mathematics.h"
 #include "Wm5MathematicsLIB.h"
 #include "Wm5MathematicsPCH.h"
-//  LibMathematics/Algebra
-#include "Wm5APoint.h"
-#include "Wm5AVector.h"
-#include "Wm5BandedMatrix.h"
-#include "Wm5GMatrix.h"
-#include "Wm5GVector.h"
-#include "Wm5HMatrix.h"
-#include "Wm5HPlane.h"
-#include "Wm5HPoint.h"
-#include "Wm5HQuaternion.h"
-#include "Wm5Matrix2.h"
-#include "Wm5Matrix3.h"
-#include "Wm5Matrix4.h"
-#include "Wm5Polynomial1.h"
-#include "Wm5Quaternion.h"
-#include "Wm5Vector2.h"
-#include "Wm5Vector3.h"
-#include "Wm5Vector4.h"
-//  LibMathematics/Approximation
-#include "Wm5ApprCircleFit2.h"
-#include "Wm5ApprCylinderFit3.h"
-#include "Wm5ApprEllipseByArcs2.h"
-#include "Wm5ApprEllipseFit2.h"
-#include "Wm5ApprEllipsoidFit3.h"
-#include "Wm5ApprGaussPointsFit2.h"
-#include "Wm5ApprGaussPointsFit3.h"
-#include "Wm5ApprGreatCircleFit3.h"
-#include "Wm5ApprLineFit2.h"
-#include "Wm5ApprLineFit3.h"
-#include "Wm5ApprParaboloidFit3.h"
-#include "Wm5ApprPlaneFit3.h"
-#include "Wm5ApprPolyFit2.h"
-#include "Wm5ApprPolyFit3.h"
-#include "Wm5ApprPolyFit4.h"
-#include "Wm5ApprPolynomialFit2.h"
-#include "Wm5ApprPolynomialFit3.h"
-#include "Wm5ApprPolynomialFit4.h"
-#include "Wm5ApprQuadraticFit2.h"
-#include "Wm5ApprQuadraticFit3.h"
-#include "Wm5ApprSphereFit3.h"
-//  LibMathematics/Base
-#include "Wm5BitHacks.h"
-#include "Wm5Float1.h"
-#include "Wm5Float2.h"
-#include "Wm5Float3.h"
-#include "Wm5Float4.h"
-#include "Wm5Math.h"
-//  LibMathematics/ComputationalGeometry
-#include "Wm5ConvexHull.h"
-#include "Wm5ConvexHull1.h"
-#include "Wm5ConvexHull2.h"
-#include "Wm5ConvexHull3.h"
-#include "Wm5Delaunay.h"
-#include "Wm5Delaunay1.h"
-#include "Wm5Delaunay2.h"
-#include "Wm5Delaunay3.h"
-#include "Wm5IncrementalDelaunay2.h"
-#include "Wm5TriangulateEC.h"
-//  LibMathematics/Containment
-#include "Wm5ContBox2.h"
-#include "Wm5ContBox3.h"
-#include "Wm5ContCapsule3.h"
-#include "Wm5ContCylinder3.h"
-#include "Wm5ContEllipse2.h"
-#include "Wm5ContEllipse2MinCR.h"
-#include "Wm5ContEllipsoid3.h"
-#include "Wm5ContEllipsoid3MinCR.h"
-#include "Wm5ContLozenge3.h"
-#include "Wm5ContMinBox2.h"
-#include "Wm5ContMinBox3.h"
-#include "Wm5ContMinCircle2.h"
-#include "Wm5ContMinSphere3.h"
-#include "Wm5ContPointInPolygon2.h"
-#include "Wm5ContPointInPolyhedron3.h"
-#include "Wm5ContScribeCircle2.h"
-#include "Wm5ContScribeCircle3Sphere3.h"
-#include "Wm5ContSeparatePoints2.h"
-#include "Wm5ContSeparatePoints3.h"
-#include "Wm5ContSphere3.h"
-//  LibMathematics/CurvesSurfacesVolumes
-#include "Wm5BSplineBasis.h"
-#include "Wm5Curve2.h"
-#include "Wm5Curve3.h"
-#include "Wm5SingleCurve2.h"
-#include "Wm5SingleCurve3.h"
-#include "Wm5BSplineCurve2.h"
-#include "Wm5BSplineCurve3.h"
-#include "Wm5BSplineCurveFit.h"
-#include "Wm5BSplineFitBasis.h"
-#include "Wm5RiemannianGeodesic.h"
-#include "Wm5ParametricSurface.h"
-#include "Wm5BSplineGeodesic.h"
-#include "Wm5BSplineRectangle.h"
-#include "Wm5BSplineReduction.h"
-#include "Wm5BSplineSurfaceFit.h"
-#include "Wm5BSplineVolume.h"
-#include "Wm5BezierCurve2.h"
-#include "Wm5BezierCurve3.h"
-#include "Wm5CubicPolynomialCurve2.h"
-#include "Wm5CubicPolynomialCurve3.h"
-#include "Wm5EllipsoidGeodesic.h"
-#include "Wm5ImplicitSurface.h"
-#include "Wm5MultipleCurve2.h"
-#include "Wm5MultipleCurve3.h"
-#include "Wm5NURBSCurve2.h"
-#include "Wm5NURBSCurve3.h"
-#include "Wm5NURBSRectangle.h"
-#include "Wm5NaturalSpline1.h"
-#include "Wm5NaturalSpline2.h"
-#include "Wm5NaturalSpline3.h"
-#include "Wm5PolynomialCurve2.h"
-#include "Wm5PolynomialCurve3.h"
-#include "Wm5QuadricSurface.h"
-#include "Wm5Surface.h"
-#include "Wm5TCBSpline2.h"
-#include "Wm5TCBSpline3.h"
-//  LibMathematics/Interpolation
-#include "Wm5IntpAkima1.h"
-#include "Wm5IntpAkimaNonuniform1.h"
-#include "Wm5IntpAkimaUniform1.h"
-#include "Wm5IntpAkimaUniform2.h"
-#include "Wm5IntpAkimaUniform3.h"
-#include "Wm5IntpBSplineUniform.h"
-#include "Wm5IntpBSplineUniform1.h"
-#include "Wm5IntpBSplineUniform2.h"
-#include "Wm5IntpBSplineUniform3.h"
-#include "Wm5IntpBSplineUniform4.h"
-#include "Wm5IntpBSplineUniformN.h"
-#include "Wm5IntpBicubic2.h"
-#include "Wm5IntpBilinear2.h"
-#include "Wm5IntpLinearNonuniform2.h"
-#include "Wm5IntpLinearNonuniform3.h"
-#include "Wm5IntpQdrNonuniform2.h"
-#include "Wm5IntpSphere2.h"
-#include "Wm5IntpThinPlateSpline2.h"
-#include "Wm5IntpThinPlateSpline3.h"
-#include "Wm5IntpTricubic3.h"
-#include "Wm5IntpTrilinear3.h"
-#include "Wm5IntpVectorField2.h"
-//  LibMathematics/Intersection
-#include "Wm5Intersector.h"
-#include "Wm5Intersector1.h"
-#include "Wm5IntrArc2Arc2.h"
-#include "Wm5IntrArc2Circle2.h"
-#include "Wm5IntrBox2Box2.h"
-#include "Wm5IntrBox2Circle2.h"
-#include "Wm5IntrBox3Box3.h"
-#include "Wm5IntrBox3Frustum3.h"
-#include "Wm5IntrBox3Sphere3.h"
-#include "Wm5IntrCapsule3Capsule3.h"
-#include "Wm5IntrCircle2Circle2.h"
-#include "Wm5IntrCircle3Plane3.h"
-#include "Wm5IntrEllipse2Ellipse2.h"
-#include "Wm5IntrEllipsoid3Ellipsoid3.h"
-#include "Wm5IntrHalfspace3Box3.h"
-#include "Wm5IntrHalfspace3Segment3.h"
-#include "Wm5IntrHalfspace3Sphere3.h"
-#include "Wm5IntrHalfspace3Triangle3.h"
-#include "Wm5IntrLine2Arc2.h"
-#include "Wm5IntrLine2Box2.h"
-#include "Wm5IntrLine2Circle2.h"
-#include "Wm5IntrLine2Line2.h"
-#include "Wm5IntrLine2Ray2.h"
-#include "Wm5IntrLine2Segment2.h"
-#include "Wm5IntrLine2Triangle2.h"
-#include "Wm5IntrLine3Box3.h"
-#include "Wm5IntrLine3Capsule3.h"
-#include "Wm5IntrLine3Cone3.h"
-#include "Wm5IntrLine3Cylinder3.h"
-#include "Wm5IntrLine3Ellipsoid3.h"
-#include "Wm5IntrLine3Lozenge3.h"
-#include "Wm5IntrLine3Plane3.h"
-#include "Wm5IntrLine3Sphere3.h"
-#include "Wm5IntrLine3Torus3.h"
-#include "Wm5IntrLine3Triangle3.h"
-#include "Wm5IntrLozenge3Lozenge3.h"
-#include "Wm5IntrPlane3Box3.h"
-#include "Wm5IntrPlane3Capsule3.h"
-#include "Wm5IntrPlane3Cylinder3.h"
-#include "Wm5IntrPlane3Ellipsoid3.h"
-#include "Wm5IntrPlane3Lozenge3.h"
-#include "Wm5IntrPlane3Plane3.h"
-#include "Wm5IntrPlane3Sphere3.h"
-#include "Wm5IntrPlane3Triangle3.h"
-#include "Wm5IntrRay2Arc2.h"
-#include "Wm5IntrRay2Box2.h"
-#include "Wm5IntrRay2Circle2.h"
-#include "Wm5IntrRay2Ray2.h"
-#include "Wm5IntrRay2Segment2.h"
-#include "Wm5IntrRay2Triangle2.h"
-#include "Wm5IntrRay3Box3.h"
-#include "Wm5IntrRay3Capsule3.h"
-#include "Wm5IntrRay3Cylinder3.h"
-#include "Wm5IntrRay3Ellipsoid3.h"
-#include "Wm5IntrRay3Lozenge3.h"
-#include "Wm5IntrRay3Plane3.h"
-#include "Wm5IntrRay3Sphere3.h"
-#include "Wm5IntrRay3Triangle3.h"
-#include "Wm5IntrSegment2Arc2.h"
-#include "Wm5IntrSegment2Box2.h"
-#include "Wm5IntrSegment2Circle2.h"
-#include "Wm5IntrSegment2Segment2.h"
-#include "Wm5IntrSegment2Triangle2.h"
-#include "Wm5IntrSegment3Box3.h"
-#include "Wm5IntrSegment3Capsule3.h"
-#include "Wm5IntrSegment3Cylinder3.h"
-#include "Wm5IntrSegment3Ellipsoid3.h"
-#include "Wm5IntrSegment3Lozenge3.h"
-#include "Wm5IntrSegment3Plane3.h"
-#include "Wm5IntrSegment3Sphere3.h"
-#include "Wm5IntrSegment3Triangle3.h"
-#include "Wm5IntrSphere3Cone3.h"
-#include "Wm5IntrSphere3Frustum3.h"
-#include "Wm5IntrSphere3Sphere3.h"
-#include "Wm5IntrTetrahedron3Tetrahedron3.h"
-#include "Wm5IntrTriangle2Triangle2.h"
-#include "Wm5IntrTriangle3Box3.h"
-#include "Wm5IntrTriangle3Cone3.h"
-#include "Wm5IntrTriangle3Cylinder3.h"
-#include "Wm5IntrTriangle3Sphere3.h"
-#include "Wm5IntrTriangle3Triangle3.h"
-#include "Wm5IntrUtility3.h"
-//  LibMathematics/Meshes
-#include "Wm5BasicMesh.h"
-#include "Wm5ConformalMap.h"
-#include "Wm5ETManifoldMesh.h"
-#include "Wm5ETNonmanifoldMesh.h"
-#include "Wm5EdgeKey.h"
-#include "Wm5MeshCurvature.h"
-#include "Wm5MeshSmoother.h"
-#include "Wm5PlanarGraph.h"
-#include "Wm5TriangleKey.h"
-#include "Wm5UniqueVerticesTriangles.h"
-#include "Wm5VEManifoldMesh.h"
-//  LibMathematics/Miscellaneous
-#include "Wm5GridGraph2.h"
-#include "Wm5NormalCompression.h"
-#include "Wm5PerspProjEllipsoid.h"
-#include "Wm5QuadToQuadTransforms.h"
-#include "Wm5RandomHypersphere.h"
-#include "Wm5TangentsToCircles.h"
-//  LibMathematics/NumericalAnalysis
-#include "Wm5Bisect1.h"
-#include "Wm5Bisect2.h"
-#include "Wm5Bisect3.h"
-#include "Wm5BrentsMethod.h"
-#include "Wm5EigenDecomposition.h"
-#include "Wm5Integrate1.h"
-#include "Wm5LinearSystem.h"
-#include "Wm5Minimize1.h"
-#include "Wm5MinimizeN.h"
-#include "Wm5NoniterativeEigen3x3.h"
-#include "Wm5OdeEuler.h"
-#include "Wm5OdeImplicitEuler.h"
-#include "Wm5OdeMidpoint.h"
-#include "Wm5OdeRungeKutta4.h"
-#include "Wm5OdeSolver.h"
-#include "Wm5PolynomialRoots.h"
-#include "Wm5PolynomialRootsR.h"
-#include "Wm5SingularValueDecomposition.h"
-//  LibMathematics/Objects2D
-#include "Wm5Arc2.h"
-#include "Wm5AxisAlignedBox2.h"
-#include "Wm5Box2.h"
-#include "Wm5Circle2.h"
-#include "Wm5ConvexPolygon2.h"
-#include "Wm5Ellipse2.h"
-#include "Wm5Line2.h"
-#include "Wm5Polygon2.h"
-#include "Wm5Ray2.h"
-#include "Wm5Segment2.h"
-#include "Wm5Triangle2.h"
-//  LibMathematics/Objects3D
-#include "Wm5AxisAlignedBox3.h"
-#include "Wm5Box3.h"
-#include "Wm5Capsule3.h"
-#include "Wm5Circle3.h"
-#include "Wm5Cone3.h"
-#include "Wm5ConvexPolyhedron3.h"
-#include "Wm5Cylinder3.h"
-#include "Wm5Ellipse3.h"
-#include "Wm5Ellipsoid3.h"
-#include "Wm5Frustum3.h"
-#include "Wm5Line3.h"
-#include "Wm5Lozenge3.h"
-#include "Wm5Plane3.h"
-#include "Wm5Polyhedron3.h"
-#include "Wm5Ray3.h"
-#include "Wm5Rectangle3.h"
-#include "Wm5Segment3.h"
-#include "Wm5Sphere3.h"
-#include "Wm5Tetrahedron3.h"
-#include "Wm5Torus3.h"
-#include "Wm5Triangle3.h"
-//  LibMathematics/Query
-#include "Wm5Query.h"
-#include "Wm5Query2.h"
-#include "Wm5Query2Filtered.h"
-#include "Wm5Query2Int64.h"
-#include "Wm5Query2Integer.h"
-#include "Wm5Query2Rational.h"
-#include "Wm5Query3.h"
-#include "Wm5Query3Filtered.h"
-#include "Wm5Query3Int64.h"
-#include "Wm5Query3Integer.h"
-#include "Wm5Query3Rational.h"
-//  LibMathematics/Rational
-#include "Wm5IVector.h"
-#include "Wm5IVector2.h"
-#include "Wm5IVector3.h"
-#include "Wm5Integer.h"
-#include "Wm5RVector.h"
-#include "Wm5RVector2.h"
-#include "Wm5RVector3.h"
-#include "Wm5Rational.h"
-//  LibMathematics/Distance
-#include "Wm5Distance.h"
-#include "Wm5DistCircle3Circle3.h"
-#include "Wm5DistLine2Line2.h"
-#include "Wm5DistLine2Ray2.h"
-#include "Wm5DistLine2Segment2.h"
-#include "Wm5DistLine3Box3.h"
-#include "Wm5DistLine3Circle3.h"
-#include "Wm5DistLine3Line3.h"
-#include "Wm5DistLine3Ray3.h"
-#include "Wm5DistLine3Rectangle3.h"
-#include "Wm5DistLine3Segment3.h"
-#include "Wm5DistLine3Triangle3.h"
-#include "Wm5DistPoint2Box2.h"
-#include "Wm5DistPoint2Ellipse2.h"
-#include "Wm5DistPoint2Line2.h"
-#include "Wm5DistPoint2Ray2.h"
-#include "Wm5DistPoint2Segment2.h"
-#include "Wm5DistPoint3Box3.h"
-#include "Wm5DistPoint3Circle3.h"
-#include "Wm5DistPoint3Ellipsoid3.h"
-#include "Wm5DistPoint3Frustum3.h"
-#include "Wm5DistPoint3Line3.h"
-#include "Wm5DistPoint3Plane3.h"
-#include "Wm5DistPoint3Ray3.h"
-#include "Wm5DistPoint3Rectangle3.h"
-#include "Wm5DistPoint3Segment3.h"
-#include "Wm5DistPoint3Tetrahedron3.h"
-#include "Wm5DistPoint3Triangle3.h"
-#include "Wm5DistRay2Ray2.h"
-#include "Wm5DistRay2Segment2.h"
-#include "Wm5DistRay3Box3.h"
-#include "Wm5DistRay3Ray3.h"
-#include "Wm5DistRay3Rectangle3.h"
-#include "Wm5DistRay3Segment3.h"
-#include "Wm5DistRay3Triangle3.h"
-#include "Wm5DistRectangle3Rectangle3.h"
-#include "Wm5DistSegment2Segment2.h"
-#include "Wm5DistSegment3Box3.h"
-#include "Wm5DistSegment3Rectangle3.h"
-#include "Wm5DistSegment3Segment3.h"
-#include "Wm5DistSegment3Triangle3.h"
-#include "Wm5DistTriangle3Rectangle3.h"
-#include "Wm5DistTriangle3Triangle3.h"
 //  LibImagics
 #include "Wm5Imagics.h"
 #include "Wm5ImagicsLIB.h"
 #include "Wm5ImagicsPCH.h"
-//  LibImagics/Extraction
-#include "Wm5ExtractCurveSquares.h"
-#include "Wm5ExtractCurveTris.h"
-#include "Wm5ExtractSurfaceCubes.h"
-#include "Wm5ExtractSurfaceTetra.h"
-//  LibImagics/Filters
-#include "Wm5CurvatureFlow2.h"
-#include "Wm5CurvatureFlow3.h"
-#include "Wm5FastBlur.h"
-#include "Wm5GaussianBlur2.h"
-#include "Wm5GaussianBlur3.h"
-#include "Wm5GradientAnisotropic2.h"
-#include "Wm5GradientAnisotropic3.h"
-#include "Wm5PdeFilter.h"
-#include "Wm5PdeFilter2.h"
-#include "Wm5PdeFilter3.h"
-//  LibImagics/Images
-#include "Wm5Element.h"
-#include "Wm5ImageConvert.h"
-#include "Wm5Images.h"
-#include "Wm5Lattice.h"
-#include "Wm5TImage.h"
-#include "Wm5TImage2D.h"
-#include "Wm5TImage3D.h"
-//  LibImagics/BinaryOperations
-#include "Wm5Binary2D.h"
-#include "Wm5Binary3D.h"
-//  LibImagics/RasterDrawing
-#include "Wm5RasterDrawing.h"
-//  LibImagics/Segmenters
-#include "Wm5FastMarch.h"
-#include "Wm5FastMarch2.h"
-#include "Wm5FastMarch3.h"
 //  LibPhysics
 #include "Wm5Physics.h"
 #include "Wm5PhysicsLIB.h"
 #include "Wm5PhysicsPCH.h"
-//  LibPhysics/Fluid
-#include "Wm5Fluid2Da.h"
-#include "Wm5Fluid2Db.h"
-#include "Wm5Fluid3Da.h"
-#include "Wm5Fluid3Db.h"
-//  LibPhysics/CollisionDetection
-#include "Wm5BoundTree.h"
-#include "Wm5CollisionGroup.h"
-#include "Wm5CollisionRecord.h"
-//  LibPhysics/Intersection
-#include "Wm5BoxManager.h"
-#include "Wm5ExtremalQuery3.h"
-#include "Wm5ExtremalQuery3BSP.h"
-#include "Wm5ExtremalQuery3PRJ.h"
-#include "Wm5IntervalManager.h"
-#include "Wm5RectangleManager.h"
-//  LibPhysics/LCPSolver
-#include "Wm5LCPPolyDist.h"
-#include "Wm5LCPSolver.h"
-//  LibPhysics/ParticleSystem
-#include "Wm5MassSpringArbitrary.h"
-#include "Wm5MassSpringCurve.h"
-#include "Wm5MassSpringSurface.h"
-#include "Wm5MassSpringVolume.h"
-#include "Wm5ParticleSystem.h"
-//  LibPhysics/RigidBody
-#include "Wm5PolyhedralMassProperties.h"
-#include "Wm5RigidBody.h"
 //  LibGraphics
 #include "Wm5Graphics.h"
 #include "Wm5GraphicsLIB.h"
 #include "Wm5GraphicsPCH.h"
-//  LibGraphics/DataTypes
-#include "Wm5Bound.h"
-#include "Wm5Color.h"
-#include "Wm5HalfFloat.h"
-#include "Wm5SpecializedIO.h"
-#include "Wm5Transform.h"
-#include "Wm5Utility.h"
-//  LibGraphics/Detail
-//#include "Wm5BillboardNode.h"
-//#include "Wm5ClodMesh.h"
-#include "Wm5CollapseRecord.h"
-#include "Wm5CollapseRecordArray.h"
-//#include "Wm5CreateClodMesh.h"
-#include "Wm5DlodNode.h"
-#include "Wm5SwitchNode.h"
-//  LibGraphics/GlobalEffects
-//#include "Wm5GlobalEffect.h"
-//#include "Wm5PlanarReflectionEffect.h"
-//#include "Wm5PlanarShadowEffect.h"
-//  LibGraphics/LocalEffects
-//#include "Wm5DefaultEffect.h"
-//#include "Wm5LightAmbEffect.h"
-//#include "Wm5LightDirPerPixEffect.h"
-//#include "Wm5LightDirPerVerEffect.h"
-//#include "Wm5LightPntPerPixEffect.h"
-//#include "Wm5LightPntPerVerEffect.h"
-//#include "Wm5LightSptPerPixEffect.h"
-//#include "Wm5LightSptPerVerEffect.h"
-//#include "Wm5MaterialEffect.h"
-//#include "Wm5MaterialTextureEffect.h"
-//#include "Wm5Texture1DEffect.h"
-//#include "Wm5Texture2AddEffect.h"
-//#include "Wm5Texture2ColorBlendEffect.h"
-//#include "Wm5Texture2DEffect.h"
-//#include "Wm5Texture2MulEffect.h"
-//#include "Wm5Texture3DEffect.h"
-//#include "Wm5VertexColor3Effect.h"
-//#include "Wm5VertexColor4Effect.h"
-//#include "Wm5VertexColor4TextureEffect.h"
-//  LibGraphics/Renderers
-//#include "Wm5Renderer.h"
-//#include "Wm5Renderers.h"
-//  LibGraphics/Renderers/OpenGLRenderer
-//#include "Wm5GlExtensions.h"
-//#include "Wm5GlPlugin.h"
-//#include "Wm5GlUtility.h"
-//#include "Wm5OpenGLBitmapFont.h"
-//#include "Wm5OpenGLIndexBuffer.h"
-//#include "Wm5OpenGLMapping.h"
-//#include "Wm5OpenGLPixelShader.h"
-//#include "Wm5OpenGLRenderTarget.h"
-//#include "Wm5OpenGLRendererData.h"
-//#include "Wm5OpenGLRendererLIB.h"
-//#include "Wm5OpenGLShader.h"
-//#include "Wm5OpenGLTexture1D.h"
-//#include "Wm5OpenGLTexture2D.h"
-//#include "Wm5OpenGLTexture3D.h"
-//#include "Wm5OpenGLTextureCube.h"
-//#include "Wm5OpenGLVertexBuffer.h"
-//#include "Wm5OpenGLVertexFormat.h"
-//#include "Wm5OpenGLVertexShader.h"
-//  LibGraphics/Resources
-#include "Wm5Buffer.h"
-#include "Wm5IndexBuffer.h"
-#include "Wm5Texture.h"
-#include "Wm5Texture1D.h"
-#include "Wm5Texture2D.h"
-#include "Wm5Texture3D.h"
-#include "Wm5RenderTarget.h"
-#include "Wm5TextureCube.h"
-#include "Wm5VertexBuffer.h"
-//#include "Wm5VertexBufferAccessor.h"
-#include "Wm5VertexFormat.h"
-//  LibGraphics/CurvesSurfaces
-#include "Wm5BSplineSurfacePatch.h"
-#include "Wm5BoxSurface.h"
-#include "Wm5Float2Array.h"
-#include "Wm5FloatArray.h"
-#include "Wm5CurveSegment.h"
-#include "Wm5CurveMesh.h"
-#include "Wm5RectangleSurface.h"
-#include "Wm5RevolutionSurface.h"
-#include "Wm5SurfacePatch.h"
-#include "Wm5SurfaceMesh.h"
-#include "Wm5TubeSurface.h"
-//  LibGraphics/SceneGraph
-#include "Wm5Spatial.h"
-#include "Wm5Node.h"
-#include "Wm5Camera.h"
-#include "Wm5CameraNode.h"
-#include "Wm5VisibleSet.h"
-#include "Wm5Culler.h"
-#include "Wm5Light.h"
-#include "Wm5LightNode.h"
-#include "Wm5Material.h"
-#include "Wm5Particles.h"
-#include "Wm5PickRecord.h"
-#include "Wm5Picker.h"
-#include "Wm5Polypoint.h"
-#include "Wm5Polysegment.h"
-#include "Wm5Projector.h"
-//#include "Wm5StandardMesh.h"
-#include "Wm5TriFan.h"
-#include "Wm5TriMesh.h"
-#include "Wm5TriStrip.h"
-#include "Wm5ScreenTarget.h"
-//#include "Wm5Triangles.h"
-//#include "Wm5Visual.h"
-//  LibGraphics/ImageProcessing
-//#include "Wm5ImageProcessing.h"
-//#include "Wm5ImageProcessing2.h"
-//#include "Wm5ImageProcessing3.h"
-//  LibGraphics/Controllers
-#include "Wm5Controller.h"
-#include "Wm5ControlledObject.h"
-#include "Wm5IKGoal.h"
-#include "Wm5IKJoint.h"
-#include "Wm5IKController.h"
-#include "Wm5KeyframeController.h"
-#include "Wm5MorphController.h"
-#include "Wm5ParticleController.h"
-#include "Wm5PointController.h"
-#include "Wm5SkinController.h"
-#include "Wm5TransformController.h"
-#include "Wm5BlendTransformController.h"
-//  LibGraphics/ShaderFloats
-//#include "Wm5CameraModelDVectorConstant.h"
-//#include "Wm5CameraModelPositionConstant.h"
-//#include "Wm5CameraWorldDVectorConstant.h"
-//#include "Wm5CameraWorldPositionConstant.h"
-//#include "Wm5LightAmbientConstant.h"
-//#include "Wm5LightAttenuationConstant.h"
-//#include "Wm5LightDiffuseConstant.h"
-//#include "Wm5LightModelDVectorConstant.h"
-//#include "Wm5LightModelPositionConstant.h"
-//#include "Wm5LightSpecularConstant.h"
-//#include "Wm5LightSpotConstant.h"
-//#include "Wm5LightWorldDVectorConstant.h"
-//#include "Wm5LightWorldPositionConstant.h"
-//#include "Wm5MaterialAmbientConstant.h"
-//#include "Wm5MaterialDiffuseConstant.h"
-//#include "Wm5MaterialEmissiveConstant.h"
-//#include "Wm5MaterialSpecularConstant.h"
-//#include "Wm5PMatrixConstant.h"
-//#include "Wm5PVMatrixConstant.h"
-//#include "Wm5PVWMatrixConstant.h"
-//#include "Wm5ProjectorMatrixConstant.h"
-//#include "Wm5ProjectorWorldPositionConstant.h"
-//#include "Wm5ShaderFloat.h"
-//#include "Wm5VMatrixConstant.h"
-//#include "Wm5VWMatrixConstant.h"
-//#include "Wm5WMatrixConstant.h"
-//  LibGraphics/Shaders
-#include "Wm5AlphaState.h"
-#include "Wm5CullState.h"
-#include "Wm5DepthState.h"
-#include "Wm5OffsetState.h"
-//#include "Wm5PixelShader.h"
-//#include "Wm5Shader.h"
-//#include "Wm5ShaderParameters.h"
-#include "Wm5StencilState.h"
-//#include "Wm5VertexShader.h"
-//#include "Wm5VisualEffect.h"
-//#include "Wm5VisualEffectInstance.h"
-//#include "Wm5VisualPass.h"
-//#include "Wm5VisualTechnique.h"
-#include "Wm5WireState.h"
-//  LibGraphics/Sorting
-#include "Wm5BspNode.h"
-#include "Wm5CRMCuller.h"
-#include "Wm5ConvexRegion.h"
-#include "Wm5ConvexRegionManager.h"
-#include "Wm5Portal.h"
-//  LibGraphics/Terrain
-#include "Wm5TerrainPage.h"
-#include "Wm5Terrain.h"
+#include "Wm5OpenGLBitmapFont.h"
+//  LibApplications
+#include "Wm5Application.h"
+#include "Wm5ApplicationPCH.h"
+#include "Wm5ConsoleApplication.h"
 
+//#include "Wm5GlxExtensions.h"
+//#include "Wm5GlxRendererData.h"
+//#include "Wm5GlxRendererInput.h"
+
+/*
+#include "Wm5WindowApplication.h"
+#include "Wm5WindowApplication2.h"
+#include "Wm5WindowApplication3.h"
+*/
 %}
 
 //  LibCore
@@ -1083,8 +471,8 @@
 %include "Wm5TImage2D.h"
 %include "Wm5TImage3D.h"
 //  LibImagics/BinaryOperations
-//%include "Wm5Binary2D.h"
-//%include "Wm5Binary3D.h"
+%include "Wm5Binary2D.h"
+%include "Wm5Binary3D.h"
 //  LibImagics/RasterDrawing
 %include "Wm5RasterDrawing.h"
 //  LibImagics/Segmenters
@@ -1134,46 +522,19 @@
 %include "Wm5HalfFloat.h"
 %include "Wm5SpecializedIO.h"
 %include "Wm5Utility.h"
-//  LibGraphics/Detail
-//%include "Wm5BillboardNode.h"
-//%include "Wm5ClodMesh.h"
-%include "Wm5CollapseRecord.h"
-%include "Wm5CollapseRecordArray.h"
-//%include "Wm5CreateClodMesh.h"
-%include "Wm5DlodNode.h"
-%include "Wm5SwitchNode.h"
-//  LibGraphics/GlobalEffects
-//%include "Wm5GlobalEffect.h"
-//%include "Wm5PlanarReflectionEffect.h"
-//%include "Wm5PlanarShadowEffect.h"
-//  LibGraphics/LocalEffects
-//%include "Wm5DefaultEffect.h"
-//%include "Wm5LightAmbEffect.h"
-//%include "Wm5LightDirPerPixEffect.h"
-//%include "Wm5LightDirPerVerEffect.h"
-//%include "Wm5LightPntPerPixEffect.h"
-//%include "Wm5LightPntPerVerEffect.h"
-//%include "Wm5LightSptPerPixEffect.h"
-//%include "Wm5LightSptPerVerEffect.h"
-//%include "Wm5MaterialEffect.h"
-//%include "Wm5MaterialTextureEffect.h"
-//%include "Wm5Texture1DEffect.h"
-//%include "Wm5Texture2AddEffect.h"
-//%include "Wm5Texture2ColorBlendEffect.h"
-//%include "Wm5Texture2DEffect.h"
-//%include "Wm5Texture2MulEffect.h"
-//%include "Wm5Texture3DEffect.h"
-//%include "Wm5VertexColor3Effect.h"
-//%include "Wm5VertexColor4Effect.h"
-//%include "Wm5VertexColor4TextureEffect.h"
-//  LibGraphics/Renderers
-//%include "Wm5Renderer.h"
-//%include "Wm5Renderers.h"
+
+//  LibGraphics/Renderers/GlxRenderer
+//%include "Wm5GlxExtensions.h"
+//%include "Wm5GlxRendererData.h"
+//%include "Wm5GlxRendererInput.h"
+
 //  LibGraphics/Renderers/OpenGLRenderer
-//%include "Wm5GlExtensions.h"
-//%include "Wm5GlPlugin.h"
-//%include "Wm5GlUtility.h"
-//%include "Wm5OpenGLBitmapFont.h"
+/*
+%include "Wm5GlExtensions.h"
+%include "Wm5GlPlugin.h"
+%include "Wm5GlUtility.h"
+*/
+%include "Wm5OpenGLBitmapFont.h"
 //%include "Wm5OpenGLIndexBuffer.h"
 //%include "Wm5OpenGLMapping.h"
 //%include "Wm5OpenGLPixelShader.h"
@@ -1197,9 +558,14 @@
 %include "Wm5Texture3D.h"
 %include "Wm5TextureCube.h"
 %include "Wm5RenderTarget.h"
-%include "Wm5VertexBuffer.h"
-//%include "Wm5VertexBufferAccessor.h"
 %include "Wm5VertexFormat.h"
+%include "Wm5VertexBuffer.h"
+
+// Getting runtime error:
+//   undefined symbol: Wm5::VertexBufferAccessor::SetNormal3
+//%include "Wm5VertexBufferAccessor.h"
+//%ignore Wm5::VertexBufferAccessor::SetNormal3 (int i, const AVector& normal);
+
 //  LibGraphics/CurvesSurfaces
 %include "Wm5BSplineSurfacePatch.h"
 %include "Wm5BoxSurface.h"
@@ -1212,6 +578,26 @@
 %include "Wm5SurfacePatch.h"
 %include "Wm5SurfaceMesh.h"
 %include "Wm5TubeSurface.h"
+//  LibGraphics/ShaderFloats
+%include "Wm5ShaderFloat.h"
+%include "Wm5VMatrixConstant.h"
+%include "Wm5VWMatrixConstant.h"
+%include "Wm5WMatrixConstant.h"
+//  LibGraphics/Shaders
+%include "Wm5AlphaState.h"
+%include "Wm5CullState.h"
+%include "Wm5DepthState.h"
+%include "Wm5OffsetState.h"
+%include "Wm5PixelShader.h"
+%include "Wm5Shader.h"
+%include "Wm5ShaderParameters.h"
+%include "Wm5StencilState.h"
+%include "Wm5VertexShader.h"
+%include "Wm5WireState.h"
+%include "Wm5VisualPass.h"
+%include "Wm5VisualTechnique.h"
+%include "Wm5VisualEffect.h"
+%include "Wm5VisualEffectInstance.h"
 //  LibGraphics/SceneGraph
 %include "Wm5Spatial.h"
 %include "Wm5Node.h"
@@ -1228,17 +614,84 @@
 %include "Wm5Polypoint.h"
 %include "Wm5Polysegment.h"
 %include "Wm5Projector.h"
-//%include "Wm5StandardMesh.h"
+%include "Wm5Visual.h"
+//  LibGraphics/Renderers
+%include "Wm5Renderer.h"
+%include "Wm5Renderers.h"
+
+%include "Wm5ProjectorWorldPositionConstant.h"
+%include "Wm5LightAmbientConstant.h"
+%include "Wm5LightAttenuationConstant.h"
+%include "Wm5LightDiffuseConstant.h"
+ 
+// Getting runtime error:
+//   undefined symbol: _ZN3Wm525LightModelDVectorConstant8GetLightEv
+//%include "Wm5LightModelDVectorConstant.h"
+
+%include "Wm5LightModelPositionConstant.h"
+%include "Wm5LightSpecularConstant.h"
+%include "Wm5LightSpotConstant.h"
+//%include "Wm5LightWorldDVectorConstant.h"
+%include "Wm5LightWorldPositionConstant.h"
+
+%include "Wm5MaterialAmbientConstant.h"
+%include "Wm5MaterialDiffuseConstant.h"
+%include "Wm5MaterialEmissiveConstant.h"
+%include "Wm5MaterialSpecularConstant.h"
+%include "Wm5PMatrixConstant.h"
+%include "Wm5PVMatrixConstant.h"
+%include "Wm5PVWMatrixConstant.h"
+%include "Wm5CameraModelDVectorConstant.h"
+%include "Wm5CameraModelPositionConstant.h"
+%include "Wm5CameraWorldDVectorConstant.h"
+%include "Wm5CameraWorldPositionConstant.h"
+%include "Wm5ProjectorMatrixConstant.h"
+
+%include "Wm5GlobalEffect.h"
+%include "Wm5DefaultEffect.h"
+%include "Wm5LightAmbEffect.h"
+%include "Wm5LightDirPerPixEffect.h"
+%include "Wm5LightDirPerVerEffect.h"
+%include "Wm5LightPntPerPixEffect.h"
+%include "Wm5LightPntPerVerEffect.h"
+%include "Wm5LightSptPerPixEffect.h"
+%include "Wm5LightSptPerVerEffect.h"
+
+%include "Wm5MaterialEffect.h"
+%include "Wm5MaterialTextureEffect.h"
+%include "Wm5Texture1DEffect.h"
+%include "Wm5Texture2AddEffect.h"
+%include "Wm5Texture2ColorBlendEffect.h"
+%include "Wm5Texture2DEffect.h"
+%include "Wm5Texture2MulEffect.h"
+%include "Wm5Texture3DEffect.h"
+
+%include "Wm5VertexColor3Effect.h"
+%include "Wm5VertexColor4Effect.h"
+%include "Wm5VertexColor4TextureEffect.h"
+
 %include "Wm5TriFan.h"
 %include "Wm5TriMesh.h"
+%include "Wm5StandardMesh.h"
 %include "Wm5TriStrip.h"
 %include "Wm5ScreenTarget.h"
-//%include "Wm5Triangles.h"
-//%include "Wm5Visual.h"
+%include "Wm5Triangles.h"
+
+%include "Wm5PlanarReflectionEffect.h"
+%include "Wm5PlanarShadowEffect.h"
+
+//  LibGraphics/Detail
+%include "Wm5BillboardNode.h"
+%include "Wm5CollapseRecord.h"
+%include "Wm5CollapseRecordArray.h"
+%include "Wm5ClodMesh.h"
+%include "Wm5CreateClodMesh.h"
+%include "Wm5DlodNode.h"
+%include "Wm5SwitchNode.h"
 //  LibGraphics/ImageProcessing
-//%include "Wm5ImageProcessing.h"
-//%include "Wm5ImageProcessing2.h"
-//%include "Wm5ImageProcessing3.h"
+%include "Wm5ImageProcessing.h"
+%include "Wm5ImageProcessing2.h"
+%include "Wm5ImageProcessing3.h"
 //  LibGraphics/Controllers
 %include "Wm5Controller.h"
 %include "Wm5ControlledObject.h"
@@ -1252,48 +705,6 @@
 %include "Wm5SkinController.h"
 %include "Wm5TransformController.h"
 %include "Wm5BlendTransformController.h"
-//  LibGraphics/ShaderFloats
-//%include "Wm5CameraModelDVectorConstant.h"
-//%include "Wm5CameraModelPositionConstant.h"
-//%include "Wm5CameraWorldDVectorConstant.h"
-//%include "Wm5CameraWorldPositionConstant.h"
-//%include "Wm5LightAmbientConstant.h"
-//%include "Wm5LightAttenuationConstant.h"
-//%include "Wm5LightDiffuseConstant.h"
-//%include "Wm5LightModelDVectorConstant.h"
-//%include "Wm5LightModelPositionConstant.h"
-//%include "Wm5LightSpecularConstant.h"
-//%include "Wm5LightSpotConstant.h"
-//%include "Wm5LightWorldDVectorConstant.h"
-//%include "Wm5LightWorldPositionConstant.h"
-//%include "Wm5MaterialAmbientConstant.h"
-//%include "Wm5MaterialDiffuseConstant.h"
-//%include "Wm5MaterialEmissiveConstant.h"
-//%include "Wm5MaterialSpecularConstant.h"
-//%include "Wm5PMatrixConstant.h"
-//%include "Wm5PVMatrixConstant.h"
-//%include "Wm5PVWMatrixConstant.h"
-//%include "Wm5ProjectorMatrixConstant.h"
-//%include "Wm5ProjectorWorldPositionConstant.h"
-//%include "Wm5ShaderFloat.h"
-//%include "Wm5VMatrixConstant.h"
-//%include "Wm5VWMatrixConstant.h"
-//%include "Wm5WMatrixConstant.h"
-//  LibGraphics/Shaders
-%include "Wm5AlphaState.h"
-%include "Wm5CullState.h"
-%include "Wm5DepthState.h"
-%include "Wm5OffsetState.h"
-//%include "Wm5PixelShader.h"
-//%include "Wm5Shader.h"
-//%include "Wm5ShaderParameters.h"
-%include "Wm5StencilState.h"
-//%include "Wm5VertexShader.h"
-//%include "Wm5VisualEffect.h"
-//%include "Wm5VisualEffectInstance.h"
-//%include "Wm5VisualPass.h"
-//%include "Wm5VisualTechnique.h"
-%include "Wm5WireState.h"
 //  LibGraphics/Sorting
 %include "Wm5BspNode.h"
 %include "Wm5CRMCuller.h"
@@ -1303,7 +714,24 @@
 //  LibGraphics/Terrain
 %include "Wm5TerrainPage.h"
 %include "Wm5Terrain.h"
+//  LibApplications
+%include "Wm5ApplicationPCH.h"
+%include "Wm5Command.h"
+%include "Wm5Application.h"
+%include "Wm5ConsoleApplication.h"
 
+//%include "Wm5GlxExtensions.h"
+//%include "Wm5GlxRendererData.h"
+//%include "Wm5GlxRendererInput.h"
+
+//%include "Wm5WindowApplication.h"
+// Getting runtime error: 
+//   undefined symbol: _ZN3Wm515GlxRendererData18FinishConstructionEmPNS_8RendererE
+
+/*
+%include "Wm5WindowApplication2.h"
+%include "Wm5WindowApplication3.h"
+*/
 
 %template (Tuple1i) Wm5::Tuple<1, int>;
 %template (Tuple1f) Wm5::Tuple<1, float>;
@@ -1782,6 +1210,20 @@
 %template (LinearSystemf) Wm5::LinearSystem<float>;
 %template (Lozenge3d) Wm5::Lozenge3<double>;
 %template (Lozenge3f) Wm5::Lozenge3<float>;
+%template (MassSpringArbitrary2d) Wm5::MassSpringArbitrary<double, Wm5::Vector2<double> >;	
+%template (MassSpringArbitrary3d) Wm5::MassSpringArbitrary<double, Wm5::Vector3<double> >;	
+%template (MassSpringArbitrary2f) Wm5::MassSpringArbitrary<float, Wm5::Vector2<float> >;	
+%template (MassSpringArbitrary3f) Wm5::MassSpringArbitrary<float, Wm5::Vector3<float> >;	
+%template (MassSpringCurve2d) Wm5::MassSpringCurve<double, Wm5::Vector2<double> >;	
+%template (MassSpringCurve3d) Wm5::MassSpringCurve<double, Wm5::Vector3<double> >;	
+%template (MassSpringCurve2f) Wm5::MassSpringCurve<float, Wm5::Vector2<float> >;	
+%template (MassSpringCurve3f) Wm5::MassSpringCurve<float, Wm5::Vector3<float> >;	
+%template (MassSpringSurface2d) Wm5::MassSpringSurface<double, Wm5::Vector2<double> >;	
+%template (MassSpringSurface3d) Wm5::MassSpringSurface<double, Wm5::Vector3<double> >;	
+%template (MassSpringSurface2f) Wm5::MassSpringSurface<float, Wm5::Vector2<float> >;	
+%template (MassSpringSurface3f) Wm5::MassSpringSurface<float, Wm5::Vector3<float> >;	
+%template (MassSpringVolume3d) Wm5::MassSpringVolume<double, Wm5::Vector3<double> >;	
+%template (MassSpringVolume3f) Wm5::MassSpringVolume<float, Wm5::Vector3<float> >;
 %template (Mathd) Wm5::Math<double>;
 %template (Mathf) Wm5::Math<float>;
 %template (Matrix2d) Wm5::Matrix2<double>;
@@ -1796,6 +1238,10 @@
 %template (MeshSmootherf) Wm5::MeshSmoother<float>;
 %template (MinCircle2d) Wm5::MinCircle2<double>;
 %template (MinCircle2f) Wm5::MinCircle2<float>;
+%template (MinHeapEdgeKeyf) Wm5::MinHeap<Wm5::EdgeKey, float>;
+%template (MinHeapif) Wm5::MinHeap<int, float>;
+%template (MinHeapRecordEdgeKeyf) Wm5::MinHeapRecord<Wm5::EdgeKey, float>;
+%template (MinHeapRecordif) Wm5::MinHeapRecord<int, float>;
 %template (MinSphere3d) Wm5::MinSphere3<double>;
 %template (MinSphere3f) Wm5::MinSphere3<float>;
 %template (Minimize1d) Wm5::Minimize1<double>;
@@ -1830,6 +1276,10 @@
 %template (OdeMidpointf) Wm5::OdeMidpoint<float>;
 %template (OdeRungeKutta4d) Wm5::OdeRungeKutta4<double>;
 %template (OdeRungeKutta4f) Wm5::OdeRungeKutta4<float>;
+%template (ParticleSystem2d) Wm5::ParticleSystem<double, Wm5::Vector2<double> >;
+%template (ParticleSystem3d) Wm5::ParticleSystem<double, Wm5::Vector3<double> >;
+%template (ParticleSystem2f) Wm5::ParticleSystem<float, Wm5::Vector2<float> >;
+%template (ParticleSystem3f) Wm5::ParticleSystem<float, Wm5::Vector3<float> >;
 %template (Plane3d) Wm5::Plane3<double>;
 %template (Plane3f) Wm5::Plane3<float>;
 %template (PointInPolygon2d) Wm5::PointInPolygon2<double>;
@@ -1911,7 +1361,6 @@
 %template (Vector3f) Wm5::Vector3<float>;
 %template (Vector4d) Wm5::Vector4<double>;
 %template (Vector4f) Wm5::Vector4<float>;
-
 //%rename (AlphaStatePtr) operator Wm5::AlphaState*;
 //%rename (ObjectPtr) operator Wm5::Object*;
 %template (Pointer0AlphaState) Wm5::Pointer0<Wm5::AlphaState>;
@@ -1994,6 +1443,7 @@
 %template (Pointer0RenderTarget) Wm5::Pointer0<Wm5::RenderTarget>;	
 %template (Pointer0RevolutionSurface) Wm5::Pointer0<Wm5::RevolutionSurface>;	
 %template (Pointer0Shader) Wm5::Pointer0<Wm5::Shader>;	
+%template (ShaderFloatPtr) Wm5::Pointer0<Wm5::ShaderFloat>;
 %template (Pointer0ShaderFloat) Wm5::Pointer0<Wm5::ShaderFloat>;	
 %template (Pointer0ShaderParameters) Wm5::Pointer0<Wm5::ShaderParameters>;	
 %template (Pointer0SkinController) Wm5::Pointer0<Wm5::SkinController>;	
@@ -2036,6 +1486,44 @@
 %template (Pointer0VisualTechnique) Wm5::Pointer0<Wm5::VisualTechnique>;	
 %template (Pointer0WMatrixConstant) Wm5::Pointer0<Wm5::WMatrixConstant>;	
 %template (Pointer0WireState) Wm5::Pointer0<Wm5::WireState>;
+%template (Pointer1i) Wm5::Pointer1<int>;
+%template (TImageEchar) Wm5::TImage<Wm5::Echar>;
+%template (TImageEdouble) Wm5::TImage<Wm5::Edouble>;
+%template (TImageEfloat) Wm5::TImage<Wm5::Efloat>;
+%template (TImageEint) Wm5::TImage<Wm5::Eint>;
+%template (TImageElong) Wm5::TImage<Wm5::Elong>;
+%template (TImageErgb5) Wm5::TImage<Wm5::Ergb5>;
+%template (TImageErgb8) Wm5::TImage<Wm5::Ergb8>;
+%template (TImageEshort) Wm5::TImage<Wm5::Eshort>;
+%template (TImageEuchar) Wm5::TImage<Wm5::Euchar>;
+%template (TImageEuint) Wm5::TImage<Wm5::Euint>;
+%template (TImageEulong) Wm5::TImage<Wm5::Eulong>;
+%template (TImageEushort) Wm5::TImage<Wm5::Eushort>;
+%template (TImage2DEchar) Wm5::TImage2D<Wm5::Echar>;
+%template (TImage2DEdouble) Wm5::TImage2D<Wm5::Edouble>;
+%template (TImage2DEfloat) Wm5::TImage2D<Wm5::Efloat>;
+%template (TImage2DEint) Wm5::TImage2D<Wm5::Eint>;
+%template (TImage2DElong) Wm5::TImage2D<Wm5::Elong>;
+%template (TImage2DErgb5) Wm5::TImage2D<Wm5::Ergb5>;
+%template (TImage2DErgb8) Wm5::TImage2D<Wm5::Ergb8>;
+%template (TImage2DEshort) Wm5::TImage2D<Wm5::Eshort>;
+%template (TImage2DEuchar) Wm5::TImage2D<Wm5::Euchar>;
+%template (TImage2DEuint) Wm5::TImage2D<Wm5::Euint>;
+%template (TImage2DEulong) Wm5::TImage2D<Wm5::Eulong>;
+%template (TImage2DEushort) Wm5::TImage2D<Wm5::Eushort>;
+%template (TImage3DEchar) Wm5::TImage3D<Wm5::Echar>;
+%template (TImage3DEdouble) Wm5::TImage3D<Wm5::Edouble>;
+%template (TImage3DEfloat) Wm5::TImage3D<Wm5::Efloat>;
+%template (TImage3DEint) Wm5::TImage3D<Wm5::Eint>;
+%template (TImage3DElong) Wm5::TImage3D<Wm5::Elong>;
+%template (TImage3DErgb5) Wm5::TImage3D<Wm5::Ergb5>;
+%template (TImage3DErgb8) Wm5::TImage3D<Wm5::Ergb8>;
+%template (TImage3DEshort) Wm5::TImage3D<Wm5::Eshort>;
+%template (TImage3DEuchar) Wm5::TImage3D<Wm5::Euchar>;
+%template (TImage3DEuint) Wm5::TImage3D<Wm5::Euint>;
+%template (TImage3DEulong) Wm5::TImage3D<Wm5::Eulong>;
+%template (TImage3DEushort) Wm5::TImage3D<Wm5::Eushort>;
+%template (Table33f) Wm5::Table<3, 3, float>;
 
 // Ignore the nested struct ::Information. Both Vector2 and Vector3
 // have it, but since SWIG redefines nested structs as global, 

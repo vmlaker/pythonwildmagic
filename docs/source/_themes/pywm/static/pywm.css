@@ -32,8 +32,8 @@ body {
     padding: 0;
     border: 1px solid #aaa;
 
-    margin: 0px 15px 0px 15px;
-    min-width: 750px;
+    margin: 0px 20px 0px 20px;
+    min-width: 650px;
 }
 
 div.document {
@@ -44,7 +44,7 @@ div.document {
 }
 
 div.bodywrapper {
-    margin: 0 240px 0 0;
+    margin: 0 190px 0 0;
     border-right: 1px solid #ccc;
 }
 
@@ -94,10 +94,13 @@ div.sphinxsidebarwrapper {
 div.sphinxsidebar {
     margin: 0;
     padding: 0.5em 15px 15px 0;
-    width: 210px;
+    width: 160px;
     float: right;
     font-size: 1em;
     text-align: left;
+/*
+    border: 1px solid #ddee00;
+*/
 }
 
 div.sphinxsidebar h3, div.sphinxsidebar h4 {
@@ -106,7 +109,11 @@ div.sphinxsidebar h3, div.sphinxsidebar h4 {
     padding: 0.1em 0 0.1em 0.5em;
     color: white;
     border: 1px solid #86989B;
+/*
+    border: 1px solid #000000;
+*/
     background-color: #AFC1C4;
+    max-width: 150px;
 }
 
 div.sphinxsidebar h3 a {
@@ -122,6 +129,11 @@ div.sphinxsidebar ul {
 
 div.sphinxsidebar ul ul {
     margin-left: 20px;
+}
+
+div.sphinxsidebar input {
+//    border: 1px solid #000000;
+//    max-width: 50%;
 }
 
 div.footer {
@@ -344,3 +356,41 @@ div.viewcode-block:target {
     border-top: 1px solid #ac9;
     border-bottom: 1px solid #ac9;
 }
+
+/* Styling for the search box. */
+.search-input {
+/*
+    background-color: blue;
+*/
+    max-width: 70%;
+}
+.search-go {
+/*
+    width: 1em;
+    background-color: orange;
+*/
+    max-width: 20%;
+}
+
+/* Styling for the class names table. */
+.names-table {
+    background-color: #bbbbbb;
+    border-spacing: 1px;
+    border-collapse: separate;
+}
+.names-table-header {
+    background-color: #f8f8f8; 
+    text-align: center;
+    padding: 0px 2px
+}
+.names-table-row-yes {
+    background-color: #ddf8cc;
+}
+.names-table-row-no {
+    background-color: #ffd8d8;
+}
+.names-table-data {
+    padding: 0px 7px 0px 7px;
+}
+
+/* The end. */

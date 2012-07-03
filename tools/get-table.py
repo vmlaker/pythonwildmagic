@@ -39,41 +39,31 @@ for name in sorted(dir(wm5)):
 
 def getRow(cpp_name):
     """Return an HTML string of a row tag for the given C++ name."""
-    color_yes = '#edffed'
-    color_no = '#ffeded'
     entry_left = cgi.escape(cpp_name)
     py_equiv = cpp2py_names[cpp_name]
 
-    # Decide on the right column entry and the row color, based on
+    # Decide on the right-side column entry and the row color, based on
     # whether the Python name is present in the Python module.
-    color = color_yes
+    cname = 'names-table-row-yes'
     entry_right = py_equiv
     if py_equiv not in py_names:
-        color = color_no
+        cname = 'names-table-row-no'
         entry_right = ''
 
     # Assemble and return the table row tag.
-    style = 'background-color: %s; '%color
-    result  = '<tr style="%s">\n'%style
-    style = 'padding: 1px 10px 1px 10px; '
-    result += '  <td style="%s">%s</td>\n'%(style, entry_left)
-    result += '  <td style="%s">%s</td>\n'%(style, entry_right)
+    result  = '<tr class="%s">\n'%cname
+    result += '  <td class="%s">%s</td>\n'%('names-table-data', entry_left)
+    result += '  <td class="%s">%s</td>\n'%('names-table-data', entry_right)
     result += '</tr>'
     return result
 
 # Print the table opening tag.
-style  = 'background-color: #dddddd; '
-style += 'border: 1px solid #bbbbbb; '
-style += 'border-spacing: 1px; '
-style += 'border-collapse: separate; '
-print '<table style="%s">'%style
+print '<table class="names-table">'
 
 # Print the table header row.
-style  = 'background-color: #ededff; '
-style += 'text-align: center; '
 print '<tr>'
-print '  <th style="%s">C++ class</th>'%style
-print '  <th style="%s">Python class</th>'%style
+print '  <th class="names-table-header">C++ class</th>'
+print '  <th class="names-table-header">Python class</th>'
 print '</tr>'
 
 # Print the individual rows.

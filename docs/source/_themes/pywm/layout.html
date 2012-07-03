@@ -27,6 +27,11 @@
 {% block relbar2 %}
 {% endblock %}
 
+{# Override footer if so desired. #}
+{% block footer %}
+  {{ super() }}
+{% endblock %}
+
 {% block header %}
 <div style="background-color: white; text-align: left; padding: 5px 5px 5px 15px">
 <a href="index.html">

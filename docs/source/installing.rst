@@ -59,10 +59,25 @@ Once configured, build and install the extension module using Distutils:
   python setup.py install --user
   python setup.py clean2
 
-You should now have the module available in your Python interpreter. 
-To test your installation, run command:
+In case ``python setup.py build`` command fails with an error similar to the following,
+::
+
+  relocation R_X86_64_32 against `.rodata.str1.1' can not be used when making a shared object; recompile with -fPIC
+  could not read symbols: Bad value
+
+you'll have to return to step 1 and re-compile Wild Magic with the ``-fPIC`` flag.
+Easiest thing is to change all makefiles, appending the flag to the ``CFLAGS`` variable, then run "make clean" before re-building the whole thing.
+
+----
+
+If the installation was successful, congratulations!
+You now have the Wild Magic module available in your Python interpreter. 
+Go ahead and test it by running the following command:
 ::
      
   python test.py
+
+Another good test is to run
+:doc:`code analysis <code_analysis>`.
 
 .. The end.
