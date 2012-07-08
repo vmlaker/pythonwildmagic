@@ -34,7 +34,8 @@ for entry in sorted(os.listdir(wm5_inc)):
     full = os.path.join(wm5_inc, entry)
     fxml = os.path.join(out_dir, entry + '.xml')
     cmd = 'gccxml %s -fxml=%s '%(full, fxml) + \
-        '-I%s -I%s/../../LibGraphics/Renderers '%(wm5_inc, wm5_inc)# + \
+        '-I%s -I%s/../../LibGraphics/Renderers '%(wm5_inc, wm5_inc) + \
+        '-D__LINUX__ ' #+ \
     commands.append(cmd)
 
 num_cpus = multiprocessing.cpu_count()

@@ -9,8 +9,9 @@ import inspect
 import shutil
 import os
 
-# Import user configuration module.
+# Import application modules.
 import config
+import tools
 
 class Clean2(Command):
     """A more thorough clean command."""
@@ -64,9 +65,12 @@ module = Extension(
         ],
     )
 
+
+import tools.version
+
 setup(
     name         = 'wm5',
-    version      = '0.1',
+    version      = tools.version.number,
     description  = 'Python wrapper of Geometric Tools\' Wild Magic C++ libraries',
     url          = 'http://python-wild-magic.googlecode.com',
     author       = 'Velimir Mlaker',

@@ -1,7 +1,6 @@
 Contents of this directory:
 ---------------------------
-gen-docs.py      -  generates Sphinx documentation pages
-get-coverage.py  -  prints code coverage information
+create-docs.py   -  generates Sphinx documentation pages
 Makefile         -  Sphinx makefile
 prune.py         -  prunes Sphinx build directory
 source           -  Sphinx documentation source code

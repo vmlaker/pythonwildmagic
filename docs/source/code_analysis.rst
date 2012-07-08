@@ -11,7 +11,7 @@ For the tools to work, you need to have installed |NAME| of course. Also, you ne
 1. Generate XML
 ===============
 
-First, we'll produce an XML version of the C++ code using the ``gen-xml.py`` program. 
+First, we'll produce an XML version of the C++ code using the ``create-xml.py`` program. 
 This program runs *GCC-XML* on all header files in your Wild Magic installation, producing one ``.xml`` file for each ``Wm5*.h`` file. 
 The program spawns parallel runs of *GCC-XML*, one process per CPU. 
 
@@ -19,12 +19,12 @@ From the top of the source tree, run the following command.
 It will dump the resulting files in ``out/xml/`` directory. (Note the use of output of ``config.py`` command as the second argument.)
 ::
   
-  tools/gen-xml.py out/xml `./config.py`
+  tools/create-xml.py out/xml `./config.py`
 
 2. Parse the XML
 ================
 
-Next we'll parse the XML files to obtain a list of all C++ class names. 
+Next let's parse the XML files to obtain a list of all C++ class names. 
 The program ``parse-xml.py`` builds DOMs from the XML files and extracts the names of all classes found.
 The program spawns parallel parsers, one parser process per CPU.
 
@@ -36,8 +36,8 @@ The following command dumps the list of unique class names to file ``out/cpp.txt
 3. Compare class names
 ======================
 
-Now we'll compare the two sets of class names.
-Program ``compare.py`` matches class names in the ``Wm5::`` C++ namespace with those in the ``wm5`` Python module, and vice versa. A short summary of the comparison is printed.
+Now we're ready to compare the two sets of class names.
+Program ``compare.py`` matches class names in the ``Wm5::`` C++ namespace with those in the ``wm5`` Python module, and vice versa. Run the following command to get a summary of the comparison.
 ::
 
   tools/compare.py out/cpp.txt

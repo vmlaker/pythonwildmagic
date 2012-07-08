@@ -15,7 +15,7 @@ to_prune = (
     'html/.buildinfo',
     'html/_images',
     'html/_sources',
-    'html/coverage.html',
+    'html/blurb.html',
     'html/objects.inv',
     'html/tools_api.html',
     )

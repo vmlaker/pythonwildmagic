@@ -4,9 +4,10 @@
 System configuration variables for building
 Wild Magic Python extension.
 """
+import os
 
 # Location of Wild Magic installation
-WM5 = '/home/vmlaker/local/wild-magic-5.7'
+WM5 = os.environ['WM5_PATH']
 WM5INCDIR = '%s/SDK/Include'%WM5
 WM5LIBDIR = '%s/SDK/Library/Release'%WM5
 

@@ -2,13 +2,14 @@ Contents of this directory:
 ---------------------------
 compare.py    -  compares content of Python extension module
                  with content of Wild Magic C++ namespace 
-gen-xml.py    -  runs GCC-XML on Wild Magic C++ source to
+create-xml.py -  runs GCC-XML on Wild Magic C++ source to
                  produce XML representation of the code
-get-library.py  -  prints a SWIG library file, a starting
-                 point for developing an actual working 
-                 library file
+get-coverage.py  -  prints code coverage information
 get-py-names.py  -  prints a list of names in wm5 Python module
 parse-xml.py  -  parses GCC-XML output to assemble a list
                  of classes in Wild Magic libraries
+patch-wm5.py  -  patches the Wild Magic C++ code to allow it
+                 work with the wrapper
 tools.py      -  library classes used in above commands
+version.py    -  versioning module
 README        -  this README file

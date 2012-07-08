@@ -6,6 +6,11 @@
 //////////////////////////////////////////////////
 
 %module wm5
+
+%include "carrays.i"
+%array_class(double, dArray);
+%array_class(float, fArray);
+
 %{
 
 //  LibCore
@@ -35,14 +40,13 @@
 #include "Wm5ConsoleApplication.h"
 
 //#include "Wm5GlxExtensions.h"
-//#include "Wm5GlxRendererData.h"
-//#include "Wm5GlxRendererInput.h"
+#include "Wm5GlxRendererData.h"
+#include "Wm5GlxRendererInput.h"
 
-/*
 #include "Wm5WindowApplication.h"
 #include "Wm5WindowApplication2.h"
 #include "Wm5WindowApplication3.h"
-*/
+ 
 %}
 
 //  LibCore
@@ -58,7 +62,7 @@
 //  LibCore/InputOutput
 %include "Wm5BufferIO.h"
 %include "Wm5Endian.h"
-//%include "Wm5Environment.h"
+%include "Wm5Environment.h"
 %include "Wm5FileIO.h"
 //  LibCore/Memory
 %include "Wm5Memory.h"
@@ -529,11 +533,11 @@
 //%include "Wm5GlxRendererInput.h"
 
 //  LibGraphics/Renderers/OpenGLRenderer
-/*
-%include "Wm5GlExtensions.h"
-%include "Wm5GlPlugin.h"
-%include "Wm5GlUtility.h"
-*/
+
+//%include "Wm5GlExtensions.h"
+//%include "Wm5GlPlugin.h"
+//%include "Wm5GlUtility.h"
+
 %include "Wm5OpenGLBitmapFont.h"
 //%include "Wm5OpenGLIndexBuffer.h"
 //%include "Wm5OpenGLMapping.h"
@@ -721,17 +725,12 @@
 %include "Wm5ConsoleApplication.h"
 
 //%include "Wm5GlxExtensions.h"
-//%include "Wm5GlxRendererData.h"
-//%include "Wm5GlxRendererInput.h"
+%include "Wm5GlxRendererData.h"
+%include "Wm5GlxRendererInput.h"
 
-//%include "Wm5WindowApplication.h"
-// Getting runtime error: 
-//   undefined symbol: _ZN3Wm515GlxRendererData18FinishConstructionEmPNS_8RendererE
-
-/*
+%include "Wm5WindowApplication.h"
 %include "Wm5WindowApplication2.h"
 %include "Wm5WindowApplication3.h"
-*/
 
 %template (Tuple1i) Wm5::Tuple<1, int>;
 %template (Tuple1f) Wm5::Tuple<1, float>;
@@ -969,8 +968,8 @@
 %template (ExtremalQuery3PRJf) Wm5::ExtremalQuery3PRJ<float>;
 %template (Frustum3d) Wm5::Frustum3<double>;
 %template (Frustum3f) Wm5::Frustum3<float>;
-//%template (GMatrixd) Wm5::GMatrix<double>;
-//%template (GMatrixf) Wm5::GMatrix<float>;
+%template (GMatrixd) Wm5::GMatrix<double>;
+%template (GMatrixf) Wm5::GMatrix<float>;
 %template (GVectord) Wm5::GVector<double>;
 %template (GVectorf) Wm5::GVector<float>;
 %template (GridGraph2d) Wm5::GridGraph2<double>;
@@ -1228,8 +1227,8 @@
 %template (Mathf) Wm5::Math<float>;
 %template (Matrix2d) Wm5::Matrix2<double>;
 %template (Matrix2f) Wm5::Matrix2<float>;
-//%template (Matrix3d) Wm5::Matrix3<double>;
-//%template (Matrix3f) Wm5::Matrix3<float>;
+%template (Matrix3d) Wm5::Matrix3<double>;
+%template (Matrix3f) Wm5::Matrix3<float>;
 //%template (Matrix4d) Wm5::Matrix4<double>;
 //%template (Matrix4f) Wm5::Matrix4<float>;
 %template (MeshCurvatured) Wm5::MeshCurvature<double>;
