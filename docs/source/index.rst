@@ -21,7 +21,7 @@ Here's an example:
 
 .. literalinclude:: ../../test.py
 
-.. include:: blurb.rst
+.. include:: text01.rst
 
 To get up and running with |NAME|, just
 :doc:`install the code <installing>`.

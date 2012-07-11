@@ -1,14 +1,14 @@
 .. _download:
 
-**********
-Get |NAME|
-**********
+**************
+Getting |NAME|
+**************
 
-Get the latest wrapper from the *Downloads* tab on the Google Code page:
+.. include:: text02.rst
 
-http://googlecode.com/p/python-wild-magic/downloads
-
-Alternatively, check it out from the Subversion repository:
+Or you can check it out from the
+`Subversion repository <http://python-wild-magic.googlecode.com/svn>`_. 
+The code is in the ``trunk/`` subdirectory, and you can get a copy by running:
 ::
 
   svn co http://python-wild-magic.googlecode.com/svn/trunk python-wild-magic

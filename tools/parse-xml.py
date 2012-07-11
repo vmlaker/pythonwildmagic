@@ -2,12 +2,12 @@
 
 """Parse GCC-XML output files and produce a list of class names."""
 
-# Python imports.
+# import system modules.
 import multiprocessing
 import sys
 
-# Application imports.
-import tools
+# Import application modules.
+import master
 
 try:
     out_file = sys.argv[1]
@@ -20,7 +20,7 @@ except:
 num_cpus = multiprocessing.cpu_count()
 print 'Parsing %d files on %d CPUs'%(len(in_xmls), num_cpus,)
 
-master = tools.ParserMaster(8, in_xmls)
+master = master.ParserMaster(8, in_xmls)
 master.start()
 master.join()
 

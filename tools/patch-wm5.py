@@ -3,28 +3,17 @@
 """Patch the Wild Magic source code."""
 
 # Import system-level modules.
-import subprocess
 import sys
 import os
 
 # Import application-level modules.
-import tools
+import util
 
-# Configure the command.
+# Configure and parse the command line.
 NAME = os.path.basename(sys.argv[0])
 ARGS = [('wm5_dir', 'location of Wild Magic')]
 OPTS = [('-d', 'dry_run', 'store_true', False, 'dry run, don\'t actually do anything')]
-
-# Parse the command line.
-ARGS, OPTS = tools.parse_cmd(NAME, ARGS, OPTS)
-
-def run(cmd):
-    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
-    p.wait()
-    result = []
-    for line in p.stdout.readlines():
-        result.append(line.rstrip())
-    return result
+ARGS, OPTS = util.parse_cmd(NAME, ARGS, OPTS)
 
 # A table of changes to be done to files in the source tree.
 # If line# is 0, it means change all appearances of "old_text" in the file.
@@ -32,14 +21,15 @@ CHANGES = [
     # file to change     line#  old text    replacement text
     # --------------     -----  ---------   ----------------
     #
-    # This function is not defined, so comment-out its declaration.
-    ('Wm5Environment.h',   43,  'static',   '\/\/ static'),  
+    # SWIG complains beacause these functions are declared, but undefined.
+    # So let's comment-out their declarations.
+    ('Wm5Environment.h', 43, 'static std::string GetPath', '\/\/ static std::string GetPath'),
+    ('Wm5VertexBufferAccessor.h', 57, 'void SetNormal3', '\/\/ void SetNormal3'),
+    ('Wm5VertexBufferAccessor.h', 58, 'AVector GetNormal3', '\/\/ AVector GetNormal3'),
+    ('Wm5LightModelDVectorConstant.h', 31, 'Light\* GetLight', '\/\/ Light\* GetLight'),
     #
     # Add a cast to Real* operator. 
-    ('Wm5GMatrix.h',       60,  '',         'operator Real*() { return *mEntry; }'),
-    #
-    # Fix a typo bug.
-    ('Wm5GMatrix.inl',    478,  'mEntry',   'srcEntry'),
+    ('Wm5GMatrix.h', 60, '', 'operator Real*() { return *mEntry; }'),
     ]
 
 # These changes are only needed on 64-bit architectures.
@@ -59,19 +49,18 @@ for change in CHANGES:
     old_text = change[2]
     new_text = change[3]
     cmd = 'find %s -name %s'%(ARGS['wm5_dir'], fname)
-    for found in run(cmd):
+    for found in util.run(cmd):
         fname = found.strip()
         
         cmd = 'grep "%s" %s'%(old_text, fname)
-        if not len(run(cmd)):
+        if not len(util.run(cmd)):
             continue
 
         backup = fname + '.orig'
         cmd = 'cp %s %s'%(fname, backup)
+        print 'Saving file   : %s'%backup
         if not OPTS['dry_run']:
-            run(cmd)
-        print 'Saved file %s'%backup
-        print 'Changing file %s'%fname
+            util.run(cmd)
 
         if line_num:
             if len(old_text):
@@ -82,14 +71,15 @@ for change in CHANGES:
         else:
             # Line number == 0 means "change all."
             cmd = 'sed -i s/"%s"/"%s"/g %s'%(old_text, new_text, fname)
-        print cmd
+        print 'Changing file : %s'%fname
+        print 'Command       : %s'%cmd
         if not OPTS['dry_run']:
-            run(cmd)
+            util.run(cmd)
 
         continue
         print 'Diff:'
         cmd = 'diff %s %s'%(backup, fname)
-        for line in run(cmd):
+        for line in util.run(cmd):
             print line
             pass
 

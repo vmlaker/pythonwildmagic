@@ -1,7 +1,5 @@
 Contents of this directory:
 ---------------------------
-create-docs.py   -  generates Sphinx documentation pages
 Makefile         -  Sphinx makefile
-prune.py         -  prunes Sphinx build directory
 source           -  Sphinx documentation source code
 README           -  this README file

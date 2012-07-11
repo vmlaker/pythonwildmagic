@@ -4,15 +4,16 @@
 Code Analysis
 *************
 
-To determine the Python module's breadth of coverage of the C++ code, you can run some source code analysis tools provided in the ``tools/`` directory. 
-For the tools to work, you need to have installed |NAME| of course. Also, you need `GCC-XML <http://www.gccxml.org>`_ available on your system (APT or YUM users can simply install package ``gccxml``.) 
+To determine the Python module's breadth of coverage of the C++ code, you can analyze the source code using tools provided in the ``tools/`` directory. 
+For the tools to work, you need to have already installed |NAME|, of course. 
+You also need `GCC-XML <http://www.gccxml.org>`_ available on your system (APT or YUM users can simply install package ``gccxml``.) 
 
 
 1. Generate XML
 ===============
 
-First, we'll produce an XML version of the C++ code using the ``create-xml.py`` program. 
-This program runs *GCC-XML* on all header files in your Wild Magic installation, producing one ``.xml`` file for each ``Wm5*.h`` file. 
+First, we'll produce an XML version of the C++ code using ``create-xml.py``.
+This program runs *GCC-XML* on all C++ header files in your Wild Magic installation, producing one ``.xml`` file for each ``Wm5*.h`` file. 
 The program spawns parallel runs of *GCC-XML*, one process per CPU. 
 
 From the top of the source tree, run the following command. 

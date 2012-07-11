@@ -2,14 +2,14 @@
 
 """Run GCC-XML on Wild Magic C++ header files."""
 
-# Python imports.
+# Import system modules.
 import multiprocessing
 import subprocess
 import sys
 import os
 
-# Application imports.
-import tools
+# Import application modules.
+import master
 
 try:
     out_dir = sys.argv[1]
@@ -41,7 +41,7 @@ for entry in sorted(os.listdir(wm5_inc)):
 num_cpus = multiprocessing.cpu_count()
 print 'Running %d commands on %d CPUs'%(len(commands), num_cpus)
 
-master = tools.CommandMaster(8, commands)
+master = master.CommandMaster(8, commands)
 master.start()
 master.join()
 

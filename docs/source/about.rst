@@ -4,10 +4,10 @@
 About |NAME|
 ************
 
-|NAME| is a Python wrapper of Wild Magic C++ libraries, written on Linux by Velimir Mlaker using several freely available softwares:
+|NAME| is written on Linux by Velimir Mlaker using several freely available softwares:
 
-Wild Magic 5.7
-==============
+Wild Magic
+==========
   
   This is the awsome |WM_DESCR|.
   It is written by 

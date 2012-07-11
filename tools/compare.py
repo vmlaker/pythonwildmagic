@@ -3,7 +3,7 @@
 """Analyze Python coverage of C++."""
 
 import sys
-import tools
+import cpp2py
 
 try:
     in_file = sys.argv[1]
@@ -11,7 +11,7 @@ except:
     print 'Usage: %s in_file'%(sys.argv[0],)
     sys.exit(1)
 
-cpp_names, py_names, cpp_in_py_names, py_in_cpp_names = tools.compare(in_file)
+cpp_names, py_names, cpp_in_py_names, py_in_cpp_names = cpp2py.compare(in_file)
 
 print 'C++ names     : %9d'%(len(cpp_names),)
 print 'Python names  : %9d'%(len(py_names) ,)

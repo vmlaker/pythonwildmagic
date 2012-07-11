@@ -47,14 +47,14 @@ You can do this by running the following command from the top of the wrapper sou
 Download the Wild Magic archive file from Geometric Tools website:
 ::
 
-  wget http://www.geometrictools.com/Downloads/WildMagic5p7.zip
+  wget http://www.geometrictools.com/Downloads/WildMagic5p8.zip
 
 Uncompress the archive file
 (you may want to do this in a location where you normally install your other softwares.)
 The following command creates a subdirectory ``GeometricTools/WildMagic5/`` which contains the Wild Magic C++ code:
 ::
 
-  unzip WildMagic5p7.zip
+  unzip WildMagic5p8.zip
 
 The library code needs to be tweaked in order to work with the Python wrapper.
 The program ``patch-wm5.py`` (found in the wrapper ``tools/`` directory) makes the appropriate changes to the C++ code.

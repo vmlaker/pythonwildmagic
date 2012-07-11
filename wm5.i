@@ -46,7 +46,23 @@
 #include "Wm5WindowApplication.h"
 #include "Wm5WindowApplication2.h"
 #include "Wm5WindowApplication3.h"
- 
+
+#include "Wm5OpenGLShader.h" 
+#include "Wm5OpenGLTexture1D.h"
+#include "Wm5OpenGLTexture2D.h"
+#include "Wm5OpenGLTexture3D.h"
+#include "Wm5OpenGLTextureCube.h"
+
+#include "Wm5OpenGLIndexBuffer.h"
+#include "Wm5OpenGLMapping.h"
+#include "Wm5OpenGLPixelShader.h"
+#include "Wm5OpenGLRenderTarget.h"
+#include "Wm5OpenGLRendererData.h"
+#include "Wm5OpenGLRendererLIB.h"
+#include "Wm5OpenGLVertexBuffer.h"
+#include "Wm5OpenGLVertexFormat.h"
+#include "Wm5OpenGLVertexShader.h"
+
 %}
 
 //  LibCore
@@ -532,27 +548,6 @@
 //%include "Wm5GlxRendererData.h"
 //%include "Wm5GlxRendererInput.h"
 
-//  LibGraphics/Renderers/OpenGLRenderer
-
-//%include "Wm5GlExtensions.h"
-//%include "Wm5GlPlugin.h"
-//%include "Wm5GlUtility.h"
-
-%include "Wm5OpenGLBitmapFont.h"
-//%include "Wm5OpenGLIndexBuffer.h"
-//%include "Wm5OpenGLMapping.h"
-//%include "Wm5OpenGLPixelShader.h"
-//%include "Wm5OpenGLRenderTarget.h"
-//%include "Wm5OpenGLRendererData.h"
-//%include "Wm5OpenGLRendererLIB.h"
-//%include "Wm5OpenGLShader.h"
-//%include "Wm5OpenGLTexture1D.h"
-//%include "Wm5OpenGLTexture2D.h"
-//%include "Wm5OpenGLTexture3D.h"
-//%include "Wm5OpenGLTextureCube.h"
-//%include "Wm5OpenGLVertexBuffer.h"
-//%include "Wm5OpenGLVertexFormat.h"
-//%include "Wm5OpenGLVertexShader.h"
 //  LibGraphics/Resources
 %include "Wm5Buffer.h"
 %include "Wm5IndexBuffer.h"
@@ -564,12 +559,7 @@
 %include "Wm5RenderTarget.h"
 %include "Wm5VertexFormat.h"
 %include "Wm5VertexBuffer.h"
-
-// Getting runtime error:
-//   undefined symbol: Wm5::VertexBufferAccessor::SetNormal3
-//%include "Wm5VertexBufferAccessor.h"
-//%ignore Wm5::VertexBufferAccessor::SetNormal3 (int i, const AVector& normal);
-
+%include "Wm5VertexBufferAccessor.h"
 //  LibGraphics/CurvesSurfaces
 %include "Wm5BSplineSurfacePatch.h"
 %include "Wm5BoxSurface.h"
@@ -622,22 +612,16 @@
 //  LibGraphics/Renderers
 %include "Wm5Renderer.h"
 %include "Wm5Renderers.h"
-
 %include "Wm5ProjectorWorldPositionConstant.h"
 %include "Wm5LightAmbientConstant.h"
 %include "Wm5LightAttenuationConstant.h"
 %include "Wm5LightDiffuseConstant.h"
- 
-// Getting runtime error:
-//   undefined symbol: _ZN3Wm525LightModelDVectorConstant8GetLightEv
-//%include "Wm5LightModelDVectorConstant.h"
-
+%include "Wm5LightModelDVectorConstant.h"
 %include "Wm5LightModelPositionConstant.h"
 %include "Wm5LightSpecularConstant.h"
 %include "Wm5LightSpotConstant.h"
-//%include "Wm5LightWorldDVectorConstant.h"
+%include "Wm5LightWorldDVectorConstant.h"
 %include "Wm5LightWorldPositionConstant.h"
-
 %include "Wm5MaterialAmbientConstant.h"
 %include "Wm5MaterialDiffuseConstant.h"
 %include "Wm5MaterialEmissiveConstant.h"
@@ -650,7 +634,6 @@
 %include "Wm5CameraWorldDVectorConstant.h"
 %include "Wm5CameraWorldPositionConstant.h"
 %include "Wm5ProjectorMatrixConstant.h"
-
 %include "Wm5GlobalEffect.h"
 %include "Wm5DefaultEffect.h"
 %include "Wm5LightAmbEffect.h"
@@ -660,7 +643,6 @@
 %include "Wm5LightPntPerVerEffect.h"
 %include "Wm5LightSptPerPixEffect.h"
 %include "Wm5LightSptPerVerEffect.h"
-
 %include "Wm5MaterialEffect.h"
 %include "Wm5MaterialTextureEffect.h"
 %include "Wm5Texture1DEffect.h"
@@ -669,18 +651,15 @@
 %include "Wm5Texture2DEffect.h"
 %include "Wm5Texture2MulEffect.h"
 %include "Wm5Texture3DEffect.h"
-
 %include "Wm5VertexColor3Effect.h"
 %include "Wm5VertexColor4Effect.h"
 %include "Wm5VertexColor4TextureEffect.h"
-
 %include "Wm5TriFan.h"
 %include "Wm5TriMesh.h"
 %include "Wm5StandardMesh.h"
 %include "Wm5TriStrip.h"
 %include "Wm5ScreenTarget.h"
 %include "Wm5Triangles.h"
-
 %include "Wm5PlanarReflectionEffect.h"
 %include "Wm5PlanarShadowEffect.h"
 
@@ -731,6 +710,31 @@
 %include "Wm5WindowApplication.h"
 %include "Wm5WindowApplication2.h"
 %include "Wm5WindowApplication3.h"
+
+//  LibGraphics/Renderers/OpenGLRenderer
+
+//%include "Wm5GlExtensions.h"
+//%include "Wm5GlPlugin.h"
+//%include "Wm5GlUtility.h"
+
+%include "Wm5OpenGLBitmapFont.h"
+
+%include "Wm5OpenGLIndexBuffer.h"
+%include "Wm5OpenGLMapping.h"
+%include "Wm5OpenGLPixelShader.h"
+%include "Wm5OpenGLRenderTarget.h"
+%include "Wm5OpenGLRendererData.h"
+%include "Wm5OpenGLRendererLIB.h"
+
+%include "Wm5OpenGLShader.h"
+%include "Wm5OpenGLTexture1D.h"
+%include "Wm5OpenGLTexture2D.h"
+%include "Wm5OpenGLTexture3D.h"
+%include "Wm5OpenGLTextureCube.h"
+%include "Wm5OpenGLVertexBuffer.h"
+%include "Wm5OpenGLVertexFormat.h"
+%include "Wm5OpenGLVertexShader.h"
+
 
 %template (Tuple1i) Wm5::Tuple<1, int>;
 %template (Tuple1f) Wm5::Tuple<1, float>;
