@@ -15,7 +15,7 @@ import util
 
 # Configure and parse the command line.
 NAME = os.path.basename(sys.argv[0])
-ARGS = [('in_file', 'file with C++ names'),
+ARGS = [('cpp_names', 'file with C++ names'),
         ('docs_src', 'documentation source directory'),
         ('docs_dest', 'documentation destination directory'),
         ]
@@ -30,7 +30,7 @@ def getDoc01():
     now = datetime.datetime.now()
     result += now.strftime('%B ')
     result += '%s, %s. '%(now.day, now.year)
-    cpp_names, py_names, cpp_in_py_names, py_in_cpp_names = cpp2py.compare(ARGS['in_file'])
+    cpp_names, py_names, cpp_in_py_names, py_in_cpp_names = cpp2py.compare(ARGS['cpp_names'])
     num_py = len(py_in_cpp_names)
     num_total = len(cpp_names)
     percent = float(num_py) / num_total * 100
@@ -40,9 +40,11 @@ def getDoc01():
 
 def getDoc02():
     """Return the Download page blurb."""
-    result = 'Download version %s, the latest release: '%version.number
-    result += '`python-wild-magic-%s.tar.gz '%version.number
-    result += '<http://python-wild-magic.googlecode.com/files/python-wild-magic-%s.tar.gz>`_'%version.number
+    result = 'Version %s is the latest release, \n'%version.number
+    result += 'and is available for download:\n\n'
+    result += ' `python-wild-magic-%s.tar.gz '%version.number
+    result += '<http://python-wild-magic.googlecode.com/files/python-wild-magic-%s.tar.gz>`_'\
+        %version.number
     return result
 
 fname = os.path.join(ARGS['docs_src'], 'source', 'text01.rst')
@@ -61,7 +63,8 @@ if not OPTS['dry_run']:
     fout.write(doc)
     fout.close()
 
-cpp_names, py_names, cpp_in_py_names, py_in_cpp_names = cpp2py.compare(ARGS['in_file'])
+print 'Comparing names'
+cpp_names, py_names, cpp_in_py_names, py_in_cpp_names = cpp2py.compare(ARGS['cpp_names'])
 
 def getRow(cpp_name):
     """Return an HTML string of a row tag for the given C++ name."""

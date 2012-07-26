@@ -1,5 +1,5 @@
 Contents of this directory:
 ---------------------------
 Makefile         -  Sphinx makefile
-source           -  Sphinx documentation source code
 README           -  this README file
+source/          -  Sphinx documentation source code

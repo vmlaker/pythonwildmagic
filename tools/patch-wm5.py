@@ -18,18 +18,17 @@ ARGS, OPTS = util.parse_cmd(NAME, ARGS, OPTS)
 # A table of changes to be done to files in the source tree.
 # If line# is 0, it means change all appearances of "old_text" in the file.
 CHANGES = [
-    # file to change     line#  old text    replacement text
-    # --------------     -----  ---------   ----------------
-    #
-    # SWIG complains beacause these functions are declared, but undefined.
-    # So let's comment-out their declarations.
-    ('Wm5Environment.h', 43, 'static std::string GetPath', '\/\/ static std::string GetPath'),
-    ('Wm5VertexBufferAccessor.h', 57, 'void SetNormal3', '\/\/ void SetNormal3'),
-    ('Wm5VertexBufferAccessor.h', 58, 'AVector GetNormal3', '\/\/ AVector GetNormal3'),
-    ('Wm5LightModelDVectorConstant.h', 31, 'Light\* GetLight', '\/\/ Light\* GetLight'),
+    # file to change  line#  old text  replacement text
+    # --------------  -----  --------  ----------------
     #
     # Add a cast to Real* operator. 
     ('Wm5GMatrix.h', 60, '', 'operator Real*() { return *mEntry; }'),
+    #
+    # Include file Wm5GlExtensions.h.
+    ('Wm5GlUtility.h', 13, '', '#include \"Wm5GlExtensions.h\"'),
+    #
+    # Include file Wm5Memory.h.
+    ('Wm5UniqueVerticesTriangles.h', 14, '', '#include \"Wm5Memory.h\"'),
     ]
 
 # These changes are only needed on 64-bit architectures.
@@ -64,13 +63,13 @@ for change in CHANGES:
 
         if line_num:
             if len(old_text):
-                cmd = 'sed -i %ds/"%s"/"%s"/g %s'%(line_num, old_text, new_text, fname)
+                cmd = "sed -i %ds/'%s'/'%s'/g %s"%(line_num, old_text, new_text, fname)
             else:
                 # Empty old_text means "add" instead of "replace."
-                cmd = 'sed -i %di\"%s\" %s'%(line_num, new_text, fname)
+                cmd = "sed -i %di\'%s\' %s"%(line_num, new_text, fname)
         else:
             # Line number == 0 means "change all."
-            cmd = 'sed -i s/"%s"/"%s"/g %s'%(old_text, new_text, fname)
+            cmd = "sed -i s/'%s'/'%s'/g %s"%(old_text, new_text, fname)
         print 'Changing file : %s'%fname
         print 'Command       : %s'%cmd
         if not OPTS['dry_run']:

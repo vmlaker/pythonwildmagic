@@ -6,6 +6,7 @@
    download
    installing
    code_analysis
+   swig_interface
    api
    about
 
@@ -19,7 +20,7 @@ the |WM_DESCR|.
 |NAME| lets you *make Wild Magic calls in Python!*
 Here's an example:
 
-.. literalinclude:: ../../test.py
+.. literalinclude:: ../../tests/tiny.py
 
 .. include:: text01.rst
 

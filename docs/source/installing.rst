@@ -23,26 +23,32 @@ YUM (e.g. Fedora or Red Hat) users can get them by running
   sudo yum install python-devel
   sudo yum install swig
 
-That being said, the best thing is to proceed with steps below, resolving any dependency error that comes up along the way by installing the missing package.
+That being said, the best thing is to proceed with steps below, resolving any dependency error that comes up by installing the missing package.
+For example, while building the C++ libraries, if *Make* fails with something like,
 
-The literal commands in this guide are written using *tcsh*, and may not translate to your particular Unix shell. 
+  :samp:`GL/glu.h: No such file or directory`
+
+check to see if you have libGLU headers on your system.
+In APT repos, the package of interest is named ``libglu1-mesa-dev``, while in YUM it is ``mesa-libGLU-devel``.
+
+Finally, note that the literal commands in this guide are written using *tcsh*, and may not translate to your particular Unix shell. 
 But hopefully the intentions are made clear enough that, even in case the commands don't work verbatim for you, you'll quickly figure out how to get things running on your system.
 
 
-1. Get the wrapper code
-=======================
+1. Get wrapper code
+===================
 
 To begin, :doc:`download <download>` the wrapper code.
 
 Then, set the environment variable ``WM5_PY_PATH`` to point to location of the wrapper.
-You can do this by running the following command from the top of the wrapper source tree:
+You can do this by running the following from the top of the wrapper source tree:
 ::
 
   setenv WM5_PY_PATH `pwd`
 
 
-2. Install the C++ libraries
-============================
+2. Install C++ libraries
+========================
 
 Download the Wild Magic archive file from Geometric Tools website:
 ::
@@ -56,35 +62,28 @@ The following command creates a subdirectory ``GeometricTools/WildMagic5/`` whic
 
   unzip WildMagic5p8.zip
 
-The library code needs to be tweaked in order to work with the Python wrapper.
-The program ``patch-wm5.py`` (found in the wrapper ``tools/`` directory) makes the appropriate changes to the C++ code.
+Set environment variable ``WM5_PATH`` to point to the library location:
+::
+
+  setenv WM5_PATH `pwd`/GeometricTools/WildMagic5
+
+Before compiling, the C++ code needs to be tweaked in order to work with the Python wrapper.
+Program ``patch-wm5.py`` (found in the wrapper ``tools/`` directory) makes the appropriate changes.
 Run the following command to apply the patch:
 ::
 
-  $WM5_PY_PATH/tools/patch-wm5.py GeometricTools/WildMagic5
+  $WM5_PY_PATH/tools/patch-wm5.py $WM5_PATH
 
 
 Now run *Make* from the top of the Wild Magic source tree:
 ::
  
-  cd GeometricTools/WildMagic5
+  cd WM5_PATH
   make -j8 CFG=Release -f makefile.wm5
 
-In case *Make* fails with something like,
 
-  :samp:`GL/glu.h: No such file or directory`
-
-check to see if you have libGLU headers on your system.
-In YUM repos, the package of interest is named ``mesa-libGLU-devel``, while in APT it is ``libglu1-mesa-dev``.
-
-Having successfully run *Make*, set the environment variable ``WM5_PATH`` to point to the library location:
-::
-
-  setenv WM5_PATH `pwd`
-
-
-3. Build and install the extension
-==================================
+3. Install Python module
+========================
 
 From the top of the wrapper source tree, build and install the extension module using *Distutils*:
 ::
@@ -101,7 +100,7 @@ You now have the Wild Magic module available in your Python interpreter.
 Go ahead and test it by running the following command:
 ::
      
-  python test.py
+  python tests/tiny.py
 
 Another good test is to run
 :doc:`code analysis <code_analysis>`.

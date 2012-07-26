@@ -1,19 +1,17 @@
 Python Wild Magic is a Python extension wrapper 
-for Geometric Tools' Wild Magic C++ libraries. 
-
+for Geometric Tools' Wild Magic C++ libraries.
 For the source code and documentation, visit
 the project website at:
 
    http://python-wild-magic.googlecode.com
 
-
 Contents of this directory:
 ---------------------------
 config.py  -  configuration file for installation using Distutils
 docs/      -  Sphinx documentation source
-Makefile   -  a makefile for alternate build
 README     -  this readme file
 setup.py   -  Distutils installer
-test.py    -  test file
-tools/     -  utility tools
-wm5.i      -  SWIG library file
+special.i  -  auxiliary SWIG interface file with extra directives
+tests/     -  contains test codes and translated C++ samples
+tools/     -  contains utility code and tools
+wm5.i      -  main SWIG interface file

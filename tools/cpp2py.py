@@ -1,8 +1,5 @@
 """Methods used in translation of C++ to Python."""
 
-import wm5
-
-
 # A table of text replacements int C++ names to create legitimate Python names.
 REPLACEMENTS = (
     ('<2, Wm5::Vector2<float>, Wm5::Vector2<double> >' , '2'),
@@ -24,7 +21,8 @@ REPLACEMENTS = (
     ('<Wm5::Euint>'  , 'Euint'),
     ('<Wm5::Eulong>' , 'Eulong'),
     ('<Wm5::Eushort>', 'Eushort'),
-    ('<3, 3, float>', '33f'),
+    ('<3, 3, float>' , '33f'),
+    ('<4, 4, double>', '44d'),
     ('<int, float>' , 'if'),
     ('<1, int>'   , '1i'),
     ('<1, float>' , '1f'),
@@ -49,32 +47,46 @@ REPLACEMENTS = (
     )
 
 
-def compare(in_file):
-    """Return (cpp_names, py_names, cpp_in_py, py_in_cpp)."""
+def get_cpp2py(in_file):
+    """Return a lookup table that maps original C++ names
+    to their Python equivalents."""
+
     # Read the input file of C++ names.
     fin = open(in_file)
     lines = fin.readlines()
     fin.close()
 
-    # Assemble a lookup table that maps original C++ names
-    # to their Python equivalents.
-    cpp2py_names = {}
+    # Assemble and return the table.
+    result = {}
     for cpp_name in lines:
         cpp_name = cpp_name.strip()
         py_name = getPyName(cpp_name)
-        cpp2py_names[cpp_name] = py_name
+        result[cpp_name] = py_name
+    return result
+
+
+def compare(in_file):
+    """Return (cpp_names, py_names, cpp_in_py, py_in_cpp)."""
+
+    # Get the C++ --> Python table.
+    cpp2py_names = get_cpp2py(in_file)
 
     # Assemble a lookup table that maps Python equivalent 
     # names to their original C++ names.
     py2cpp_names = {}
-    for cpp_name in lines:
+    for cpp_name in cpp2py_names:
         cpp_name = cpp_name.strip()
         py_name = getPyName(cpp_name)
         py2cpp_names[py_name] = cpp_name
 
     # Assemble a lookup table of names found in the Python module.
     py_names = {}
-    for name in sorted(dir(wm5)):
+    try:
+        import wm5
+        dir_wm5 = dir(wm5)
+    except ImportError, e:
+        dir_wm5 = []
+    for name in sorted(dir_wm5):
         name = 'wm5.%s'%name
         # Skip names that have swigregister stuff in em.
         SREG = '_swigregister'
@@ -107,6 +119,5 @@ def getPyName(cpp_name):
     for old,new in REPLACEMENTS:
         result = result.replace(old, new)
     return result
-
 
 # The end.

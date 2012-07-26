@@ -1,19 +1,18 @@
 Contents of this directory:
 ---------------------------
-__init__.py   -  needed to treat this directory as a Python module
-compare.py    -  compares content of Python extension module
-                 with content of Wild Magic C++ namespace 
-cpp2py        -  methods for translation of C++ to Python
-create-docs.py   -  generates Sphinx documentation pages
-create-xml.py -  runs GCC-XML on Wild Magic C++ source to
-                 produce XML representation of the code
-get-coverage.py  -  prints code coverage information
-get-py-names.py  -  prints a list of names in wm5 Python module
-master.py     -  threads and processes used for analysis
-parse-xml.py  -  parses GCC-XML output to assemble a list
-                 of classes in Wild Magic libraries
-patch-wm5.py  -  patches the Wild Magic C++ code to allow it
-                 work with the wrapper
-util.py       -  a set of generic utilities
-version.py    -  versioning module
-README        -  this README file
+compare.py        -  compares C++ namespace with content of Python module
+cpp2py.py         -  module with methods for translation of C++ to Python
+create-docs.py    -  generates Sphinx documentation pages
+create-xml.py     -  produces XML representation of Wild Magic C++ source
+get-cpp-files.py  -  prints the list of C++ definition files
+get-include-files.py  -  prints names of files to be included by SWIG
+get-interface.py  -  generates the SWIG interface file
+get-py-names.py   -  prints a list of names in wm5 Python module
+__init__.py       -  needed to treat this directory as a Python module
+master.py         -  module with thread and process classes used for analysis
+parse-xml.py      -  parses XML output to assemble a list of C++ classes
+patch-wm5.py      -  patches Wild Magic C++ code to work with the wrapper
+README            -  this README file
+run-all.py        -  runs everything (installation, analysis, interface generation, docs build)
+util.py           -  module with some generic utilities
+version.py        -  versioning module

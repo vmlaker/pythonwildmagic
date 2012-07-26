@@ -5,13 +5,19 @@ import optparse
 import sys
 
 
-def run(cmd):
+def run(cmd, echo=False, verbose=False):
     """Run a command in a sub-process."""
-    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
-    p.wait()
     result = []
-    for line in p.stdout.readlines():
-        result.append(line.rstrip())
+    if echo:
+        print cmd
+    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
+    line = p.stdout.readline()
+    while len(line):
+        line = line.rstrip()
+        if verbose:
+            print line
+        result.append(line)
+        line = p.stdout.readline()
     return result
 
 

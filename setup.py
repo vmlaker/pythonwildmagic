@@ -47,9 +47,10 @@ module = Extension(
         '-v',
         '-c++', 
         '-cpperraswarn',
-        '-I%s'%config.WM5INCDIR
+        '-I%s'%config.WM5INCDIR,
         ],
-    include_dirs = [config.WM5INCDIR],
+    include_dirs = [config.WM5INCDIR,
+                    ],
     extra_compile_args = [
         '-Wno-unused-but-set-variable',
         ],
