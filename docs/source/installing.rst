@@ -4,12 +4,13 @@
 Installing
 **********
 
-The following guide will walk you step-by-step through installation of |NAME| on a Linux operating system.
-Specifically, it will show you how to install two things: the Wild Magic C++ libraries and the Python wrapper.
+This guide will walk you step-by-step through installation of |NAME| on a Linux operating system.
+Specifically, it will show you how to install two things: 1) the Wild Magic C++ libraries and 2) the Python wrapper.
+
 The steps below assume your system has a number of standard development tools available, like compilers and third-party libraries.
 In case your system doesn't have one of these software dependencies, an error will surely alert you.
 Fortunately, all softwares powering |NAME| are freely available on Linux.
-The easiest way to obtain a missing dependency is using your distribution's package manager.
+The easiest way to obtain a missing dependency is via your distribution's package manager.
 For instance, two of the things you'll need are SWIG and Python development tools.
 APT (e.g. Debian or Ubuntu) users can install these with commands
 ::
@@ -50,25 +51,27 @@ You can do this by running the following from the top of the wrapper source tree
 2. Install C++ libraries
 ========================
 
-Download the Wild Magic archive file from Geometric Tools website:
+If you already have version 5.9 of the Wild Magic SDK installed, you may skip this step.
+
+Download the archive file from Geometric Tools website:
 ::
 
-  wget http://www.geometrictools.com/Downloads/WildMagic5p8.zip
+  wget http://www.geometrictools.com/Downloads/WildMagic5p9.zip
 
 Uncompress the archive file
 (you may want to do this in a location where you normally install your other softwares.)
-The following command creates a subdirectory ``GeometricTools/WildMagic5/`` which contains the Wild Magic C++ code:
+The following command creates a subdirectory ``GeometricTools/WildMagic5/`` which contains the Wild Magic distribution:
 ::
 
-  unzip WildMagic5p8.zip
+  unzip WildMagic5p9.zip
 
 Set environment variable ``WM5_PATH`` to point to the library location:
 ::
 
   setenv WM5_PATH `pwd`/GeometricTools/WildMagic5
 
-Before compiling, the C++ code needs to be tweaked in order to work with the Python wrapper.
-Program ``patch-wm5.py`` (found in the wrapper ``tools/`` directory) makes the appropriate changes.
+Before compiling, the Wild Magic SDK may need to be tweaked to work on 64-bit systems.
+Program ``patch-wm5.py`` (found in the wrapper ``tools/`` directory) detects your architecture, and makes changes to makefiles if necessary.
 Run the following command to apply the patch:
 ::
 
@@ -78,7 +81,7 @@ Run the following command to apply the patch:
 Now run *Make* from the top of the Wild Magic source tree:
 ::
  
-  cd WM5_PATH
+  cd $WM5_PATH
   make -j8 CFG=Release -f makefile.wm5
 
 

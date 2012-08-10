@@ -22,13 +22,7 @@ CHANGES = [
     # --------------  -----  --------  ----------------
     #
     # Add a cast to Real* operator. 
-    ('Wm5GMatrix.h', 60, '', 'operator Real*() { return *mEntry; }'),
-    #
-    # Include file Wm5GlExtensions.h.
-    ('Wm5GlUtility.h', 13, '', '#include \"Wm5GlExtensions.h\"'),
-    #
-    # Include file Wm5Memory.h.
-    ('Wm5UniqueVerticesTriangles.h', 14, '', '#include \"Wm5Memory.h\"'),
+    #('Wm5GMatrix.h', 60, '', 'operator Real*() { return *mEntry; }'),
     ]
 
 # These changes are only needed on 64-bit architectures.

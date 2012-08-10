@@ -6,8 +6,8 @@ SWIG Interface
 
 The interface files needed by SWIG to create the Python module are included in the wrapper distribution:
 
- #. ``wm5.i``
- #. ``special.i``
+ * ``wm5.i``
+ * ``special.i``
 
 The bulk of C++ declarations and SWIG directives are in ``wm5.i``, the main interface file. 
 Additional SWIG directives are in file ``special.i`` which gets included by ``wm5.i``.
@@ -21,9 +21,12 @@ Note that, to keep things organized, intermediate files created in the steps bel
 ==================================
 
 SWIG expects to see C++ declarations in a dependency order.
-We'll generate this list by first ordering all definition (.cpp) files, and then following the inclusion path (``#include`` statements) to create a list of declaration (.h) files.
+We'll generate this list by first ordering all definition (.cpp) files, and then by following the inclusion path (``#include`` statements) we'll create a list of declaration (.h) files.
 Program ``get-cpp-files.py`` lists definition files in the order of original compilation of the libraries.
 Basically, it runs *Make* on the Wild Magic source tree in "dry-run" mode, and captures names of compiled files. 
+
+.. image:: swig_interface_01.png
+   :align: center
 
 From the top of the source tree, create the list and save it in ``analysis/`` directory
 (note the use of the *Make* command as the second argument--it should be the same as that used during installation of Wild Magic):
@@ -38,6 +41,9 @@ From the top of the source tree, create the list and save it in ``analysis/`` di
 Now we'll create the list of declaration files.
 Program ``get-include-files.py`` parses definition files from the previous step, and follows the path of inclusion of any library header files. 
 
+.. image:: swig_interface_02.png
+   :align: center
+
 Run the following to generate the list, saving it in ``analysis/`` directory:
 ::
 
@@ -46,7 +52,11 @@ Run the following to generate the list, saving it in ``analysis/`` directory:
 3. Create interface file
 ========================
 
-Finally, use program ``get-interface.py`` to assemble the interface file:
+Finally, use program ``get-interface.py`` to assemble the interface file.
+
+.. image:: swig_interface_03.png
+   :align: center
+
 ::
 
   tools/get-interface.py analysis/include.files analysis/cpp.names > wm5.i.new
@@ -54,7 +64,7 @@ Finally, use program ``get-interface.py`` to assemble the interface file:
 ----
 
 Congratulations! 
-You've created the SWIG interface file used for building the Python extension.
+You've created the SWIG input file used for building the Python extension.
 Compare it with the distribution ``wm5.i`` file--they should be identical:
 ::
   

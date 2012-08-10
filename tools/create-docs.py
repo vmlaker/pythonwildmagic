@@ -115,6 +115,24 @@ if not OPTS['dry_run']:
     fout.write(getTable())
     fout.close()
 
+# Export diagrams.
+location = os.path.join(ARGS['docs_src'], 'source')
+diagrams = (
+    'code_analysis_01',
+    'code_analysis_02',
+    'swig_interface_01',
+    'swig_interface_02',
+    'swig_interface_03',
+    )
+print 'Exporting diagrams.'
+for diagram in diagrams:
+    in_fname = os.path.join(location, '%s.dia'%diagram)
+    out_fname = os.path.join(location, '%s.png'%diagram)
+    cmd = 'dia -e %s %s'%(out_fname, in_fname)
+    print '  %s'%cmd
+    if not OPTS['dry_run']:
+        util.run(cmd)
+
 # Build the Sphinx documentation pages.
 dest = os.path.realpath(ARGS['docs_dest'])
 saved = os.getcwd()

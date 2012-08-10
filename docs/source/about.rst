@@ -25,7 +25,7 @@ Python 2
 SWIG
 ====
   
-  The `SWIG <http://www.swig.org>`_ 
+  The almighty `SWIG <http://www.swig.org>`_ 
   interface compiler is used to wrap
   C++ libraries into Python API.
 
@@ -33,12 +33,14 @@ GCC-XML
 =======
 
   Analysis of the C++ libraries is done with help of
-  `GCC-XML <http://www.gccxml.org>`_, the XML 
+  `GCC-XML <http://www.gccxml.org>`_, the uber-handy XML 
   output extension to GCC.
 
-The nice-looking pages you are reading were created using the
+The nice-looking web pages you are reading were created using the fabulous
 `Sphinx <http://sphinx.pocoo.org>`_ documentation generator.
-
+Pictures in the documentation were drawn with
+`Dia <http://live.gnome.org/Dia>`_, the powerful and easy-to-use diagram creation program.
+ 
 |NAME| is an open source Google Code project at
 `python-wild-magic.googlecode.com <http://python-wild-magic.googlecode.com>`_.
 

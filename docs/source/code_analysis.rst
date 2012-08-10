@@ -16,6 +16,9 @@ First, we'll produce an XML version of the C++ code using ``create-xml.py``.
 This program runs *GCC-XML* on all C++ header files in your Wild Magic installation, producing one ``.xml`` file for each ``Wm5*.h`` file. 
 The program spawns parallel runs of *GCC-XML*, one process per CPU. 
 
+.. image:: code_analysis_01.png
+   :align: center
+
 From the top of the source tree, run the following command. 
 It will dump the resulting files in ``analysis/xml/`` directory. 
 (Note the use of output of ``config.py`` command as the second argument.)
@@ -31,7 +34,10 @@ Next let's parse the XML files to obtain a list of all C++ class names.
 The program ``parse-xml.py`` builds DOMs from the XML files and extracts the names of all classes found.
 The program spawns parallel parsers, one parser process per CPU.
 
-The following command dumps the list of unique class names to file ``analysis/cpp.names``.
+.. image:: code_analysis_02.png
+   :align: center
+
+Run the following command, dumping the list of unique class names to file ``analysis/cpp.names``.
 ::
 
   tools/parse-xml.py analysis/cpp.names analysis/xml/*
@@ -40,7 +46,7 @@ The following command dumps the list of unique class names to file ``analysis/cp
 ======================
 
 Now we're ready to compare the two sets of class names.
-Program ``compare.py`` matches class names in the ``Wm5::`` C++ namespace with those in the ``wm5`` Python module, and vice versa. Run the following command to get a summary of the comparison.
+Program ``compare.py`` matches class names in the ``Wm5`` C++ namespace with those in the ``wm5`` Python module, and vice versa. Run the following command to get a summary of the comparison.
 ::
 
   tools/compare.py analysis/cpp.names
