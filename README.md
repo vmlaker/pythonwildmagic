@@ -1,0 +1,1 @@
+[Python Wild Magic](http://vmlaker.github.com/pythonwildmagic) is the Python wrapper of Geometric Tools' Wild Magic C++ libraries.

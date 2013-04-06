@@ -1,5 +1,6 @@
 Contents of this directory:
 ---------------------------
-Makefile         -  Sphinx makefile
-README           -  this README file
-source/          -  Sphinx documentation source code
+create-gh-pages.sh  -  build the docs and updates gh-pages
+Makefile            -  Sphinx makefile
+README              -  this README file
+source/             -  Sphinx documentation source code
