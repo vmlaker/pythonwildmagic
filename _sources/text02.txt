@@ -1,0 +1,4 @@
+Version 0.26 is the latest release, 
+and is available for download:
+
+ `python-wild-magic-0.26.tar.gz <http://python-wild-magic.googlecode.com/files/python-wild-magic-0.26.tar.gz>`_

@@ -1,1 +1,150 @@
-Python Wild Magic on GitHub
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Python Wild Magic &mdash; Documentation</title>
+    <link rel="stylesheet" href="_static/pywm.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Documentation" href="#" />
+    <link rel="next" title="Getting Python Wild Magic" href="download.html" /> 
+  </head>
+  <body>
+<div style="background-color: white; text-align: left; padding: 5px 5px 5px 15px">
+<a href="index.html">
+<img src="_static/pythonwildmagic.png" alt="Da logo, man." />
+</a>
+</div>
+
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+<li><a href="index.html">Home</a>|</li>
+<li><a href="download.html">Download</a>|</li>
+<li><a href="installing.html">Installing</a>|</li>
+<li><a href="code_analysis.html">Code Analysis</a>|</li>
+<li><a href="swig_interface.html">SWIG Interface</a>|</li>
+<li><a href="api.html">API</a>|</li>
+<li><a href="genindex.html">Index</a>|</li>
+<li><a href="names.html">Names</a>|</li>
+<li><a href="about.html">About</a></li>
+ 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>API Search</h3>
+  
+  <form class="search" action="search.html" method="get">
+<!--
+    <div class="search-input">
+      <input type="text" name="q" />
+    </div>
+    <div class="search-go">
+      <input type="submit" value="Go" />
+    </div>
+-->
+      <input class="search-input" type="text" name="q" />
+      <input class="search-go" type="submit" value="Go" />
+
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+  
+  <p class="searchtip" style="font-size: 90%">
+    Search the Python Wild Magic module for classes and functions.
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="toctree-wrapper compound" id="index">
+</div>
+<div class="section" id="name">
+<h1>Python Wild Magic<a class="headerlink" href="#name" title="Permalink to this headline">¶</a></h1>
+<p>Python Wild Magic is a Python extension wrapper of
+<a class="reference external" href="http://www.geometrictools.com">Geometric Tools&#8217; Wild Magic</a>,
+the C++ library for real-time computer graphics and physics, mathematics, geometry, numerical analysis, and image analysis.
+Python Wild Magic lets you <em>make Wild Magic calls in Python!</em>
+Here&#8217;s an example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">wm5</span>
+
+<span class="c"># Perform a simple translation.</span>
+<span class="n">trans</span> <span class="o">=</span> <span class="n">wm5</span><span class="o">.</span><span class="n">Transform</span><span class="p">()</span>
+<span class="n">trans</span><span class="o">.</span><span class="n">SetTranslate</span><span class="p">(</span><span class="n">wm5</span><span class="o">.</span><span class="n">APoint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">point</span> <span class="o">=</span> <span class="n">wm5</span><span class="o">.</span><span class="n">APoint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">point</span><span class="o">.</span><span class="n">X</span><span class="p">(),</span> <span class="n">point</span><span class="o">.</span><span class="n">Y</span><span class="p">(),</span> <span class="n">point</span><span class="o">.</span><span class="n">Z</span><span class="p">()</span>  <span class="c"># 1.0 1.0 1.0</span>
+<span class="n">point</span> <span class="o">=</span> <span class="n">trans</span> <span class="o">*</span> <span class="n">point</span>                
+<span class="k">print</span> <span class="n">point</span><span class="o">.</span><span class="n">X</span><span class="p">(),</span> <span class="n">point</span><span class="o">.</span><span class="n">Y</span><span class="p">(),</span> <span class="n">point</span><span class="o">.</span><span class="n">Z</span><span class="p">()</span>  <span class="c"># 2.0 3.0 4.0</span>
+
+<span class="c"># Create a ray.</span>
+<span class="n">origin</span> <span class="o">=</span> <span class="n">wm5</span><span class="o">.</span><span class="n">Vector3d</span><span class="p">(</span><span class="mf">9999.9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">direction</span> <span class="o">=</span> <span class="n">wm5</span><span class="o">.</span><span class="n">Vector3d</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">ray</span> <span class="o">=</span> <span class="n">wm5</span><span class="o">.</span><span class="n">Ray3d</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">direction</span><span class="p">)</span>
+
+<span class="c"># Create a sphere.</span>
+<span class="n">center</span> <span class="o">=</span> <span class="n">wm5</span><span class="o">.</span><span class="n">Vector3d</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">radius</span> <span class="o">=</span> <span class="mf">3.0</span>
+<span class="n">sphere</span> <span class="o">=</span> <span class="n">wm5</span><span class="o">.</span><span class="n">Sphere3d</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+
+<span class="c"># Intersect the ray and sphere.</span>
+<span class="n">intr</span> <span class="o">=</span> <span class="n">wm5</span><span class="o">.</span><span class="n">IntrRay3Sphere3d</span><span class="p">(</span><span class="n">ray</span><span class="p">,</span> <span class="n">sphere</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">intr</span><span class="o">.</span><span class="n">Find</span><span class="p">()</span>                 
+<span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">intr</span><span class="o">.</span><span class="n">GetQuantity</span><span class="p">()):</span>
+    <span class="n">point</span> <span class="o">=</span> <span class="n">intr</span><span class="o">.</span><span class="n">GetPoint</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+    <span class="c">#  2.0 0.0 0.0</span>
+    <span class="c">#  -4.0 0.0 0.0</span>
+    <span class="k">print</span> <span class="n">point</span><span class="o">.</span><span class="n">X</span><span class="p">(),</span> <span class="n">point</span><span class="o">.</span><span class="n">Y</span><span class="p">(),</span> <span class="n">point</span><span class="o">.</span><span class="n">Z</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="http://python-wild-magic.googlecode.com/files/python-wild-magic-0.26.tar.gz">Version 0.26</a> is the latest release of the wrapper, updated on April 6, 2013. To date, 96.8% of the C++ API is covered in the Python module (1008 classes of 1041 total.)</p>
+<p>To get up and running with Python Wild Magic, just
+<a class="reference internal" href="installing.html"><em>install the code</em></a>.
+To see which classes are wrapped, take a look at the <a class="reference internal" href="names.html"><em>table of class names</em></a>.
+Also, check out the <a class="reference internal" href="genindex.html"><em>Index</em></a> or <a class="reference internal" href="api.html"><em>API page</em></a>.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+        &copy; Copyright 2012, Velimir Mlaker.
+      Last updated on Apr 06, 2013.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+
+  </body>
+</html>

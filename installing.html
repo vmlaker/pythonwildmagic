@@ -1,0 +1,180 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installing &mdash; Documentation</title>
+    <link rel="stylesheet" href="_static/pywm.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Documentation" href="index.html" />
+    <link rel="next" title="Code Analysis" href="code_analysis.html" />
+    <link rel="prev" title="Getting Python Wild Magic" href="download.html" /> 
+  </head>
+  <body>
+<div style="background-color: white; text-align: left; padding: 5px 5px 5px 15px">
+<a href="index.html">
+<img src="_static/pythonwildmagic.png" alt="Da logo, man." />
+</a>
+</div>
+
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+<li><a href="index.html">Home</a>|</li>
+<li><a href="download.html">Download</a>|</li>
+<li><a href="installing.html">Installing</a>|</li>
+<li><a href="code_analysis.html">Code Analysis</a>|</li>
+<li><a href="swig_interface.html">SWIG Interface</a>|</li>
+<li><a href="api.html">API</a>|</li>
+<li><a href="genindex.html">Index</a>|</li>
+<li><a href="names.html">Names</a>|</li>
+<li><a href="about.html">About</a></li>
+ 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>API Search</h3>
+  
+  <form class="search" action="search.html" method="get">
+<!--
+    <div class="search-input">
+      <input type="text" name="q" />
+    </div>
+    <div class="search-go">
+      <input type="submit" value="Go" />
+    </div>
+-->
+      <input class="search-input" type="text" name="q" />
+      <input class="search-go" type="submit" value="Go" />
+
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+  
+  <p class="searchtip" style="font-size: 90%">
+    Search the Python Wild Magic module for classes and functions.
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installing">
+<span id="id1"></span><h1>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h1>
+<p>This guide will walk you step-by-step through installation of Python Wild Magic on a Linux operating system.
+Specifically, it will show you how to install two things: 1) the Wild Magic C++ libraries and 2) the Python wrapper.</p>
+<p>The steps below assume your system has a number of standard development tools available, like compilers and third-party libraries.
+In case your system doesn&#8217;t have one of these software dependencies, an error will surely alert you.
+Fortunately, all softwares powering Python Wild Magic are freely available on Linux.
+The easiest way to obtain a missing dependency is via your distribution&#8217;s package manager.
+For instance, two of the things you&#8217;ll need are SWIG and Python development tools.
+APT (e.g. Debian or Ubuntu) users can install these with commands</p>
+<div class="highlight-python"><pre>sudo aptitude install python-dev
+sudo aptitude install swig</pre>
+</div>
+<p>YUM (e.g. Fedora or Red Hat) users can get them by running</p>
+<div class="highlight-python"><pre>sudo yum install python-devel
+sudo yum install swig</pre>
+</div>
+<p>That being said, the best thing is to proceed with steps below, resolving any dependency error that comes up by installing the missing package.
+For example, while building the C++ libraries, if <em>Make</em> fails with something like,</p>
+<blockquote>
+<div><tt class="samp docutils literal"><span class="pre">GL/glu.h:</span> <span class="pre">No</span> <span class="pre">such</span> <span class="pre">file</span> <span class="pre">or</span> <span class="pre">directory</span></tt></div></blockquote>
+<p>check to see if you have libGLU headers on your system.
+In APT repos, the package of interest is named <tt class="docutils literal"><span class="pre">libglu1-mesa-dev</span></tt>, while in YUM it is <tt class="docutils literal"><span class="pre">mesa-libGLU-devel</span></tt>.</p>
+<p>Finally, note that the literal commands in this guide are written using <em>tcsh</em>, and may not translate to your particular Unix shell.
+But hopefully the intentions are made clear enough that, even in case the commands don&#8217;t work verbatim for you, you&#8217;ll quickly figure out how to get things running on your system.</p>
+<div class="section" id="get-wrapper-code">
+<h2>1. Get wrapper code<a class="headerlink" href="#get-wrapper-code" title="Permalink to this headline">¶</a></h2>
+<p>To begin, <a class="reference internal" href="download.html"><em>download</em></a> the wrapper code.</p>
+<p>Then, set the environment variable <tt class="docutils literal"><span class="pre">WM5_PY_PATH</span></tt> to point to location of the wrapper.
+You can do this by running the following from the top of the wrapper source tree:</p>
+<div class="highlight-python"><pre>setenv WM5_PY_PATH `pwd`</pre>
+</div>
+</div>
+<div class="section" id="install-c-libraries">
+<h2>2. Install C++ libraries<a class="headerlink" href="#install-c-libraries" title="Permalink to this headline">¶</a></h2>
+<p>If you already have version 5.9 of the Wild Magic SDK installed, you may skip this step.</p>
+<p>Download the archive file from Geometric Tools website:</p>
+<div class="highlight-python"><pre>wget http://www.geometrictools.com/Downloads/WildMagic5p9.zip</pre>
+</div>
+<p>Uncompress the archive file
+(you may want to do this in a location where you normally install your other softwares.)
+The following command creates a subdirectory <tt class="docutils literal"><span class="pre">GeometricTools/WildMagic5/</span></tt> which contains the Wild Magic distribution:</p>
+<div class="highlight-python"><pre>unzip WildMagic5p9.zip</pre>
+</div>
+<p>Set environment variable <tt class="docutils literal"><span class="pre">WM5_PATH</span></tt> to point to the library location:</p>
+<div class="highlight-python"><pre>setenv WM5_PATH `pwd`/GeometricTools/WildMagic5</pre>
+</div>
+<p>Before compiling, the Wild Magic SDK may need to be tweaked to work on 64-bit systems.
+Program <tt class="docutils literal"><span class="pre">patch-wm5.py</span></tt> (found in the wrapper <tt class="docutils literal"><span class="pre">tools/</span></tt> directory) detects your architecture, and makes changes to makefiles if necessary.
+Run the following command to apply the patch:</p>
+<div class="highlight-python"><pre>$WM5_PY_PATH/tools/patch-wm5.py $WM5_PATH</pre>
+</div>
+<p>Now run <em>Make</em> from the top of the Wild Magic source tree:</p>
+<div class="highlight-python"><pre>cd $WM5_PATH
+make -j8 CFG=Release -f makefile.wm5</pre>
+</div>
+</div>
+<div class="section" id="install-python-module">
+<h2>3. Install Python module<a class="headerlink" href="#install-python-module" title="Permalink to this headline">¶</a></h2>
+<p>From the top of the wrapper source tree, build and install the extension module using <em>Distutils</em>:</p>
+<div class="highlight-python"><pre>cd $WM5_PY_PATH
+python setup.py build
+python setup.py install --user
+python setup.py clean2</pre>
+</div>
+<hr class="docutils" />
+<p>If the installation was successful, congratulations!
+You now have the Wild Magic module available in your Python interpreter.
+Go ahead and test it by running the following command:</p>
+<div class="highlight-python"><pre>python tests/tiny.py</pre>
+</div>
+<p>Another good test is to run
+<a class="reference internal" href="code_analysis.html"><em>code analysis</em></a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+        &copy; Copyright 2012, Velimir Mlaker.
+      Last updated on Apr 06, 2013.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+
+  </body>
+</html>

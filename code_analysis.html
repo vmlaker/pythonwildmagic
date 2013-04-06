@@ -1,0 +1,141 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Code Analysis &mdash; Documentation</title>
+    <link rel="stylesheet" href="_static/pywm.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Documentation" href="index.html" />
+    <link rel="next" title="SWIG Interface" href="swig_interface.html" />
+    <link rel="prev" title="Installing" href="installing.html" /> 
+  </head>
+  <body>
+<div style="background-color: white; text-align: left; padding: 5px 5px 5px 15px">
+<a href="index.html">
+<img src="_static/pythonwildmagic.png" alt="Da logo, man." />
+</a>
+</div>
+
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+<li><a href="index.html">Home</a>|</li>
+<li><a href="download.html">Download</a>|</li>
+<li><a href="installing.html">Installing</a>|</li>
+<li><a href="code_analysis.html">Code Analysis</a>|</li>
+<li><a href="swig_interface.html">SWIG Interface</a>|</li>
+<li><a href="api.html">API</a>|</li>
+<li><a href="genindex.html">Index</a>|</li>
+<li><a href="names.html">Names</a>|</li>
+<li><a href="about.html">About</a></li>
+ 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>API Search</h3>
+  
+  <form class="search" action="search.html" method="get">
+<!--
+    <div class="search-input">
+      <input type="text" name="q" />
+    </div>
+    <div class="search-go">
+      <input type="submit" value="Go" />
+    </div>
+-->
+      <input class="search-input" type="text" name="q" />
+      <input class="search-go" type="submit" value="Go" />
+
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+  
+  <p class="searchtip" style="font-size: 90%">
+    Search the Python Wild Magic module for classes and functions.
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="code-analysis">
+<span id="id1"></span><h1>Code Analysis<a class="headerlink" href="#code-analysis" title="Permalink to this headline">¶</a></h1>
+<p>To determine the Python module&#8217;s breadth of coverage of the C++ code, you can analyze the source code using programs found in the <tt class="docutils literal"><span class="pre">tools/</span></tt> directory.
+The analysis requires <a class="reference external" href="http://www.gccxml.org">GCC-XML</a> application available on your system (APT or YUM users can simply install package <tt class="docutils literal"><span class="pre">gccxml</span></tt>.)
+For the last step of analysis&#8211;comparison of the two languages&#8217; APIs&#8211;you&#8217;ll need to have already installed the Python Wild Magic wrapper, of course.</p>
+<div class="section" id="create-xml">
+<h2>1. Create XML<a class="headerlink" href="#create-xml" title="Permalink to this headline">¶</a></h2>
+<p>First, we&#8217;ll produce an XML version of the C++ code using <tt class="docutils literal"><span class="pre">create-xml.py</span></tt>.
+This program runs <em>GCC-XML</em> on all C++ header files in your Wild Magic installation, producing one <tt class="docutils literal"><span class="pre">.xml</span></tt> file for each <tt class="docutils literal"><span class="pre">Wm5*.h</span></tt> file.
+The program spawns parallel runs of <em>GCC-XML</em>, one process per CPU.</p>
+<img alt="_images/code_analysis_01.png" class="align-center" src="_images/code_analysis_01.png" />
+<p>From the top of the source tree, run the following command.
+It will dump the resulting files in <tt class="docutils literal"><span class="pre">analysis/xml/</span></tt> directory.
+(Note the use of output of <tt class="docutils literal"><span class="pre">config.py</span></tt> command as the second argument.)</p>
+<div class="highlight-python"><pre>cd $WM5_PY_PATH
+tools/create-xml.py analysis/xml `./config.py`</pre>
+</div>
+</div>
+<div class="section" id="parse-xml">
+<h2>2. Parse XML<a class="headerlink" href="#parse-xml" title="Permalink to this headline">¶</a></h2>
+<p>Next let&#8217;s parse the XML files to obtain a list of all C++ class names.
+The program <tt class="docutils literal"><span class="pre">parse-xml.py</span></tt> builds DOMs from the XML files and extracts the names of all classes found.
+The program spawns parallel parsers, one parser process per CPU.</p>
+<img alt="_images/code_analysis_02.png" class="align-center" src="_images/code_analysis_02.png" />
+<p>Run the following command, dumping the list of unique class names to file <tt class="docutils literal"><span class="pre">analysis/cpp.names</span></tt>.</p>
+<div class="highlight-python"><pre>tools/parse-xml.py analysis/cpp.names analysis/xml/*</pre>
+</div>
+</div>
+<div class="section" id="compare-class-names">
+<h2>3. Compare class names<a class="headerlink" href="#compare-class-names" title="Permalink to this headline">¶</a></h2>
+<p>Now we&#8217;re ready to compare the two sets of class names.
+Program <tt class="docutils literal"><span class="pre">compare.py</span></tt> matches class names in the <tt class="docutils literal"><span class="pre">Wm5</span></tt> C++ namespace with those in the <tt class="docutils literal"><span class="pre">wm5</span></tt> Python module, and vice versa. Run the following command to get a summary of the comparison.</p>
+<div class="highlight-python"><pre>tools/compare.py analysis/cpp.names</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+        &copy; Copyright 2012, Velimir Mlaker.
+      Last updated on Apr 06, 2013.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+
+  </body>
+</html>

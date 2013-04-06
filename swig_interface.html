@@ -1,0 +1,156 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SWIG Interface &mdash; Documentation</title>
+    <link rel="stylesheet" href="_static/pywm.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Documentation" href="index.html" />
+    <link rel="next" title="The Python Wild Magic API" href="api.html" />
+    <link rel="prev" title="Code Analysis" href="code_analysis.html" /> 
+  </head>
+  <body>
+<div style="background-color: white; text-align: left; padding: 5px 5px 5px 15px">
+<a href="index.html">
+<img src="_static/pythonwildmagic.png" alt="Da logo, man." />
+</a>
+</div>
+
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+<li><a href="index.html">Home</a>|</li>
+<li><a href="download.html">Download</a>|</li>
+<li><a href="installing.html">Installing</a>|</li>
+<li><a href="code_analysis.html">Code Analysis</a>|</li>
+<li><a href="swig_interface.html">SWIG Interface</a>|</li>
+<li><a href="api.html">API</a>|</li>
+<li><a href="genindex.html">Index</a>|</li>
+<li><a href="names.html">Names</a>|</li>
+<li><a href="about.html">About</a></li>
+ 
+      </ul>
+    </div>
+  
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none">
+  <h3>API Search</h3>
+  
+  <form class="search" action="search.html" method="get">
+<!--
+    <div class="search-input">
+      <input type="text" name="q" />
+    </div>
+    <div class="search-go">
+      <input type="submit" value="Go" />
+    </div>
+-->
+      <input class="search-input" type="text" name="q" />
+      <input class="search-go" type="submit" value="Go" />
+
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+  
+  <p class="searchtip" style="font-size: 90%">
+    Search the Python Wild Magic module for classes and functions.
+  </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="swig-interface">
+<span id="id1"></span><h1>SWIG Interface<a class="headerlink" href="#swig-interface" title="Permalink to this headline">¶</a></h1>
+<p>The interface files needed by SWIG to create the Python module are included in the wrapper distribution:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">wm5.i</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">special.i</span></tt></li>
+</ul>
+</div></blockquote>
+<p>The bulk of C++ declarations and SWIG directives are in <tt class="docutils literal"><span class="pre">wm5.i</span></tt>, the main interface file.
+Additional SWIG directives are in file <tt class="docutils literal"><span class="pre">special.i</span></tt> which gets included by <tt class="docutils literal"><span class="pre">wm5.i</span></tt>.</p>
+<p>Although <tt class="docutils literal"><span class="pre">wm5.i</span></tt> is packaged as part of the wrapper source code, you can easily generate it from scratch using programs in the <tt class="docutils literal"><span class="pre">tools/</span></tt> directory.
+Before you begin, you will need to run the first two steps of <a class="reference internal" href="code_analysis.html"><em>code analysis</em></a>.
+After generating data in <tt class="docutils literal"><span class="pre">analysis/</span></tt> directory, proceed with the steps below.
+Note that, to keep things organized, intermediate files created in the steps below are added to the <tt class="docutils literal"><span class="pre">analysis/</span></tt> directory.</p>
+<div class="section" id="create-list-of-definition-files">
+<h2>1. Create list of definition files<a class="headerlink" href="#create-list-of-definition-files" title="Permalink to this headline">¶</a></h2>
+<p>SWIG expects to see C++ declarations in a dependency order.
+We&#8217;ll generate this list by first ordering all definition (.cpp) files, and then by following the inclusion path (<tt class="docutils literal"><span class="pre">#include</span></tt> statements) we&#8217;ll create a list of declaration (.h) files.
+Program <tt class="docutils literal"><span class="pre">get-cpp-files.py</span></tt> lists definition files in the order of original compilation of the libraries.
+Basically, it runs <em>Make</em> on the Wild Magic source tree in &#8220;dry-run&#8221; mode, and captures names of compiled files.</p>
+<img alt="_images/swig_interface_01.png" class="align-center" src="_images/swig_interface_01.png" />
+<p>From the top of the source tree, create the list and save it in <tt class="docutils literal"><span class="pre">analysis/</span></tt> directory
+(note the use of the <em>Make</em> command as the second argument&#8211;it should be the same as that used during installation of Wild Magic):</p>
+<div class="highlight-python"><pre>cd $WM5_PY_PATH
+tools/get-cpp-files.py $WM5_PATH 'make -j8 CFG=Release -f makefile.wm5' &gt; analysis/cpp.files</pre>
+</div>
+</div>
+<div class="section" id="create-list-of-include-files">
+<h2>2. Create list of include files<a class="headerlink" href="#create-list-of-include-files" title="Permalink to this headline">¶</a></h2>
+<p>Now we&#8217;ll create the list of declaration files.
+Program <tt class="docutils literal"><span class="pre">get-include-files.py</span></tt> parses definition files from the previous step, and follows the path of inclusion of any library header files.</p>
+<img alt="_images/swig_interface_02.png" class="align-center" src="_images/swig_interface_02.png" />
+<p>Run the following to generate the list, saving it in <tt class="docutils literal"><span class="pre">analysis/</span></tt> directory:</p>
+<div class="highlight-python"><pre>tools/get-include-files.py $WM5_PATH analysis/cpp.files &gt; analysis/include.files</pre>
+</div>
+</div>
+<div class="section" id="create-interface-file">
+<h2>3. Create interface file<a class="headerlink" href="#create-interface-file" title="Permalink to this headline">¶</a></h2>
+<p>Finally, use program <tt class="docutils literal"><span class="pre">get-interface.py</span></tt> to assemble the interface file.</p>
+<img alt="_images/swig_interface_03.png" class="align-center" src="_images/swig_interface_03.png" />
+<div class="highlight-python"><pre>tools/get-interface.py analysis/include.files analysis/cpp.names &gt; wm5.i.new</pre>
+</div>
+<hr class="docutils" />
+<p>Congratulations!
+You&#8217;ve created the SWIG input file used for building the Python extension.
+Compare it with the distribution <tt class="docutils literal"><span class="pre">wm5.i</span></tt> file&#8211;they should be identical:</p>
+<div class="highlight-python"><pre>diff wm5.i wm5.i.new</pre>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="clearer"></div>
+    </div>
+
+  
+    <div class="footer">
+        &copy; Copyright 2012, Velimir Mlaker.
+      Last updated on Apr 06, 2013.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+
+  </body>
+</html>
