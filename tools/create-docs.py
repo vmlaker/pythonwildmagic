@@ -9,7 +9,6 @@ import cgi
 import os
 
 # Import application-level modules.
-import version
 import cpp2py
 import util
 
@@ -22,48 +21,29 @@ ARGS = [('cpp_names', 'file with C++ names'),
 OPTS = [('-d', 'dry_run', 'store_true', False, 'dry run, don\'t actually do anything')]
 ARGS, OPTS = util.parse_cmd(NAME, ARGS, OPTS)
 
-def getDoc01():
-    """Return the blurb on the main page."""
-    result = '`Version %s '%version.number
-    result += '<http://python-wild-magic.googlecode.com/files/python-wild-magic-%s.tar.gz>`_ '%version.number
-    result += 'is the latest release of the wrapper, updated on '
-    now = datetime.datetime.now()
-    result += now.strftime('%B ')
-    result += '%s, %s. '%(now.day, now.year)
+def getDoc02():
+    """Return the blurb for the names page."""
     cpp_names, py_names, cpp_in_py_names, py_in_cpp_names = cpp2py.compare(ARGS['cpp_names'])
     num_py = len(py_in_cpp_names)
     num_total = len(cpp_names)
     percent = float(num_py) / num_total * 100
-    result += 'To date, %.1f%% of the C++ API is covered in the Python module (%s classes of %s total.)'\
+    result = '%.1f%% of the C++ API is covered in the :mod:`wm5` module (%s classes of %s total.) '\
         %(percent, num_py, num_total)
-    return result
+    result += 'The table below lists C++ classes in the ``Wm5`` namespace, and matches them with their Python counterparts.'
+    return result    
 
-def getDoc02():
-    """Return the Download page blurb."""
-    result = 'Version %s is the latest release, \n'%version.number
-    result += 'and is available for download:\n\n'
-    result += ' `python-wild-magic-%s.tar.gz '%version.number
-    result += '<http://python-wild-magic.googlecode.com/files/python-wild-magic-%s.tar.gz>`_'\
-        %version.number
-    return result
+for func, fname in (
+    (getDoc02, 'text02.rst'),
+    ):
+    fname = os.path.join(ARGS['docs_src'], 'source', fname)
+    print('Writing file %s'%fname)
+    doc = func()
+    if not OPTS['dry_run']:
+        fout = open(fname, 'w')
+        fout.write(doc)
+        fout.close()
 
-fname = os.path.join(ARGS['docs_src'], 'source', 'text01.rst')
-print 'Writing file %s'%fname
-doc = getDoc01()
-if not OPTS['dry_run']:
-    fout = open(fname, 'w')
-    fout.write(doc)
-    fout.close()
-
-fname = os.path.join(ARGS['docs_src'], 'source', 'text02.rst')
-print 'Writing file %s'%fname
-doc = getDoc02()
-if not OPTS['dry_run']:
-    fout = open(fname, 'w')
-    fout.write(doc)
-    fout.close()
-
-print 'Comparing names'
+print('Comparing names')
 cpp_names, py_names, cpp_in_py_names, py_in_cpp_names = cpp2py.compare(ARGS['cpp_names'])
 
 def getRow(cpp_name):
@@ -109,7 +89,7 @@ def getTable():
 
 # Write the table of class names.
 fname = os.path.join(ARGS['docs_src'], 'source', 'names_table.html')
-print 'Writing file %s'%fname
+print('Writing file %s'%fname)
 if not OPTS['dry_run']:
     fout = open(fname, 'w')
     fout.write(getTable())
@@ -124,12 +104,12 @@ diagrams = (
     'swig_interface_02',
     'swig_interface_03',
     )
-print 'Exporting diagrams.'
+print('Exporting diagrams.')
 for diagram in diagrams:
     in_fname = os.path.join(location, '%s.dia'%diagram)
     out_fname = os.path.join(location, '%s.png'%diagram)
     cmd = 'dia -e %s %s'%(out_fname, in_fname)
-    print '  %s'%cmd
+    print('  %s'%cmd)
     if not OPTS['dry_run']:
         util.run(cmd)
 
@@ -138,8 +118,8 @@ dest = os.path.realpath(ARGS['docs_dest'])
 saved = os.getcwd()
 os.chdir(ARGS['docs_src'])
 cmd = 'make BUILDDIR=%s html'%dest
-print 'Running make in %s :'%ARGS['docs_src']
-print '  %s'%cmd
+print('Running make in %s :'%ARGS['docs_src'])
+print('  %s'%cmd)
 if not OPTS['dry_run']:
     util.run(cmd)
 os.chdir(saved)
@@ -157,7 +137,7 @@ to_prune = (
 for entry in to_prune:
     full = os.path.join(ARGS['docs_src'], 'build', entry)
     cmd = 'rm -rf %s'%full
-    print cmd
+    print(cmd)
     if not OPTS['dry_run']:
         util.run(cmd)
 

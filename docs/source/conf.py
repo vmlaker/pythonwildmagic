@@ -55,8 +55,7 @@ copyright = u'2012, Velimir Mlaker'
 # built documents.
 #
 # The short X.Y version.
-import version
-version = version.number
+version = '5.9'
 # The full version, including alpha/beta/rc tags.
 release = ''
 

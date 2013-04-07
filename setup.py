@@ -67,11 +67,9 @@ module = Extension(
     )
 
 
-import tools.version
-
 setup(
     name         = 'wm5',
-    version      = tools.version.number,
+    version      = '5.9',
     description  = 'Python wrapper of Geometric Tools\' Wild Magic C++ libraries',
     url          = 'http://python-wild-magic.googlecode.com',
     author       = 'Velimir Mlaker',
