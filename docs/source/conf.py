@@ -29,7 +29,10 @@ needs_sphinx = '1.0'
 extensions = [
     'sphinx.ext.autodoc', 
     'sphinx.ext.pngmath', 
-    'sphinx.ext.viewcode',
+
+# Don't create link from API page to SWIG-generated code.
+#    'sphinx.ext.viewcode',
+
     'sphinx.ext.autosummary',
     'sphinx.ext.inheritance_diagram',
     ]

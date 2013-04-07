@@ -21,19 +21,19 @@ ARGS = [('cpp_names', 'file with C++ names'),
 OPTS = [('-d', 'dry_run', 'store_true', False, 'dry run, don\'t actually do anything')]
 ARGS, OPTS = util.parse_cmd(NAME, ARGS, OPTS)
 
-def getDoc02():
+def getBlurb():
     """Return the blurb for the names page."""
     cpp_names, py_names, cpp_in_py_names, py_in_cpp_names = cpp2py.compare(ARGS['cpp_names'])
     num_py = len(py_in_cpp_names)
     num_total = len(cpp_names)
     percent = float(num_py) / num_total * 100
-    result = '%.1f%% of the C++ API is covered in the :mod:`wm5` module (%s classes of %s total.) '\
+    result = '%.1f%% of the Wild Magic C++ API is covered by the :mod:`wm5` module (%s classes of %s total.) '\
         %(percent, num_py, num_total)
-    result += 'The table below lists C++ classes in the ``Wm5`` namespace, and matches them with their Python counterparts.'
+    result += 'The table below matches C++ classes with their Python counterparts.'
     return result    
 
 for func, fname in (
-    (getDoc02, 'text02.rst'),
+    (getBlurb, 'blurb.rst'),
     ):
     fname = os.path.join(ARGS['docs_src'], 'source', fname)
     print('Writing file %s'%fname)

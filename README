@@ -9,6 +9,7 @@ Contents of this directory:
 ---------------------------
 config.py  -  configuration file for installation using Distutils
 docs/      -  Sphinx documentation source
+pics/      -  contains pictures
 README     -  this readme file
 setup.py   -  Distutils installer
 special.i  -  auxiliary SWIG interface file with extra directives

@@ -7,13 +7,13 @@
 {% set rellinks = () %}
 
 {% block rootrellink %}
-<li><a href="index.html">Home</a>|</li>
-<li><a href="installing.html">Installing</a>|</li>
-<li><a href="code_analysis.html">Code Analysis</a>|</li>
-<li><a href="swig_interface.html">SWIG Interface</a>|</li>
-<li><a href="api.html">API</a>|</li>
-<li><a href="genindex.html">Index</a>|</li>
-<li><a href="names.html">Names</a>|</li>
+<li><a href="index.html">Home</a></li>
+<li><a href="installing.html">Installing</a></li>
+<li><a href="code_analysis.html">Code Analysis</a></li>
+<li><a href="swig_interface.html">SWIG Interface</a></li>
+<li><a href="api.html">API</a></li>
+<li><a href="genindex.html">Index</a></li>
+<li><a href="names.html">Names</a></li>
 <li><a href="about.html">About</a></li>
 {% endblock %}
 
@@ -34,10 +34,11 @@
 {% endblock %}
 
 {% block header %}
-<div style="background-color: white; text-align: left; padding: 5px 5px 5px 15px">
-<a href="index.html">
-<img src="_static/pythonwildmagic.png" alt="Da logo, man." />
-</a>
+<div class="pageheader">
+  <div>
+    <a href="{{ pathto('index') }}">
+      <img src="_static/logo.png" alt="Da logo." />
+    </a>
+  </div>
 </div>
-{{ super() }}
 {% endblock %}
