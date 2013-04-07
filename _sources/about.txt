@@ -41,7 +41,7 @@ The nice-looking web pages you are reading were created using the fabulous
 Pictures in the documentation were drawn with
 `Dia <http://live.gnome.org/Dia>`_, the powerful and easy-to-use diagram creation program.
  
-|NAME| is an open source Google Code project at
-`python-wild-magic.googlecode.com <http://python-wild-magic.googlecode.com>`_.
+|NAME| is an open source GitHub project at
+`github.com/vmlaker/pythonwildmagic <https://github.com/vmlaker/pythonwildmagic>`_.
 
 .. The end.
