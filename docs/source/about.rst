@@ -1,42 +1,34 @@
 .. _about:
 
-************
 About |NAME|
 ************
 
-|NAME| is written on Linux by Velimir Mlaker using several freely available softwares:
+|NAME| is written by Velimir Mlaker using several freely available softwares:
 
 Wild Magic
 ==========
   
-  This is the awsome |WM_DESCR|.
-  It is written by 
-  `Geometric Tools <http://www.geometrictools.com>`_ 
-  and is free to download from their site.
-
-Python 2
-========
-
-  The wrapper is developed with Python language of version
-  somewhere in the range of 2.6 and 2.7.
-  Any recent version of Python 2 should work (but not so sure
-  about Python 3.)
+This is it. The one and only Wild Magic |WM_DESCR|.
+It's written by `Geometric Tools <http://www.geometrictools.com>`_ 
+and is free to download from their site.
 
 SWIG
 ====
   
-  The almighty `SWIG <http://www.swig.org>`_ 
-  interface compiler is used to wrap
-  C++ libraries into Python API.
+The almighty `SWIG <http://www.swig.org>`_ 
+interface compiler is used to wrap
+C++ libraries into Python API.
 
 GCC-XML
 =======
 
-  Analysis of the C++ libraries is done with help of
-  `GCC-XML <http://www.gccxml.org>`_, the uber-handy XML 
-  output extension to GCC.
+Analysis of the C++ libraries is done with help of
+`GCC-XML <http://www.gccxml.org>`_, the uber-handy XML 
+output extension to GCC.
 
-The nice-looking web pages you are reading were created using the fabulous
+----
+
+The web pages you are reading were created using the fabulous
 `Sphinx <http://sphinx.pocoo.org>`_ documentation generator.
 Pictures in the documentation were drawn with
 `Dia <http://live.gnome.org/Dia>`_, the powerful and easy-to-use diagram creation program.
