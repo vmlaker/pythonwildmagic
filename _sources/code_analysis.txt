@@ -1,13 +1,12 @@
 .. _code_analysis:
 
-*************
 Code Analysis
 *************
 
-To determine the Python module's breadth of coverage of the C++ code, you can analyze the source code using programs found in the ``tools/`` directory. 
-The analysis requires `GCC-XML <http://www.gccxml.org>`_ application available on your system (APT or YUM users can simply install package ``gccxml``.) 
-For the last step of analysis--comparison of the two languages' APIs--you'll need to have already installed the |NAME| wrapper, of course.
-
+You can analyze the source code to determine :mod:`wm5` module's breadth of coverage of the C++ library.
+This requires `GCC-XML <http://www.gccxml.org>`_ application available on your system (APT or YUM users can simply install package ``gccxml``.)
+You'll also need `MPipe <http://vmlaker.github.com/mpipe>`_. 
+For the last step of analysis -- comparison of the two languages' APIs -- you'll need to have already installed the |NAME| wrapper, of course.
 
 1. Create XML
 =============
@@ -24,7 +23,6 @@ It will dump the resulting files in ``analysis/xml/`` directory.
 (Note the use of output of ``config.py`` command as the second argument.)
 ::
   
-  cd $WM5_PY_PATH
   tools/create-xml.py analysis/xml `./config.py`
 
 2. Parse XML
@@ -40,7 +38,7 @@ The program spawns parallel parsers, one parser process per CPU.
 Run the following command, dumping the list of unique class names to file ``analysis/cpp.names``.
 ::
 
-  tools/parse-xml.py analysis/cpp.names analysis/xml/*
+  tools/parse-xml.py analysis/cpp.names analysis/xml
 
 3. Compare class names
 ======================

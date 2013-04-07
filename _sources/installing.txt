@@ -1,6 +1,5 @@
 .. _installing:
 
-**********
 Installing
 **********
 
@@ -39,7 +38,10 @@ But hopefully the intentions are made clear enough that, even in case the comman
 1. Get wrapper code
 ===================
 
-To begin, :doc:`download <download>` the wrapper code.
+Unless you've already done so, grab the source code:
+::
+
+  git clone https://github.com/vmlaker/pythonwildmagic
 
 Then, set the environment variable ``WM5_PY_PATH`` to point to location of the wrapper.
 You can do this by running the following from the top of the wrapper source tree:

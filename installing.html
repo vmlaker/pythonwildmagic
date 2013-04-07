@@ -24,7 +24,7 @@
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="top" title="Documentation" href="index.html" />
     <link rel="next" title="Code Analysis" href="code_analysis.html" />
-    <link rel="prev" title="Getting Python Wild Magic" href="download.html" /> 
+    <link rel="prev" title="Welcome to Python Wild Magic!" href="index.html" /> 
   </head>
   <body>
 <div style="background-color: white; text-align: left; padding: 5px 5px 5px 15px">
@@ -38,7 +38,6 @@
       <h3>Navigation</h3>
       <ul>
 <li><a href="index.html">Home</a>|</li>
-<li><a href="download.html">Download</a>|</li>
 <li><a href="installing.html">Installing</a>|</li>
 <li><a href="code_analysis.html">Code Analysis</a>|</li>
 <li><a href="swig_interface.html">SWIG Interface</a>|</li>
@@ -112,7 +111,9 @@ In APT repos, the package of interest is named <tt class="docutils literal"><spa
 But hopefully the intentions are made clear enough that, even in case the commands don&#8217;t work verbatim for you, you&#8217;ll quickly figure out how to get things running on your system.</p>
 <div class="section" id="get-wrapper-code">
 <h2>1. Get wrapper code<a class="headerlink" href="#get-wrapper-code" title="Permalink to this headline">¶</a></h2>
-<p>To begin, <a class="reference internal" href="download.html"><em>download</em></a> the wrapper code.</p>
+<p>Unless you&#8217;ve already done so, grab the source code:</p>
+<div class="highlight-python"><pre>git clone https://github.com/vmlaker/pythonwildmagic</pre>
+</div>
 <p>Then, set the environment variable <tt class="docutils literal"><span class="pre">WM5_PY_PATH</span></tt> to point to location of the wrapper.
 You can do this by running the following from the top of the wrapper source tree:</p>
 <div class="highlight-python"><pre>setenv WM5_PY_PATH `pwd`</pre>
@@ -172,7 +173,7 @@ Go ahead and test it by running the following command:</p>
   
     <div class="footer">
         &copy; Copyright 2012, Velimir Mlaker.
-      Last updated on Apr 06, 2013.
+      Last updated on Apr 07, 2013.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
     </div>
 

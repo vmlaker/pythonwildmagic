@@ -38,7 +38,6 @@
       <h3>Navigation</h3>
       <ul>
 <li><a href="index.html">Home</a>|</li>
-<li><a href="download.html">Download</a>|</li>
 <li><a href="installing.html">Installing</a>|</li>
 <li><a href="code_analysis.html">Code Analysis</a>|</li>
 <li><a href="swig_interface.html">SWIG Interface</a>|</li>
@@ -87,9 +86,10 @@
             
   <div class="section" id="code-analysis">
 <span id="id1"></span><h1>Code Analysis<a class="headerlink" href="#code-analysis" title="Permalink to this headline">¶</a></h1>
-<p>To determine the Python module&#8217;s breadth of coverage of the C++ code, you can analyze the source code using programs found in the <tt class="docutils literal"><span class="pre">tools/</span></tt> directory.
-The analysis requires <a class="reference external" href="http://www.gccxml.org">GCC-XML</a> application available on your system (APT or YUM users can simply install package <tt class="docutils literal"><span class="pre">gccxml</span></tt>.)
-For the last step of analysis&#8211;comparison of the two languages&#8217; APIs&#8211;you&#8217;ll need to have already installed the Python Wild Magic wrapper, of course.</p>
+<p>You can analyze the source code to determine <a class="reference internal" href="api.html#module-wm5" title="wm5"><tt class="xref py py-mod docutils literal"><span class="pre">wm5</span></tt></a> module&#8217;s breadth of coverage of the C++ library.
+This requires <a class="reference external" href="http://www.gccxml.org">GCC-XML</a> application available on your system (APT or YUM users can simply install package <tt class="docutils literal"><span class="pre">gccxml</span></tt>.)
+You&#8217;ll also need <a class="reference external" href="http://vmlaker.github.com/mpipe">MPipe</a>.
+For the last step of analysis &#8211; comparison of the two languages&#8217; APIs &#8211; you&#8217;ll need to have already installed the Python Wild Magic wrapper, of course.</p>
 <div class="section" id="create-xml">
 <h2>1. Create XML<a class="headerlink" href="#create-xml" title="Permalink to this headline">¶</a></h2>
 <p>First, we&#8217;ll produce an XML version of the C++ code using <tt class="docutils literal"><span class="pre">create-xml.py</span></tt>.
@@ -99,8 +99,7 @@ The program spawns parallel runs of <em>GCC-XML</em>, one process per CPU.</p>
 <p>From the top of the source tree, run the following command.
 It will dump the resulting files in <tt class="docutils literal"><span class="pre">analysis/xml/</span></tt> directory.
 (Note the use of output of <tt class="docutils literal"><span class="pre">config.py</span></tt> command as the second argument.)</p>
-<div class="highlight-python"><pre>cd $WM5_PY_PATH
-tools/create-xml.py analysis/xml `./config.py`</pre>
+<div class="highlight-python"><pre>tools/create-xml.py analysis/xml `./config.py`</pre>
 </div>
 </div>
 <div class="section" id="parse-xml">
@@ -110,7 +109,7 @@ The program <tt class="docutils literal"><span class="pre">parse-xml.py</span></
 The program spawns parallel parsers, one parser process per CPU.</p>
 <img alt="_images/code_analysis_02.png" class="align-center" src="_images/code_analysis_02.png" />
 <p>Run the following command, dumping the list of unique class names to file <tt class="docutils literal"><span class="pre">analysis/cpp.names</span></tt>.</p>
-<div class="highlight-python"><pre>tools/parse-xml.py analysis/cpp.names analysis/xml/*</pre>
+<div class="highlight-python"><pre>tools/parse-xml.py analysis/cpp.names analysis/xml</pre>
 </div>
 </div>
 <div class="section" id="compare-class-names">
@@ -133,7 +132,7 @@ Program <tt class="docutils literal"><span class="pre">compare.py</span></tt> ma
   
     <div class="footer">
         &copy; Copyright 2012, Velimir Mlaker.
-      Last updated on Apr 06, 2013.
+      Last updated on Apr 07, 2013.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
     </div>
 
