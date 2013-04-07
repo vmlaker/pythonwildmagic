@@ -45,16 +45,16 @@ util.run(cmd, echo=True, verbose=True)
 
 # Install Wild Magic.
 saved = os.getcwd()
-print 'cd %s'%os.environ['WM5_PATH']
+print('cd %s'%os.environ['WM5_PATH'])
 os.chdir(os.environ['WM5_PATH'])
 cmd = 'make -j8 CFG=Release -f makefile.wm5'
 util.run(cmd, echo=True, verbose=True)
-print 'cd %s'%saved
+print('cd %s'%saved)
 os.chdir(saved)
 
 # Build and install the Python module.
 saved = os.getcwd()
-print 'cd %s'%os.environ['WM5_PY_PATH']
+print('cd %s'%os.environ['WM5_PY_PATH'])
 os.chdir(os.environ['WM5_PY_PATH'])
 cmd = 'python setup.py build'
 util.run(cmd, echo=True, verbose=True)
@@ -62,36 +62,36 @@ cmd = 'python setup.py install --user'
 util.run(cmd, echo=True, verbose=True)
 cmd = 'python setup.py clean2'
 util.run(cmd, echo=True, verbose=True)
-print 'cd %s'%saved
+print('cd %s'%saved)
 os.chdir(saved)
 
 # Run tests.
 saved = os.getcwd()
-print 'cd %s'%os.environ['WM5_PY_PATH']
+print('cd %s'%os.environ['WM5_PY_PATH'])
 os.chdir(os.environ['WM5_PY_PATH'])
 cmd = 'python tests/tiny.py'
 util.run(cmd, echo=True, verbose=True)
 cmd = 'python tests/ThinPlateSplines/ThinPlateSplines.py'
 util.run(cmd, echo=True, verbose=True)
-print 'cd %s'%saved
+print('cd %s'%saved)
 os.chdir(saved)
 
 # Run code analysis.
 saved = os.getcwd()
-print 'cd %s'%os.environ['WM5_PY_PATH']
+print('cd %s'%os.environ['WM5_PY_PATH'])
 os.chdir(os.environ['WM5_PY_PATH'])
 cmd = 'tools/create-xml.py analysis/xml `./config.py`'
 util.run(cmd, echo=True, verbose=True)
-cmd = 'tools/parse-xml.py analysis/cpp.names analysis/xml/*'
+cmd = 'tools/parse-xml.py analysis/cpp.names analysis/xml'
 util.run(cmd, echo=True, verbose=True)
 cmd = 'tools/compare.py analysis/cpp.names'
 util.run(cmd, echo=True, verbose=True)
-print 'cd %s'%saved
+print('cd %s'%saved)
 os.chdir(saved)
 
 # Create SWIG interface file.
 saved = os.getcwd()
-print 'cd %s'%os.environ['WM5_PY_PATH']
+print('cd %s'%os.environ['WM5_PY_PATH'])
 os.chdir(os.environ['WM5_PY_PATH'])
 cmd = "tools/get-cpp-files.py $WM5_PATH 'make -j8 CFG=Release -f makefile.wm5' > analysis/cpp.files"
 util.run(cmd, echo=True, verbose=True)
@@ -101,16 +101,16 @@ cmd = 'tools/get-interface.py analysis/include.files analysis/cpp.names > wm5.i.
 util.run(cmd, echo=True, verbose=True)
 cmd = 'diff wm5.i wm5.i.new'
 util.run(cmd, echo=True, verbose=True)
-print 'cd %s'%saved
+print('cd %s'%saved)
 os.chdir(saved)
 
 # Create documentation.
 saved = os.getcwd()
-print 'cd %s'%os.environ['WM5_PY_PATH']
+print('cd %s'%os.environ['WM5_PY_PATH'])
 os.chdir(os.environ['WM5_PY_PATH'])
 cmd = 'tools/create-docs.py analysis/cpp.names docs/ %s'%ARGS['doc_dest']
 util.run(cmd, echo=True, verbose=True)
-print 'cd %s'%saved
+print('cd %s'%saved)
 os.chdir(saved)
 
 # The end.
