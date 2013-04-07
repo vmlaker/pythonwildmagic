@@ -1,1 +1,0 @@
-`Version 0.26 <http://python-wild-magic.googlecode.com/files/python-wild-magic-0.26.tar.gz>`_ is the latest release of the wrapper, updated on April 6, 2013. To date, 96.8% of the C++ API is covered in the Python module (1008 classes of 1041 total.)
