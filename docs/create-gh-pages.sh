@@ -32,8 +32,11 @@ rm -rf doctrees
 # Add everything to gh-pages.
 git add .
 
+# Remove deleted files.
+#git rm
+
 # Commit with comment referencing latest master branch commit.
-git commit -m "Updated gh-pages for `git log master -1 | head -1`"
+#git commit -m "Updated gh-pages for `git log master -1 | head -1`"
 
 # Push.
 #git push origin gh-pages
