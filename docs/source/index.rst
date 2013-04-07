@@ -25,9 +25,11 @@ Here's an example:
 
 .. include:: text01.rst
 
-To get up and running with |NAME|, just
-:doc:`install the code <installing>`.
-To see which classes are wrapped, take a look at the :doc:`table of class names <names>`.
-Also, check out the :ref:`Index <genindex>` or :doc:`API page <api>`.
+Start using |NAME| now! Get the source code in the usual way:
+::
+ 
+  git clone https://github.com/vmlaker/pythonwildmagic
+
+Now just :doc:`install the code <installing>` and you’re off and running Wild Magic in Python land!
  
 .. The end.
