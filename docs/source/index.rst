@@ -11,15 +11,14 @@
    names
    about
 
-******
-|NAME|
-******
+Welcome to |NAME|!
+******************
 
-|NAME| is a Python extension wrapper of
+Module :mod:`wm5` is a Python extension wrapper of
 `Geometric Tools' Wild Magic <http://www.geometrictools.com>`_, 
 the |WM_DESCR|.
-|NAME| lets you *make Wild Magic calls in Python!*
-Here's an example:
+
+With Python module :mod:`wm5` you can write code like this, for example:
 
 .. literalinclude:: ../../tests/tiny.py
 
