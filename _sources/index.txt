@@ -23,8 +23,6 @@ Here's an example:
 
 .. literalinclude:: ../../tests/tiny.py
 
-.. include:: text01.rst
-
 Start using |NAME| now! Get the source code in the usual way:
 ::
  

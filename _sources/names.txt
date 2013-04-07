@@ -4,7 +4,7 @@
 Table of Class Names
 ********************
 
-Below is a listing of classes, matching C++ classes in the ``Wm5`` namespace with their Python counterparts in the ``wm5`` module.
+.. include:: text02.rst
 
 |
 
