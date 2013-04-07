@@ -3,7 +3,6 @@
 .. toctree::
    :hidden:
 
-   download
    installing
    code_analysis
    swig_interface
