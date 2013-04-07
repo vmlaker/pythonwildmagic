@@ -14,7 +14,7 @@ git reset HEAD
 
 # Run code analysis.
 tools/create-xml.py analysis/xml `./config.py`
-tools/parse-xml.py analysis/cpp.names analysis/xml/*
+tools/parse-xml.py analysis/cpp.names analysis/xml
 tools/compare.py analysis/cpp.names
 
 # Build the docs.
