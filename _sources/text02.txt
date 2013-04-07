@@ -1,1 +1,0 @@
-96.8% of the C++ API is covered in the :mod:`wm5` module (1008 classes of 1041 total.) The table below lists C++ classes in the ``Wm5`` namespace, and matches them with their Python counterparts.

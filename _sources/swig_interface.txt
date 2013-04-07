@@ -1,6 +1,5 @@
 .. _swig_interface:
 
-**************
 SWIG Interface
 **************
 
@@ -32,7 +31,6 @@ From the top of the source tree, create the list and save it in ``analysis/`` di
 (note the use of the *Make* command as the second argument--it should be the same as that used during installation of Wild Magic):
 ::
   
-  cd $WM5_PY_PATH
   tools/get-cpp-files.py $WM5_PATH 'make -j8 CFG=Release -f makefile.wm5' > analysis/cpp.files
 
 2. Create list of include files

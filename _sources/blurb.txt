@@ -1,0 +1,1 @@
+96.8% of the Wild Magic C++ API is covered by the :mod:`wm5` module (1008 classes of 1041 total.) The table below matches C++ classes with their Python counterparts.

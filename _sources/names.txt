@@ -1,10 +1,14 @@
 .. _names:
 
-********************
 Table of Class Names
 ********************
 
-.. include:: text02.rst
+.. toctree::
+   :hidden:
+
+   blurb
+
+.. include:: blurb.rst
 
 |
 
