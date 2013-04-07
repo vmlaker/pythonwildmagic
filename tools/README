@@ -9,10 +9,8 @@ get-include-files.py  -  prints names of files to be included by SWIG
 get-interface.py  -  generates the SWIG interface file
 get-py-names.py   -  prints a list of names in wm5 Python module
 __init__.py       -  needed to treat this directory as a Python module
-master.py         -  module with thread and process classes used for analysis
 parse-xml.py      -  parses XML output to assemble a list of C++ classes
 patch-wm5.py      -  patches Wild Magic C++ code to work with the wrapper
 README            -  this README file
 run-all.py        -  runs everything (installation, analysis, interface generation, docs build)
 util.py           -  module with some generic utilities
-version.py        -  versioning module
