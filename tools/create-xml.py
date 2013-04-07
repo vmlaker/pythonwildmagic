@@ -9,7 +9,7 @@ import sys
 import os
 
 # Import application modules.
-import master
+import mpipe
 import util
 
 # Configure and parse the command line.
@@ -40,10 +40,32 @@ for entry in sorted(os.listdir(ARGS['wm5_inc'])):
     commands.append(cmd)
 
 num_cpus = multiprocessing.cpu_count()
-print 'Running %d commands on %d CPUs'%(len(commands), num_cpus)
+print('Running %d commands on %d CPUs'%(len(commands), num_cpus))
 
-master = master.CommandMaster(8, commands)
-master.start()
-master.join()
+# Run commands in a pipeline.
+def runCommand(command):
+    """Run the given command in a subprocess shell."""
+    result = subprocess.call(
+        command, shell=True, 
+        stdout=subprocess.PIPE, 
+        stderr=subprocess.STDOUT)
+    return result
+pipe = mpipe.Pipeline(mpipe.UnorderedStage(runCommand, num_cpus))
+for command in commands:
+    pipe.put(command)
+pipe.put(None)
+
+# Report on progress in realtime.
+num_succeeded = 0
+for result in pipe.results():
+    
+    num_succeeded += int(not result)
+    percent = float(num_succeeded) / len(commands) * 100
+    sys.stdout.write('\r' + '%d of %d (%.1f%%)'
+                     %(num_succeeded, len(commands), percent))
+    sys.stdout.flush()
+
+# End on a newline.
+print        
 
 # The end.

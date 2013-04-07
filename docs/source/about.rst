@@ -26,6 +26,13 @@ Analysis of the C++ libraries is done with help of
 `GCC-XML <http://www.gccxml.org>`_, the uber-handy XML 
 output extension to GCC.
 
+MPipe
+=====
+
+To structure process workflow during code analysis, the neat little 
+`MPipe <http://vmlaker.github.com/mpipe>`_
+framework is used.
+
 ----
 
 The web pages you are reading were created using the fabulous
