@@ -8,17 +8,17 @@ git checkout gh-pages
 rm -rf *
 
 # Switch to master branch (Sphinx build needs the entries listed.)
-SOURCES="docs tools tests config.py"
+SOURCES="doc tool test config.py"
 git checkout master $SOURCES
 git reset HEAD
 
 # Run code analysis.
-tools/create-xml.py analysis/xml `./config.py`
-tools/parse-xml.py analysis/cpp.names analysis/xml
-tools/compare.py analysis/cpp.names
+tool/create-xml.py analysis/xml `./config.py`
+tool/parse-xml.py analysis/cpp.names analysis/xml
+tool/compare.py analysis/cpp.names
 
 # Build the docs.
-tools/create-docs.py analysis/cpp.names docs/ ./
+tool/create-docs.py analysis/cpp.names doc/ ./
 
 # Remove the directories (from master branch, and analysis) 
 # that had been needed for building docs.

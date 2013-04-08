@@ -19,7 +19,7 @@ the |WM_DESCR|.
 
 With module :mod:`wm5` you can write code like this, for example:
 
-.. literalinclude:: ../../tests/tiny.py
+.. literalinclude:: ../../test/tiny.py
 
 *Start using Python Wild Magic now!* Get the source code in the usual way:
 ::

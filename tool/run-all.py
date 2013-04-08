@@ -22,12 +22,12 @@ for entry in ('WM5_PATH', 'WM5_PY_PATH'):
     if entry in os.environ:
         del os.environ[entry]
 
-# Compute the tools/ directory.
+# Compute the tool/ directory.
 frame = inspect.getfile(inspect.currentframe())
-tools_dir = os.path.dirname(frame)
+tool_dir = os.path.dirname(frame)
 
 # Set the WM5_PY_PATH environment variable.
-py_path = os.path.join(tools_dir, '..')
+py_path = os.path.join(tool_dir, '..')
 py_path = os.path.realpath(py_path)
 os.environ['WM5_PY_PATH'] = py_path
 
@@ -39,7 +39,7 @@ util.run(cmd, echo=True, verbose=True)
 os.environ['WM5_PATH'] = os.path.join(ARGS['wm5_dest'], 'GeometricTools', 'WildMagic5')
 
 # Patch Wild Magic SDK.
-patch_prog = os.path.join(tools_dir, 'patch-wm5.py')
+patch_prog = os.path.join(tool_dir, 'patch-wm5.py')
 cmd = '%s %s'%(patch_prog, ARGS['wm5_dest'])
 util.run(cmd, echo=True, verbose=True)
 
@@ -69,9 +69,9 @@ os.chdir(saved)
 saved = os.getcwd()
 print('cd %s'%os.environ['WM5_PY_PATH'])
 os.chdir(os.environ['WM5_PY_PATH'])
-cmd = 'python tests/tiny.py'
+cmd = 'python test/tiny.py'
 util.run(cmd, echo=True, verbose=True)
-cmd = 'python tests/ThinPlateSplines/ThinPlateSplines.py'
+cmd = 'python test/ThinPlateSplines/ThinPlateSplines.py'
 util.run(cmd, echo=True, verbose=True)
 print('cd %s'%saved)
 os.chdir(saved)
@@ -80,11 +80,11 @@ os.chdir(saved)
 saved = os.getcwd()
 print('cd %s'%os.environ['WM5_PY_PATH'])
 os.chdir(os.environ['WM5_PY_PATH'])
-cmd = 'tools/create-xml.py analysis/xml `./config.py`'
+cmd = 'tool/create-xml.py analysis/xml `./config.py`'
 util.run(cmd, echo=True, verbose=True)
-cmd = 'tools/parse-xml.py analysis/cpp.names analysis/xml'
+cmd = 'tool/parse-xml.py analysis/cpp.names analysis/xml'
 util.run(cmd, echo=True, verbose=True)
-cmd = 'tools/compare.py analysis/cpp.names'
+cmd = 'tool/compare.py analysis/cpp.names'
 util.run(cmd, echo=True, verbose=True)
 print('cd %s'%saved)
 os.chdir(saved)
@@ -93,11 +93,11 @@ os.chdir(saved)
 saved = os.getcwd()
 print('cd %s'%os.environ['WM5_PY_PATH'])
 os.chdir(os.environ['WM5_PY_PATH'])
-cmd = "tools/get-cpp-files.py $WM5_PATH 'make -j8 CFG=Release -f makefile.wm5' > analysis/cpp.files"
+cmd = "tool/get-cpp-files.py $WM5_PATH 'make -j8 CFG=Release -f makefile.wm5' > analysis/cpp.files"
 util.run(cmd, echo=True, verbose=True)
-cmd = 'tools/get-include-files.py $WM5_PATH analysis/cpp.files > analysis/include.files'
+cmd = 'tool/get-include-files.py $WM5_PATH analysis/cpp.files > analysis/include.files'
 util.run(cmd, echo=True, verbose=True)
-cmd = 'tools/get-interface.py analysis/include.files analysis/cpp.names > wm5.i.new'
+cmd = 'tool/get-interface.py analysis/include.files analysis/cpp.names > wm5.i.new'
 util.run(cmd, echo=True, verbose=True)
 cmd = 'diff wm5.i wm5.i.new'
 util.run(cmd, echo=True, verbose=True)
@@ -108,7 +108,7 @@ os.chdir(saved)
 saved = os.getcwd()
 print('cd %s'%os.environ['WM5_PY_PATH'])
 os.chdir(os.environ['WM5_PY_PATH'])
-cmd = 'tools/create-docs.py analysis/cpp.names docs/ %s'%ARGS['doc_dest']
+cmd = 'tool/create-docs.py analysis/cpp.names doc/ %s'%ARGS['doc_dest']
 util.run(cmd, echo=True, verbose=True)
 print('cd %s'%saved)
 os.chdir(saved)

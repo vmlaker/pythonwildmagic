@@ -11,7 +11,6 @@ import os
 
 # Import application modules.
 import config
-import tools
 
 class Clean2(Command):
     """A more thorough clean command."""

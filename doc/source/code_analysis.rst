@@ -23,7 +23,7 @@ It will dump the resulting files in ``analysis/xml/`` directory.
 (Note the use of output of ``config.py`` command as the second argument.)
 ::
   
-  tools/create-xml.py analysis/xml `./config.py`
+  tool/create-xml.py analysis/xml `./config.py`
 
 2. Parse XML
 ============
@@ -38,7 +38,7 @@ The program spawns parallel parsers, one parser process per CPU.
 Run the following command, dumping the list of unique class names to file ``analysis/cpp.names``.
 ::
 
-  tools/parse-xml.py analysis/cpp.names analysis/xml
+  tool/parse-xml.py analysis/cpp.names analysis/xml
 
 3. Compare class names
 ======================
@@ -47,6 +47,6 @@ Now we're ready to compare the two sets of class names.
 Program ``compare.py`` matches class names in the ``Wm5`` C++ namespace with those in the ``wm5`` Python module, and vice versa. Run the following command to get a summary of the comparison.
 ::
 
-  tools/compare.py analysis/cpp.names
+  tool/compare.py analysis/cpp.names
 
 .. The end.
