@@ -100,7 +100,7 @@ The program spawns parallel runs of <em>GCC-XML</em>, one process per CPU.</p>
 <p>From the top of the source tree, run the following command.
 It will dump the resulting files in <tt class="docutils literal"><span class="pre">analysis/xml/</span></tt> directory.
 (Note the use of output of <tt class="docutils literal"><span class="pre">config.py</span></tt> command as the second argument.)</p>
-<div class="highlight-python"><pre>tools/create-xml.py analysis/xml `./config.py`</pre>
+<div class="highlight-python"><pre>tool/create-xml.py analysis/xml `./config.py`</pre>
 </div>
 </div>
 <div class="section" id="parse-xml">
@@ -110,14 +110,14 @@ The program <tt class="docutils literal"><span class="pre">parse-xml.py</span></
 The program spawns parallel parsers, one parser process per CPU.</p>
 <img alt="_images/code_analysis_02.png" class="align-center" src="_images/code_analysis_02.png" />
 <p>Run the following command, dumping the list of unique class names to file <tt class="docutils literal"><span class="pre">analysis/cpp.names</span></tt>.</p>
-<div class="highlight-python"><pre>tools/parse-xml.py analysis/cpp.names analysis/xml</pre>
+<div class="highlight-python"><pre>tool/parse-xml.py analysis/cpp.names analysis/xml</pre>
 </div>
 </div>
 <div class="section" id="compare-class-names">
 <h2>3. Compare class names<a class="headerlink" href="#compare-class-names" title="Permalink to this headline">¶</a></h2>
 <p>Now we&#8217;re ready to compare the two sets of class names.
 Program <tt class="docutils literal"><span class="pre">compare.py</span></tt> matches class names in the <tt class="docutils literal"><span class="pre">Wm5</span></tt> C++ namespace with those in the <tt class="docutils literal"><span class="pre">wm5</span></tt> Python module, and vice versa. Run the following command to get a summary of the comparison.</p>
-<div class="highlight-python"><pre>tools/compare.py analysis/cpp.names</pre>
+<div class="highlight-python"><pre>tool/compare.py analysis/cpp.names</pre>
 </div>
 </div>
 </div>
@@ -133,7 +133,7 @@ Program <tt class="docutils literal"><span class="pre">compare.py</span></tt> ma
   
     <div class="footer">
         &copy; Copyright 2012, Velimir Mlaker.
-      Last updated on Apr 07, 2013.
+      Last updated on Apr 08, 2013.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
     </div>
 

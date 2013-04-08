@@ -135,9 +135,9 @@ The following command creates a subdirectory <tt class="docutils literal"><span 
 <div class="highlight-python"><pre>setenv WM5_PATH `pwd`/GeometricTools/WildMagic5</pre>
 </div>
 <p>Before compiling, the Wild Magic SDK may need to be tweaked to work on 64-bit systems.
-Program <tt class="docutils literal"><span class="pre">patch-wm5.py</span></tt> (found in the wrapper <tt class="docutils literal"><span class="pre">tools/</span></tt> directory) detects your architecture, and makes changes to makefiles if necessary.
+Program <tt class="docutils literal"><span class="pre">patch-wm5.py</span></tt> (found in the wrapper <tt class="docutils literal"><span class="pre">tool/</span></tt> directory) detects your architecture, and makes changes to makefiles if necessary.
 Run the following command to apply the patch:</p>
-<div class="highlight-python"><pre>$WM5_PY_PATH/tools/patch-wm5.py $WM5_PATH</pre>
+<div class="highlight-python"><pre>$WM5_PY_PATH/tool/patch-wm5.py $WM5_PATH</pre>
 </div>
 <p>Now run <em>Make</em> from the top of the Wild Magic source tree:</p>
 <div class="highlight-python"><pre>cd $WM5_PATH
@@ -156,7 +156,7 @@ python setup.py clean2</pre>
 <p>If the installation was successful, congratulations!
 You now have the Wild Magic module available in your Python interpreter.
 Go ahead and test it by running the following command:</p>
-<div class="highlight-python"><pre>python tests/tiny.py</pre>
+<div class="highlight-python"><pre>python test/tiny.py</pre>
 </div>
 <p>Another good test is to run
 <a class="reference internal" href="code_analysis.html"><em>code analysis</em></a>.</p>
@@ -174,7 +174,7 @@ Go ahead and test it by running the following command:</p>
   
     <div class="footer">
         &copy; Copyright 2012, Velimir Mlaker.
-      Last updated on Apr 07, 2013.
+      Last updated on Apr 08, 2013.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
     </div>
 

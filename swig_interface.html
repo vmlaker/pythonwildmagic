@@ -96,7 +96,7 @@
 </div></blockquote>
 <p>The bulk of C++ declarations and SWIG directives are in <tt class="docutils literal"><span class="pre">wm5.i</span></tt>, the main interface file.
 Additional SWIG directives are in file <tt class="docutils literal"><span class="pre">special.i</span></tt> which gets included by <tt class="docutils literal"><span class="pre">wm5.i</span></tt>.</p>
-<p>Although <tt class="docutils literal"><span class="pre">wm5.i</span></tt> is packaged as part of the wrapper source code, you can easily generate it from scratch using programs in the <tt class="docutils literal"><span class="pre">tools/</span></tt> directory.
+<p>Although <tt class="docutils literal"><span class="pre">wm5.i</span></tt> is packaged as part of the wrapper source code, you can easily generate it from scratch using programs in the <tt class="docutils literal"><span class="pre">tool/</span></tt> directory.
 Before you begin, you will need to run the first two steps of <a class="reference internal" href="code_analysis.html"><em>code analysis</em></a>.
 After generating data in <tt class="docutils literal"><span class="pre">analysis/</span></tt> directory, proceed with the steps below.
 Note that, to keep things organized, intermediate files created in the steps below are added to the <tt class="docutils literal"><span class="pre">analysis/</span></tt> directory.</p>
@@ -109,7 +109,7 @@ Basically, it runs <em>Make</em> on the Wild Magic source tree in &#8220;dry-run
 <img alt="_images/swig_interface_01.png" class="align-center" src="_images/swig_interface_01.png" />
 <p>From the top of the source tree, create the list and save it in <tt class="docutils literal"><span class="pre">analysis/</span></tt> directory
 (note the use of the <em>Make</em> command as the second argument&#8211;it should be the same as that used during installation of Wild Magic):</p>
-<div class="highlight-python"><pre>tools/get-cpp-files.py $WM5_PATH 'make -j8 CFG=Release -f makefile.wm5' &gt; analysis/cpp.files</pre>
+<div class="highlight-python"><pre>tool/get-cpp-files.py $WM5_PATH 'make -j8 CFG=Release -f makefile.wm5' &gt; analysis/cpp.files</pre>
 </div>
 </div>
 <div class="section" id="create-list-of-include-files">
@@ -118,14 +118,14 @@ Basically, it runs <em>Make</em> on the Wild Magic source tree in &#8220;dry-run
 Program <tt class="docutils literal"><span class="pre">get-include-files.py</span></tt> parses definition files from the previous step, and follows the path of inclusion of any library header files.</p>
 <img alt="_images/swig_interface_02.png" class="align-center" src="_images/swig_interface_02.png" />
 <p>Run the following to generate the list, saving it in <tt class="docutils literal"><span class="pre">analysis/</span></tt> directory:</p>
-<div class="highlight-python"><pre>tools/get-include-files.py $WM5_PATH analysis/cpp.files &gt; analysis/include.files</pre>
+<div class="highlight-python"><pre>tool/get-include-files.py $WM5_PATH analysis/cpp.files &gt; analysis/include.files</pre>
 </div>
 </div>
 <div class="section" id="create-interface-file">
 <h2>3. Create interface file<a class="headerlink" href="#create-interface-file" title="Permalink to this headline">¶</a></h2>
 <p>Finally, use program <tt class="docutils literal"><span class="pre">get-interface.py</span></tt> to assemble the interface file.</p>
 <img alt="_images/swig_interface_03.png" class="align-center" src="_images/swig_interface_03.png" />
-<div class="highlight-python"><pre>tools/get-interface.py analysis/include.files analysis/cpp.names &gt; wm5.i.new</pre>
+<div class="highlight-python"><pre>tool/get-interface.py analysis/include.files analysis/cpp.names &gt; wm5.i.new</pre>
 </div>
 <hr class="docutils" />
 <p>Congratulations!
@@ -147,7 +147,7 @@ Compare it with the distribution <tt class="docutils literal"><span class="pre">
   
     <div class="footer">
         &copy; Copyright 2012, Velimir Mlaker.
-      Last updated on Apr 07, 2013.
+      Last updated on Apr 08, 2013.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
     </div>
 

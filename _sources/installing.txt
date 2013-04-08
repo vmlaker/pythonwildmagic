@@ -73,11 +73,11 @@ Set environment variable ``WM5_PATH`` to point to the library location:
   setenv WM5_PATH `pwd`/GeometricTools/WildMagic5
 
 Before compiling, the Wild Magic SDK may need to be tweaked to work on 64-bit systems.
-Program ``patch-wm5.py`` (found in the wrapper ``tools/`` directory) detects your architecture, and makes changes to makefiles if necessary.
+Program ``patch-wm5.py`` (found in the wrapper ``tool/`` directory) detects your architecture, and makes changes to makefiles if necessary.
 Run the following command to apply the patch:
 ::
 
-  $WM5_PY_PATH/tools/patch-wm5.py $WM5_PATH
+  $WM5_PY_PATH/tool/patch-wm5.py $WM5_PATH
 
 
 Now run *Make* from the top of the Wild Magic source tree:
@@ -105,7 +105,7 @@ You now have the Wild Magic module available in your Python interpreter.
 Go ahead and test it by running the following command:
 ::
      
-  python tests/tiny.py
+  python test/tiny.py
 
 Another good test is to run
 :doc:`code analysis <code_analysis>`.
