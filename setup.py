@@ -70,7 +70,7 @@ setup(
     name         = 'wm5',
     version      = '5.9',
     description  = 'Python wrapper of Geometric Tools\' Wild Magic C++ libraries',
-    url          = 'http://python-wild-magic.googlecode.com',
+    url          = 'https://github.com/vmlaker/pythonwildmagic',
     author       = 'Velimir Mlaker',
     author_email = 'velimir dot mlaker at g mail dot com',
     license      = 'MIT',
