@@ -84,7 +84,7 @@ def compare(in_file):
     try:
         import wm5
         dir_wm5 = dir(wm5)
-    except ImportError, e:
+    except ImportError:
         dir_wm5 = []
     for name in sorted(dir_wm5):
         name = 'wm5.%s'%name

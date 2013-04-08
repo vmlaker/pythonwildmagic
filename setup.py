@@ -33,7 +33,7 @@ class Clean2(Command):
             if entry not in to_remove:
                 continue
             entry = os.path.join(this_dir, entry)
-            print 'erasing', entry
+            print('erasing %s'%entry)
             if os.path.isfile(entry):
                 os.remove(entry)
             elif os.path.isdir(entry):

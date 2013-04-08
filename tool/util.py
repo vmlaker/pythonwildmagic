@@ -9,13 +9,13 @@ def run(cmd, echo=False, verbose=False):
     """Run a command in a sub-process."""
     result = []
     if echo:
-        print cmd
+        print(cmd)
     p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
     line = p.stdout.readline()
     while len(line):
-        line = line.rstrip()
+        line = line.rstrip().decode()
         if verbose:
-            print line
+            print(line)
         result.append(line)
         line = p.stdout.readline()
     return result
@@ -105,8 +105,7 @@ def parse_cmd(name,
     if options:
         for opt in options:
             name = opt[1]
-            exec('value = OPTS.%s'%name)
-            OPTS_DICT[name] = value
+            exec('OPTS_DICT[name] = OPTS.%s'%name)
 
     # Return the parsed result.
     if options:

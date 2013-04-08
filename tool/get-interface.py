@@ -74,6 +74,6 @@ for key,val in sorted(table.items()):
     result += '%%template (%s) %s;\n'%(val[4:], key)
 
 # Print the interface text to standard output.
-print result
+print(result)
 
 # The end.

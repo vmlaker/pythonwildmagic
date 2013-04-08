@@ -15,7 +15,7 @@ intr = IntrRay3Sphere3d(ray, sphere)
 intr.Find()
 for index in range(intr.GetQuantity()):
     point = intr.GetPoint(index)
-    #  (2.0 0.0 0.0)
-    #  (-4.0 0.0 0.0)
+    #   2.0 0.0 0.0
+    #  -4.0 0.0 0.0
     print(point.X(), point.Y(), point.Z())
 

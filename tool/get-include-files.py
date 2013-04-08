@@ -37,11 +37,17 @@ def getOrderedIncludes(fname, uniques):
     result = []
 
     # Read-in the seed file.
-    fin = open(fname)
+    fin = open(fname, 'rb')
     lines = fin.readlines()
     fin.close()
 
     for line in lines:
+
+        # Deal with UnicodeDecodeError: ... invalid start byte.
+        try:
+            line = line.decode()
+        except:
+            continue
 
         # Get the name of included file,
         # i.e. the one substring between #include" and ".
@@ -90,6 +96,6 @@ for fname in cpp_files:
         includes.append(base)
 
 for fname in includes:
-    print fname
+    print(fname)
 
 # The end.

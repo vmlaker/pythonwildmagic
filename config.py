@@ -13,6 +13,6 @@ WM5LIBDIR = os.path.join(WM5, 'SDK', 'Library', 'Release')
 
 # When run as a program, dump the include directory.
 if __name__ == '__main__':
-    print WM5INCDIR
+    print(WM5INCDIR)
 
 # The end.

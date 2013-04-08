@@ -23,7 +23,6 @@ def callMake(location, command):
     """
 
     # Descend into given location.
-    #print '>>>%s %s'%(location, command)
     saved = os.getcwd()
     os.chdir(location)
 
@@ -35,13 +34,11 @@ def callMake(location, command):
     # Parse the Make output, looking for lines
     # that contain another sub-Make command.
     for line in result:
-        #print '     ', line
-        
         if line.find(' -o ') != -1:
             for piece in line.split():
                 if piece[len(piece)-4:] == '.cpp':
                     full_path = os.path.join(os.getcwd(), piece)
-                    print full_path
+                    print(full_path)
             
         # Skip if line doesn't contain a Make command.
         if line.find(' make ') == -1:
@@ -70,7 +67,6 @@ def callMake(location, command):
 
     # Restore current directory.
     os.chdir(saved)
-    #print '<<<%s'%location
 
 callMake(ARGS['wm5_path'], ARGS['make_cmd'])
 
