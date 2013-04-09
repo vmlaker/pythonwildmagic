@@ -16,7 +16,8 @@ import util
 NAME = os.path.basename(sys.argv[0])
 ARGS = [('out_dir', 'output directory'),
         ('wm5_inc', 'Wild Magic SDK include directory'),]
-ARGS = util.parse_cmd(NAME, ARGS)
+OPTS = [('-v', 'verbose', 'store_true', False, 'chatty output')]
+ARGS,OPTS = util.parse_cmd(NAME, ARGS, OPTS)
 
 # Create the output directory.
 util.run('mkdir -p %s'%ARGS['out_dir'])
@@ -52,6 +53,8 @@ def runCommand(command):
     return result
 pipe = mpipe.Pipeline(mpipe.UnorderedStage(runCommand, num_cpus))
 for command in commands:
+    if OPTS['verbose']:
+        print(command)
     pipe.put(command)
 pipe.put(None)
 
